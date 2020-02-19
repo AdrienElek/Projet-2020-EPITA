@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\alexg\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\alexg\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Projet X.-898241975.00" t="ExcludeRecursive" />
+    <e p="D:\Unity\Projet X" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="BlockType.cs" t="Include" />
+          <e p="LevelGeneration.cs" t="Include" />
+          <e p="RoomType.cs" t="Include" />
+          <e p="SpawnObject.cs" t="Include" />
+          <e p="SpawnRooms.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Projet X.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
