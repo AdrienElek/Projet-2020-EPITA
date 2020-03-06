@@ -121,6 +121,64 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &13029810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 13029812}
+  - component: {fileID: 13029811}
+  m_Layer: 0
+  m_Name: Board
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &13029811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13029810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4e4749adf644dda7bfcf07c350a128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPositions: []
+  rooms: []
+  ground: []
+  perpective: []
+  direction: 0
+  distanceBtwRooms: 0
+  timeBtwRoom: 0
+  startTimeBtwRoom: 0.25
+  Xmin: 0
+  Xmax: 0
+  Ymin: 0
+  stopGen: 0
+  room:
+    m_Bits: 0
+  downCounter: 0
+--- !u!4 &13029812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13029810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &41726615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,7 +2638,6 @@ GameObject:
   - component: {fileID: 1488699220}
   - component: {fileID: 1488699221}
   - component: {fileID: 1488699218}
-  - component: {fileID: 1488699219}
   m_Layer: 0
   m_Name: Border (4)
   m_TagString: Untagged
@@ -2614,19 +2671,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
---- !u!114 &1488699219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488699217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4368233d5a5167b4585df6f9dde5cea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects: []
 --- !u!4 &1488699220
 Transform:
   m_ObjectHideFlags: 0
@@ -3513,9 +3557,6 @@ MonoBehaviour:
   room:
     serializedVersion: 2
     m_Bits: 512
-  block:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!4 &1846393285
 Transform:
   m_ObjectHideFlags: 0

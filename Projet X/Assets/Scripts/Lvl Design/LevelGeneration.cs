@@ -33,6 +33,7 @@ public class LevelGeneration : MonoBehaviour
     //bool qui dis qd ne plus générer de salle
     public bool stopGen;
 
+    //LayerMask pour que le OverlapCircle detecte que les rooms et pas un autre obj
     public LayerMask room;
 
     private int downCounter;
@@ -74,20 +75,20 @@ public class LevelGeneration : MonoBehaviour
 
     private void SpawnGround()
     {
-        for (double i = Xmin-4.5 ; i < Xmax+5.5; i++)
+        for (double i = Xmin-4.5 ; i < Xmax+5.5; i++) //pour tout les éléments du tableau
         {
             for (double j = Ymin-4.5; j < -Ymin+5.5; j++)
             {
-                Vector2 pos = new Vector2((float) i,(float) j);
-                transform.position = pos;
+                Vector2 pos = new Vector2((float) i,(float) j); //creer le vecteur poitant à la position ou instancier le sol
+                transform.position = pos; //donne la valeur du vecteur à la variable temporaire transform.position
                 
-                int rand = Random.Range(0, ground.Length);
-                Instantiate(ground[rand], transform.position, Quaternion.identity);
+                int rand = Random.Range(0, ground.Length); //genere un nb random dans la liste des sols
+                GameObject instanceGround = Instantiate(ground[rand], transform.position, Quaternion.identity); //instancie le sol
             }
         }
     }
 
-    private void SpawnWalls()
+    private void SpawnWalls() //spawn la 1ere salle et appelle la mth de géné rdm des salles
     {
         int startPosition = Random.Range(0, startingPositions.Length); //prend un indexe de position de départ parmis toutes les pos possibles
         transform.position = startingPositions[startPosition].position; //set la position du start pos comme base du transform
@@ -108,7 +109,7 @@ public class LevelGeneration : MonoBehaviour
         {
             if (transform.position.x < Xmax) //si la prochaine pos est inferieur à Xmax alors c'est ok, on génère random
             {
-                downCounter = 0;
+                downCounter = 0; //reini le downcounter à 0
                 Vector2 newPos = new Vector2(transform.position.x + distanceBtwRooms, transform.position.y);
                 transform.position = newPos;
 
@@ -135,7 +136,7 @@ public class LevelGeneration : MonoBehaviour
         {
             if (transform.position.x > Xmin) //si la prochaine pos est superieur à Xmin alors c'est ok, on génère random
             {
-                downCounter = 0;
+                downCounter = 0; //reini le downcounter à 0
                 Vector2 newPos = new Vector2(transform.position.x - distanceBtwRooms, transform.position.y);
                 transform.position = newPos;
                 
@@ -157,6 +158,7 @@ public class LevelGeneration : MonoBehaviour
             {
                 Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
                 
+                //si la room n'a pas d'ouverture vers le bas...
                 if (roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type != 3)
                 {
                     if (downCounter >= 2)
@@ -164,7 +166,7 @@ public class LevelGeneration : MonoBehaviour
                         roomDetection.GetComponent<RoomType>().RoomDestruction();
                         Instantiate(rooms[3], transform.position, Quaternion.identity);
                     }
-                    else
+                    else //...on enleve la room et on la remplace par une room qui a une ouverture vers le bas
                     {
                         roomDetection.GetComponent<RoomType>().RoomDestruction();
 
