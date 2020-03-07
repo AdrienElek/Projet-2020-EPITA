@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class LevelGeneration : MonoBehaviour
 {
+    public Transform boardHolder; //va permettre de creer des dossiers et hierarchiser
+    
     public Transform[] startingPositions; //positions de départ ou spawn la 1ere salle
     public GameObject[] rooms; //index: 0 = LR, 1 = LRB, 2 = LRT, 3 = LRTB
     public GameObject[] ground; //sol à faire spawn
@@ -59,6 +61,7 @@ public class LevelGeneration : MonoBehaviour
     //creer une fonction qui cree un salle de base
     private void SpawnPerspective()
     {
+        boardHolder = new GameObject ("Perspective").transform;
 
         for (double i = Xmin-4.5 ; i < Xmax+5.5; i++)
         {
@@ -75,6 +78,8 @@ public class LevelGeneration : MonoBehaviour
 
     private void SpawnGround()
     {
+        boardHolder = new GameObject ("Ground").transform;
+        
         for (double i = Xmin-4.5 ; i < Xmax+5.5; i++) //pour tout les éléments du tableau
         {
             for (double j = Ymin-4.5; j < -Ymin+5.5; j++)
@@ -84,6 +89,8 @@ public class LevelGeneration : MonoBehaviour
                 
                 int rand = Random.Range(0, ground.Length); //genere un nb random dans la liste des sols
                 GameObject instanceGround = Instantiate(ground[rand], transform.position, Quaternion.identity); //instancie le sol
+                
+                instanceGround.transform.SetParent(boardHolder);
             }
         }
     }
