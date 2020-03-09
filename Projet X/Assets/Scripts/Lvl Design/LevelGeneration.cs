@@ -37,6 +37,7 @@ public class LevelGeneration : MonoBehaviour
 
     //LayerMask pour que le OverlapCircle detecte que les rooms et pas un autre obj
     public LayerMask room;
+    public LayerMask wall;
 
     private int downCounter;
     private void Start()
@@ -59,7 +60,7 @@ public class LevelGeneration : MonoBehaviour
     }
     
     //creer une fonction qui cree un salle de base
-    private void SpawnPerspective()
+    public void SpawnPerspective()
     {
         boardHolder = new GameObject ("Perspective").transform;
 
@@ -70,8 +71,19 @@ public class LevelGeneration : MonoBehaviour
                 Vector2 pos = new Vector2((float) i,(float) j);
                 transform.position = pos;
                 
-                int rand = Random.Range(0, ground.Length);
-                Instantiate(perpective[rand], transform.position, Quaternion.identity);
+                Collider2D wallDetection = Physics2D.OverlapCircle(transform.position, (float) 0.25, wall);
+
+                if (wallDetection != null && wallDetection.GetComponent<BlockType>().type == BlockType.BType.WALL)
+                {
+                    Vector2 spawnPos = new Vector2((float) i,(float) j-1);
+                    transform.position = spawnPos;
+                    
+                    int rand = Random.Range(0, perpective.Length); //genere un nb random dans la liste des sols
+                    GameObject instancePerspective = Instantiate(perpective[rand], transform.position, Quaternion.identity); //instancie le sol
+                
+                    instancePerspective.transform.SetParent(boardHolder);
+                }
+                
             }
         }
     }
@@ -166,7 +178,7 @@ public class LevelGeneration : MonoBehaviour
                 Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
                 
                 //si la room n'a pas d'ouverture vers le bas...
-                if (roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type != 3)
+                if (roomDetection != null && roomDetection.GetComponent<RoomType>().type != 1 && roomDetection.GetComponent<RoomType>().type != 3)
                 {
                     if (downCounter >= 2)
                     {
@@ -197,6 +209,7 @@ public class LevelGeneration : MonoBehaviour
             else //si la prochaine pos et collé à Ymin c'est que l'on a fini de generer
             {
                 stopGen = true;
+                SpawnPerspective();
             }
         }
     }

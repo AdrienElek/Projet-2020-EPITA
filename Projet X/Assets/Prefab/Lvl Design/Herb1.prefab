@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1497338953599580322}
   - component: {fileID: 5022766470236958546}
   - component: {fileID: 6933428660881273060}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Herb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
