@@ -9,7 +9,7 @@ public class SpawnRooms : MonoBehaviour
     public LayerMask whatIsRoom;
     public LevelGeneration levelGen;
 
-    private void Update()
+    public void FillwithRooms()
     {
         Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, whatIsRoom);
         if (roomDetection == null && levelGen.stopGen)
@@ -18,5 +18,10 @@ public class SpawnRooms : MonoBehaviour
             Instantiate(levelGen.rooms[rand], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        FillwithRooms();
     }
 }
