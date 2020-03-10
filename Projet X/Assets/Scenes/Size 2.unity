@@ -3492,7 +3492,7 @@ MonoBehaviour:
   perpective:
   - {fileID: 4111083574173149642, guid: dc34e9fab525e654a93fd649920fd095, type: 3}
   distanceBtwRooms: 10
-  startTimeBtwRoom: 1
+  startTimeBtwRoom: 0.5
   Xmin: -35
   Xmax: 35
   Ymin: -35

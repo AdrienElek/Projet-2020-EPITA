@@ -44,6 +44,7 @@ public class LevelGeneration : MonoBehaviour
     {
         SpawnGround();
         SpawnWalls();
+        StartCoroutine(SpawnPerspectiveCoroutine());
     }
 
     private void Update()
@@ -59,6 +60,15 @@ public class LevelGeneration : MonoBehaviour
         }
     }
     
+    IEnumerator SpawnPerspectiveCoroutine()
+    {
+        //attend 15 secondes ####!!!! SI N'ATTEND PAS ASSEZ, FAIS BUGGER LA GENERATION !!!!####
+        yield return new WaitForSeconds(15);
+        
+        //fait apparaitre les blocs perspectives
+        SpawnPerspective();
+    }
+
     //creer une fonction qui cree un salle de base
     public void SpawnPerspective()
     {
@@ -209,7 +219,6 @@ public class LevelGeneration : MonoBehaviour
             else //si la prochaine pos et collé à Ymin c'est que l'on a fini de generer
             {
                 stopGen = true;
-                SpawnPerspective();
             }
         }
     }
