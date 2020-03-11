@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b9e1dcbacf945a841bef918c00b3d0e8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Dark power
+  fontNames:
+  - Dark power
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 726cb83e771171c4789476cbbd71ee59, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
