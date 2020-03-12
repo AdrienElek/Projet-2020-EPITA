@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 528143028}
   - component: {fileID: 528143027}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1285,7 +1285,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Health
 --- !u!222 &528143029
 CanvasRenderer:
   m_ObjectHideFlags: 0
