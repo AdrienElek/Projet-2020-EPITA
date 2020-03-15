@@ -65,8 +65,9 @@ public class PlayerStat : MonoBehaviour
     }
 
     private int money;
-    
 
+    //int ammo pour le nb de munition restantes (si ya rien devant il le met automatiquement en private)
+    //peut etre une fontion ou une variable à ajouter pour les coups critiques
     private bool shot;
     private int shotStamina;
     public bool Shot
