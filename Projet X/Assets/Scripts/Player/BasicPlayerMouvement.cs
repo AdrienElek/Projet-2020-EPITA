@@ -13,16 +13,23 @@ public class BasicPlayerMouvement : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 mouvement;
     float moveSpeed = 10f;
-    
+    [SerializeField] float DashForce = 10f;
     
 
     // Update is called once per frame
     void Update()
     {
         Mouvement();
-        
+        //Dash();
     }
-    
+
+   /* void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(transform.forward * DashForce);
+        }
+    }*/
         
     private void Mouvement()
     {
