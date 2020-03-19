@@ -7,7 +7,8 @@ public class PlayerStat : MonoBehaviour
     private bool isAlive;
     private int hp;
     private int maxHp;
-    
+    public string playerName;
+
     public int Hp
     {
         get { return hp; }

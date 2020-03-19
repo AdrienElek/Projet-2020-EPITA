@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     void Update()
     {
         healthText.text = health.ToString();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             health--;
         }

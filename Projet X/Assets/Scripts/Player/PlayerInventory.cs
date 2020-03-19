@@ -9,9 +9,8 @@ enum InventoryObjects {
     defenceboost,
     speedboost,
     armor,
-    sword,
-    gun,
-    shotgun,
+    weapon1,
+    weapoon2
     //tu rajouteras si tu as besoin ma beauté des îles caraïbe <3
 }
 

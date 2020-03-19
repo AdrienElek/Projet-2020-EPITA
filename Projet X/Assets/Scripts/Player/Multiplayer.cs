@@ -9,10 +9,6 @@ public class Multiplayer : MonoBehaviour
     public Transform Spawn1;
     public Transform Spawn2;
 
-    void Movep1()
-    {
-
-    }
 
     // Start is called before the first frame update
     void Start()
