@@ -56,9 +56,9 @@ public class connexion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!PlayerStat.isAlive)
+        /*if (!PlayerStat.isAlive)
         {
 
-        }
+        }*/
     }
 }
