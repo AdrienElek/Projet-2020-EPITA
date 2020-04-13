@@ -13,8 +13,8 @@ public class Multiplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(Player1, Spawn1.position, Spawn1.rotation);
-        Instantiate(Player2, Spawn2.position, Spawn2.rotation);
+       // Instantiate(Player1, Spawn1.position, Spawn1.rotation);
+       // Instantiate(Player2, Spawn2.position, Spawn2.rotation);
     }
 
     // Update is called once per frame

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
-    private bool isAlive;
+    internal static bool isAlive;
     private int hp;
     private int maxHp;
-    public string playerName;
+    internal static string playerName;
 
     public int Hp
     {
@@ -177,7 +177,7 @@ public class PlayerStat : MonoBehaviour
         }
     }
 
-    public int score = 0; //Score
+    internal static int score = 0; //Score
 
     public void TorchUpdate()
     {
