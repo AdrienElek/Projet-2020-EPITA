@@ -8,22 +8,10 @@ namespace LevelGen
     {
         private int type;
         private char[,] pattern;
-        
-        //Génération d'aléatoire dans les salles
-        private static Random rnd = new Random();
-
-        private static char RandomObjectGen(char[] objectList)
-        {
-            int length = objectList.Length;
-            int rndIndex = rnd.Next(0, length);
-            
-            return objectList[rndIndex];
-        }
 
         public int Type
         {
             get { return type; }
-            set { type = value; }
         }
 
         public char[,] Pattern
@@ -49,6 +37,16 @@ namespace LevelGen
                     type = 3;
                 }
             }
+        }
+        
+        //Génération d'aléatoire dans les salles
+        private static Random rnd = new Random();
+        private static char RandomObjectGen(char[] objectList)
+        {
+            int length = objectList.Length;
+            int rndIndex = rnd.Next(0, length);
+            
+            return objectList[rndIndex];
         }
 
         public Salle(char[,] pattern)
@@ -172,7 +170,7 @@ namespace LevelGen
             {'n','n','n','n','n','n','n','n','n','n'},
             {'n','n','W','W','W','W','n','n','n','n'},
             {'n','n','W','n','n','n','n','n','n','n'},
-            {'n','n','n',RandomObjectGen(new []{'C', 'n', 'n'}),'n','n','n','n','n','W'},
+            {'n','n','n',RandomObjectGen(new []{'C', 'n', 'n', 'n'}),'n','n','n','n','n','W'},
             {'W','W','W','n','n','n','n','W','W','W'}};
         
         //######################### LRT #################
@@ -208,7 +206,7 @@ namespace LevelGen
             {'n','n','n','n','n','n','n','n','n','n'},
             {'W','W','W','W','W','n','n','n','n','n'},
             {'W','n','n','n','n','n','n','n','n','n'},
-            {'W',RandomObjectGen(new []{'C', 'n', 'n'}),'n','n','n','n','n','n','n','W'},
+            {'W',RandomObjectGen(new []{'C' ,'n', 'n', 'n'}),'n','n','n','n','n','n','n','W'},
             {'W','W','W','W','W','W','W','W','W','W'}};
         
         //######################## LRBT ##################

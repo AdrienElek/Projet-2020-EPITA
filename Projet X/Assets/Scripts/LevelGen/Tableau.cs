@@ -19,12 +19,14 @@ namespace LevelGen
             MatrixGeneration();
         }
 
-        //methodes
+        //Methodes
         
+        //creer le spawn et lance la generation du critical path
         public void MatrixGeneration()
         {
-            //selectionne position de depart rdm parmis pos les plus en haut
-            int startingPos = rnd.Next(1, matrixLength-1); // on enleve les extrémités pour par que la direction devienne 5 (en bas) et remplace le spawn
+            /*selectionne position de depart rdm parmis pos les plus en haut,
+            on enleve les extrémités pour par que la direction devienne 5 (en bas) et remplace le spawn*/
+            int startingPos = rnd.Next(1, matrixLength-1);
 
             //Place le spawn
             int rand = rnd.Next(0, Salle.list_SPW.Length);
@@ -40,7 +42,8 @@ namespace LevelGen
             //appelle la fct qui va creer le critical path
             CriticalPathGen(direction, 0, startingPos, 0);
         }
-
+        
+        //génère le critical path et appel la completion de la matrice
         private void CriticalPathGen(int direction, int i, int j, int downCounter)
         {
             if (i >= matrixLength - 1)
@@ -87,11 +90,12 @@ namespace LevelGen
                 }
                 else //si la prochaine pos et collé à Xmin on est obligé de descendre pour rester dans les limites
                 {
-                    CriticalPathGen(5, i, j, 0);
+                    CriticalPathGen(5, i, j, downCounter);
                 }
             }
             else if (direction == 5) //bouge en bas
             {
+                //verification et modification de la salle du dessus pour eviter les deads ends
                 if (matrixPattern[i,j].Type != 1 && matrixPattern[i,j].Type != 3)
                 {
                     if (downCounter >= 1)
@@ -109,6 +113,7 @@ namespace LevelGen
                     }
                 }
                 
+                //Creation de la salle du dessous
                 int randTypeRoom = rnd.Next(2, Salle.nbOfRoomTypes);
                 int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
                 matrixPattern[i+1, j] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
@@ -118,7 +123,8 @@ namespace LevelGen
             }
         }
         
-
+        
+        //Complete la matrice avec des salles aleatoires et appel la creation des murs persp
         private void CompleteMatrix()
         {
             for (int i = 0; i < matrixLength; i++)
@@ -137,11 +143,9 @@ namespace LevelGen
             SpawnPerspective();
         }
 
+        //Place les murs perspectives BUG: else
         private void SpawnPerspective()
         {
-            /*Debug.Log("BLOC DESSUS : " + matrixPattern[0,0].Pattern[9,4]);
-            Debug.Log("BLOC DESSOUS : " + matrixPattern[1,0].Pattern[0,4]);*/
-            
             for (int i = 0; i < matrixLength; i++)
             {
                 for (int j = 0; j < matrixLength; j++)
