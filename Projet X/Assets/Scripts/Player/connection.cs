@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class connection : MonoBehaviour
 {
-	private string player_name = PlayerStat.playerName;
+	private string player_name = ""; //Todo: remplacer par PlayerStat.playerName -> Boulot de Adrien/Léo
 	private int score = PlayerStat.score;
 	[SerializeField] private bool isalive = PlayerStat.isAlive;
 	private bool sended = false;

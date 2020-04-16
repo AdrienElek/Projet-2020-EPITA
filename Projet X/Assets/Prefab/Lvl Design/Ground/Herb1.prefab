@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1497338953599580322}
   - component: {fileID: 5022766470236958546}
-  - component: {fileID: 6933428660881273060}
   m_Layer: 12
   m_Name: Herb1
   m_TagString: Untagged
@@ -83,16 +82,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6933428660881273060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2983403187234742904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02fc3a06b4b14b41a376f1d3e086a9d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 2
