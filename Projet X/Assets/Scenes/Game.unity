@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5982837ee5000d648b7409c17746efe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isalive: 0
+  playeragree: 0
 --- !u!4 &791323158
 Transform:
   m_ObjectHideFlags: 0
@@ -702,7 +702,8 @@ MonoBehaviour:
   player: {fileID: 9206088083756477846, guid: 48e51e4c1ed0e6341b982c2b552d4e7b, type: 3}
   enemie:
   - {fileID: 7752833323796591371, guid: 3a64812c209cb0f44a9416b33b60fa5a, type: 3}
-  chest: []
+  chest:
+  - {fileID: 6819829606398281479, guid: a81608b8a3f735d4fa117cad503b5efa, type: 3}
 --- !u!4 &1846393285
 Transform:
   m_ObjectHideFlags: 0
