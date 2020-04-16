@@ -7,15 +7,11 @@ public class connection : MonoBehaviour
 {
 	private string player_name = ""; //Todo: remplacer par PlayerStat.playerName -> Boulot de Adrien/Léo
 	private int score = PlayerStat.score;
-	[SerializeField] private bool isalive = PlayerStat.isAlive;
-	private bool sended = false;
+	public bool playeragree = false; 
 
 	public void callsendscore() {
-		if (!isalive)
-		{
-			StartCoroutine(Sendscore());
+		StartCoroutine(Sendscore());
 			
-		}
 	}
 
 	IEnumerator Sendscore()
@@ -36,10 +32,10 @@ public class connection : MonoBehaviour
 
 	private void Update()
 	{
-		if (!sended)
+		if (playeragree)
 		{
 			callsendscore();
-			sended = true;
+			playeragree = false;
 		}
 	}
 }

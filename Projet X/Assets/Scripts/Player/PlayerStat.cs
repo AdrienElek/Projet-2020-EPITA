@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
-    internal static bool isAlive;
+    public bool isAlive;
     private int hp;
     private int maxHp;
     internal static string playerName;
