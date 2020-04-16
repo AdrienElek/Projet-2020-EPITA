@@ -75,6 +75,7 @@ namespace LevelGen
 
         //Prefab de Room
         //W = wall / p = persp / g = ground / C = chest / E = enemie / n = rien
+        //S = Spawn
         //################ Empty ######################
         public static char[,] EMPTY =
             {{'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'},
@@ -95,7 +96,7 @@ namespace LevelGen
             {'W','n','n','n','n','n','n','n','n','W'},
             {'W','n','n','n','n','n','n','n','n','W'},
             {'W','n','n','n','n','n','n','n','n','W'},
-            {'n','n','n','n','n','n','n','n','n','n'},
+            {'n','n','n','n','S','n','n','n','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
             {'W','n','n','n','n','n','n','n','n','W'},
             {'W','n','n','n','n','n','n','n','n','W'},
@@ -107,7 +108,7 @@ namespace LevelGen
         public static char[,] LR0 =
             {{'W','W','W','W','W','W','W','W','W','W'}, 
             {'n','n','n','n','n','n','n','n','n','n'},
-            {'n','n','n','n','n','n','n','n','n','n'},
+            {'n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n','n','n','n'},
             {'n','n','n','n','n','W','n','n','n','n'},
             {'n','n','n','n','W','W','n','n','n','n'},
             {'n','n','n',RandomObjectGen(new []{'W','n'}),'W','W',RandomObjectGen(new []{'W','n'}),'n','n','n'},
@@ -120,8 +121,8 @@ namespace LevelGen
             {'n','W','W','W','W','W','W','W','W','n'},
             {'n','n','W','W','W','W','W','W','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
-            {'n','n','n','n','n','n','n','n','n','n'},
-            {'n','n','n','n','n','n','n','n','n','n'},
+            {'n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n',RandomObjectGen(new []{'E', 'n'}),'n','n'},
+            {'n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n',RandomObjectGen(new []{'E', 'n'}),'n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
             {'n','n','W','W','W','W','W','W','n','n'},
             {'n','W','W','W','W','W','W','W','W','n'},
@@ -143,12 +144,12 @@ namespace LevelGen
         public static char[,] LRB0 =
             {{'W','W','W','W','W','W','W','W','W','W'}, 
             {'n','n','n','n','n','n','n','n','n','W'},
-            {'n','n','n','n','n','n','n','n','n','n'},
+            {'n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n',RandomObjectGen(new []{'E', 'n'}),'n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
             {'W','W','W','W','n','n','W','W','W','W'},
             {'W','n','n','n','n','n','n','n','n','W'},
-            {'W','n','n','n','n','n','n','n','n','W'},
+            {'W','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n','n','n','W'},
             {'W','n','n','n','n','n','n','n','n','W'},
             {'W','W','W','n','n','n','n','W','W','W'}};
         public static char[,] LRB1 =
@@ -157,7 +158,7 @@ namespace LevelGen
             {'n','n','W','W','W','W','W','W','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
-            {'n','n','n','n','n','n','n','n','n','n'},
+            {'n','n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
             {'n','n','n','n','n','n','n','n','W','W'},
             {'W','W','W','n','n','n','n','n','W','W'},
@@ -166,8 +167,8 @@ namespace LevelGen
             {{'W','W','W','W','W','W','W','W','W','W'}, 
             {'W','n','n','n','n','n','n','n','n','n'},
             {'n','n','n','W','W','W','W','W','n','n'},
-            {'n','n','n','n','n','n','n','n','n','n'},
-            {'n','n','n','n','n','n','n','n','n','n'},
+            {'n','n','n','n','n','n','n','n',RandomObjectGen(new []{'E', 'n'}),'n'},
+            {'n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n','n','n','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
             {'n','n','W','W','W','W','n','n','n','n'},
             {'n','n','W','n','n','n','n','n','n','n'},
@@ -182,8 +183,8 @@ namespace LevelGen
             {'n','n','n','n',RandomObjectGen(new []{'W','n'}),RandomObjectGen(new []{'W','n'}),RandomObjectGen(new []{'W','n'}),'W','n','n'},
             {'n','n','W','n',RandomObjectGen(new []{'W','n'}),'n','n','n','n','n'},
             {'n','n','n','n','n','n','n',RandomObjectGen(new []{'W','n'}),'n','n'},
-            {'n','n','n','n','n','n',RandomObjectGen(new []{'W','n'}),RandomObjectGen(new []{'W','n'}),'n','n'},
-            {'n','n','n','n','n','n','W',RandomObjectGen(new []{'W','n'}),'n','n'},
+            {'n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n',RandomObjectGen(new []{'W','n'}),RandomObjectGen(new []{'W','n'}),'n','n'},
+            {'n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','W',RandomObjectGen(new []{'W','n'}),'n','n'},
             {'n','n','W','n','n','n','n','n','n','n'},
             {'W','n','n','n','n','n','n','n','n','W'},
             {'W','W','W','W','W','W','W','W','W','W'}};
@@ -203,7 +204,7 @@ namespace LevelGen
             {'W','n','n','n','n','n','n','n','n','W'},
             {'W','n','n','n','n','W','W','W','n','W'},
             {'n','n','n','n','n','W','n','n','n','n'},
-            {'n','n','n','n','n','n','n','n','n','n'},
+            {'n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n','n','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
             {'W','W','W','W','W','n','n','n','n','n'},
             {'W','n','n','n','n','n','n','n','n','n'},
@@ -229,17 +230,17 @@ namespace LevelGen
             {'W','W','W','n','n','n','n','W','W','W'},
             {'W','W','W','n','n','n','n','n','n','n'},
             {'n','n','n','n','n','n','n','n','n','n'},
-            {'n','n','n','n','n','n','n','n','n','n'},
+            {'n',RandomObjectGen(new []{'E', 'n'}),'n','n','n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','n'},
             {'n','n','n','n','n','n','n','W','W','W'},
             {'W','W','n','n','n','n','n','W','W','W'},
             {'W','W','W','n','n','n','n','W','W','W'},
             {'W','W','W','n','n','n','n','W','W','W'}};
         public static char[,] LRBT2 =
-            {{'W','n','n','n','n','n','n','n','n','W'}, 
+            {{'W','n','n','n','n','n',RandomObjectGen(new []{'E', 'n'}),'n','n','W'}, 
             {'n','n','n','n','n','n','n','n','n','n'},
             {'n','n','W','W','W','W','W','W','n','n'},
             {'n','n','W','n','n','n','n','W','n','n'},
-            {'n','n','W','n','n','n','n','W','n','n'},
+            {'n','n','W','n','E','n','n','W','n','n'},
             {'n','n','W','n','n','n','n','W','n','n'},
             {'n','n','W','n','n','n','n','W','n','n'},
             {'n','n','W','W','W','W','W','W','n','n'},

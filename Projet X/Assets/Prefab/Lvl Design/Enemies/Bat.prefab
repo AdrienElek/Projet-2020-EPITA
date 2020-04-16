@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7752833323796591368}
   - component: {fileID: 7752833323796591369}
   - component: {fileID: 7752833323796591370}
+  - component: {fileID: 6258678728227975441}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -117,3 +118,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 9206088083756477842, guid: 48e51e4c1ed0e6341b982c2b552d4e7b, type: 3}
+--- !u!61 &6258678728227975441
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752833323796591371}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.2, y: 14.4}
+    newSize: {x: 7.2, y: 14.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.2, y: 14.4}
+  m_EdgeRadius: 0

@@ -1,17 +1,29 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using LevelGen;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 public class InstanciateMatrice : MonoBehaviour
 {
-    public Transform boardHolder; //va permettre de creer des dossiers et hierarchiser
+    private Transform boardHolderBlocs; //va permettre de creer des dossiers et hierarchiser
+    private Transform boardHolderEntities;
+    private Transform boardHolderItems;
     
+    //Blocs
     public GameObject[] wall;
     public GameObject[] ground; //sol à faire spawn
     public GameObject[] perpective;
+    
+    //Entitées
+    public GameObject player;
+    public GameObject[] enemie;
+    
+    //Items
+    public GameObject[] chest;
 
     private int matrixLength = 8;
     private float distanceBtwRooms = 10; //distance entre les salles
@@ -29,9 +41,19 @@ public class InstanciateMatrice : MonoBehaviour
         
     }
 
-    private void InstanceTableau(Tableau toInstanciate)
+    private void InstanceTableau(Tableau toInstanciate) //Todo: creer une fct qui fait apparaitre le sol pour eviter de faire 300 fct qd on fait spawn un obj sur du sol
     {
-        boardHolder = new GameObject ("BoardObjects").transform;
+        boardHolderBlocs = new GameObject ("BoardBlocks").transform;
+        boardHolderEntities = new GameObject("BoardEntities").transform;
+        boardHolderItems = new GameObject("BoardItems").transform;
+
+        void InstanciateGround()
+        {
+            int rand = Random.Range(0, ground.Length);
+            GameObject instanceGround = Instantiate(ground[rand], transform.position, Quaternion.identity);
+                                
+            instanceGround.transform.SetParent(boardHolderBlocs);
+        }
         
         for (int i = 0; i < toInstanciate.matrixLength; i++)
         {
@@ -49,12 +71,17 @@ public class InstanciateMatrice : MonoBehaviour
                             int rand;
                             switch (toInstanciate.matrixPattern[i, j].Pattern[k, l])
                             {
+                                case 'n':
+                                    InstanciateGround();
+                                    break;
+                                
                                 case 'W':
                                     rand = Random.Range(0, wall.Length); //genere un nb random dans la liste des sols
                                     GameObject instanceWall = Instantiate(wall[rand], transform.position, Quaternion.identity);
                                 
-                                    instanceWall.transform.SetParent(boardHolder);
+                                    instanceWall.transform.SetParent(boardHolderBlocs);
                                     break;
+                                
                                 case 'p':
                                     
                                     if (k == 9 && l == 4)
@@ -69,14 +96,38 @@ public class InstanciateMatrice : MonoBehaviour
                                     rand = Random.Range(0, perpective.Length); //genere un nb random dans la liste des sols
                                     GameObject instancePerspective = Instantiate(perpective[rand], transform.position, Quaternion.identity);
                                 
-                                    instancePerspective.transform.SetParent(boardHolder);
+                                    instancePerspective.transform.SetParent(boardHolderBlocs);
                                     break;
-                                default:
-                                    rand = Random.Range(0, ground.Length); //genere un nb random dans la liste des sols
-                                    GameObject instanceGround = Instantiate(ground[rand], transform.position, Quaternion.identity);
                                 
-                                    instanceGround.transform.SetParent(boardHolder);
+                                case 'E':
+                                    InstanciateGround();
+                                    rand = Random.Range(0, enemie.Length); //genere un nb random dans la liste des sols
+                                    GameObject instanceEnemie = Instantiate(enemie[rand], transform.position, Quaternion.identity);
+
+                                    instanceEnemie.transform.SetParent(boardHolderEntities);
                                     break;
+                                
+                                case 'C':
+                                    InstanciateGround();
+                                    rand = Random.Range(0, chest.Length); //genere un nb random dans la liste des sols
+                                    GameObject instanceChest = Instantiate(chest[rand], transform.position, Quaternion.identity);
+
+                                    instanceChest.transform.SetParent(boardHolderItems);
+                                    break;
+                                
+                                case 'S':
+                                    InstanciateGround();
+                                    GameObject instancePlayer = Instantiate(player, transform.position,
+                                        Quaternion.identity);
+                                    
+                                    instancePlayer.transform.SetParent(boardHolderEntities);
+                                    break;
+                                
+                                default:
+                                    //throw new Exception("Un objets(char) du pattern d'une salle de la classe Salle existe mais n'a pas encore été défini dans InstanciateMatrice");
+                                    InstanciateGround();
+                                    break;
+
                             }
                         }
                     }
