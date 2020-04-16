@@ -13,7 +13,7 @@ public class BasicPlayerMouvement : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 mouvement;
     float moveSpeed = 10f;
-    [SerializeField] float DashForce = 10f;
+    [SerializeField] float DashForce = 100f;
     
 
     // Update is called once per frame
@@ -33,10 +33,15 @@ public class BasicPlayerMouvement : MonoBehaviour
         
     private void Mouvement()
     {
-        mouvement.x = Input.GetAxisRaw("Horizontal");
-        mouvement.y = Input.GetAxisRaw("Vertical");
+        mouvement.x = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
+        mouvement.y = Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime;
          
     }
+
+	private void Dash() {
+		rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * DashForce, Input.GetAxis("Vertical") * DashForce));
+
+	}
 
 
 }
