@@ -165,9 +165,9 @@ namespace LevelGen
                                 }
                                 /*else if (i+1 < matrixLength) // gen salle d'en dessous Todo: Demander de l'aide sur ce else au comportement TREEEEEEES etrange
                                 {
-                                    if (matrixPattern[i+1,j].Pattern[0,l] != 'W')
+                                    if (matrixPattern[i+1,j].Pattern[0,l] != "W")
                                     {
-                                        matrixPattern[i + 1, j].Pattern[0, l] = 'p';
+                                        matrixPattern[i + 1, j].Pattern[0, l] = "p";
                                     }
                                 }*/
                             }

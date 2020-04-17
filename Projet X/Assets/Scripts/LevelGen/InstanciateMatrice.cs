@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class InstanciateMatrice : MonoBehaviour
 {
+    public bool generateMatrix;
+    
     //boardHolders
     private Transform boardHolderBlocs; //va permettre de creer des dossiers et hierarchiser
     private Transform boardHolderEntities;
@@ -30,25 +32,25 @@ public class InstanciateMatrice : MonoBehaviour
     private int matrixLength = 8;
     private float distanceBtwRooms = 10;
     
+    //Execute quand play est cliqué
     void Start()
     {
-        Tableau gameBoard = new Tableau(matrixLength);
-        InstanceTableau(gameBoard);
-    }
-    
-    
-    void Update()
-    {
-        
+        if (generateMatrix) //Todo: Supprimer ce bool qui sert uniquement pour decider si on veut gen une salleTest ou le tableau de jeu
+        {
+            Tableau gameBoard = new Tableau(matrixLength);
+            InstanceTableau(gameBoard);
+        }
     }
 
     //Methode qui instancie chaque bloc de la map selon le charactere aux indexes dans la matrice gameBoard
-    private void InstanceTableau(Tableau toInstanciate) //Todo: creer une fct qui fait apparaitre le sol pour eviter de faire 300 fct qd on fait spawn un obj sur du sol
+    private void InstanceTableau(Tableau toInstanciate)
     {
+        //Listes boardHolder
         boardHolderBlocs = new GameObject ("BoardBlocks").transform;
         boardHolderEntities = new GameObject("BoardEntities").transform;
         boardHolderItems = new GameObject("BoardItems").transform;
-
+        
+        //Instancie Le sol (Methode mise a l'ecart pour plus de clarte)
         void InstanciateGround()
         {
             int rand = Random.Range(0, ground.Length);
@@ -57,6 +59,7 @@ public class InstanciateMatrice : MonoBehaviour
             instanceGround.transform.SetParent(boardHolderBlocs);
         }
         
+        //Instanciation des blocs
         for (int i = 0; i < toInstanciate.matrixLength; i++)
         {
             for (int j = 0; j < toInstanciate.matrixLength; j++)
