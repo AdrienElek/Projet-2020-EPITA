@@ -110,9 +110,9 @@ namespace LevelGen
             {"n","n","n","n","n","W","n","n","n","n"},
             {"n","n","n","n","W","W","n","n","n","n"},
             {"n","n","n",RandomObjectGen(new []{"W","n"}),"W","W",RandomObjectGen(new []{"W","n"}),"n","n","n"},
-            {"n","n","n",RandomObjectGen(new []{"w","n"}),"w","w",RandomObjectGen(new []{"w","n"}),"n","n","n"},
+            {"n","n","n",RandomObjectGen(new []{"W","n"}),"w","w",RandomObjectGen(new []{"W","n"}),"n","n","n"},
             {"n","n","n","n","W","W","n","n","n","n"},
-            {"n","n","n","n","n","n","n","n","n","w"},
+            {"n","n","n","n","n","n","n","n","n","W"},
             {"W","W","W","W","W","W","W","W","W","W"}};
         public static string[,] LR1 = 
             {{"W","W","W","W","W","W","W","W","W","W"}, 
@@ -128,14 +128,26 @@ namespace LevelGen
         public static string[,] LR2 =
             {{"W","W","W","W","W","W","W","W","W","W"}, 
             {"n","n","n","n","n","n","n","n","n","W"},
-            {"n","n",RandomObjectGen(new []{"w","n"}),"n","n","n","n","n","n","n"},
-            {"n","n",RandomObjectGen(new []{"w","n"}),RandomObjectGen(new []{"w","n"}),"n","n","n","n","n","n"},
-            {"n","n","W","W","W",RandomObjectGen(new []{"w","n"}),"n","n","n","n"},
+            {"n","n",RandomObjectGen(new []{"W","n"}),"n","n","n","n","n","n","n"},
+            {"n","n",RandomObjectGen(new []{"W","n"}),RandomObjectGen(new []{"W","n"}),"n","n","n","n","n","n"},
+            {"n","n","W","W","W",RandomObjectGen(new []{"W","n"}),"n","n","n","n"},
             {"n","n","n","n","W","n","n","n","n","n"},
             {"n","n","n","n","n","n","n","n","n","n"},
             {"W","n","n","n","n","n","n","n","n","W"},
             {"W","n","n","n","n","n","n","n","n","n"},
             {"W","W","W","n","n","n","n","n","W","W"}};
+
+        public static string[,] LR3 =
+            {{"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "W", "n", "n", "n", "n"},
+            {"n", "n", RandomObjectGen(new[] {"W", "n"}), "n", "n", "W", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "W", "n", "n", RandomObjectGen(new[] {"W", "n"}), "n"},
+            {"n", "n", RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"}};
 
         //##################### LRB ####################
         
@@ -170,7 +182,7 @@ namespace LevelGen
             {"n","n","n","n","n","n","n","n","n","n"},
             {"n","n","W","W","W","W","n","n","n","n"},
             {"n","n","W","n","n","n","n","n","n","n"},
-            {"n","n","n",RandomObjectGen(new []{"C", "n", "n", "n"}),"n","n","n","n","n","W"},
+            {"n","n","n",RandomObjectGen(new []{"C", "n", "n", "n", "n"}),"n","n","n","n","n","W"},
             {"W","W","W","n","n","n","n","W","W","W"}};
         
         //######################### LRT #################
@@ -206,7 +218,7 @@ namespace LevelGen
             {"n","n","n","n","n","n","n","n","n","n"},
             {"W","W","W","W","W","n","n","n","n","n"},
             {"W","n","n","n","n","n","n","n","n","n"},
-            {"W",RandomObjectGen(new []{"C" ,"n", "n", "n"}),"n","n","n","n","n","n","n","W"},
+            {"W",RandomObjectGen(new []{"C", "n", "n", "n", "n", "n"}),"n","n","n","n","n","n","n","W"},
             {"W","W","W","W","W","W","W","W","W","W"}};
         
         //######################## LRBT ##################
@@ -247,7 +259,7 @@ namespace LevelGen
         
         //Type de Salle : 0 = LR / 1 = LRB / 2 = LRT / 3 = LRBT
         public static string[][,] list_SPW = {SPW0};
-        public static string[][,] list_LR = {LR0, LR1, LR2};
+        public static string[][,] list_LR = {LR0, LR1, LR2, LR3};
         public static string[][,] list_LRB = {LRB0, LRB1, LRB2};
         public static string[][,] list_LRT = {LRT0, LRT1, LRT2};
         public static string[][,] list_LRBT = {LRBT0, LRBT1, LRBT2};

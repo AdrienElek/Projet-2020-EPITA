@@ -1,7 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using LevelGen;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 //Todo: Supprimer ce fichier c# en fin de projet, celui ci sert a avoir un apercu plus visuel des salles
 public class InstanciateRoomForTESTS : MonoBehaviour
@@ -29,7 +33,7 @@ public class InstanciateRoomForTESTS : MonoBehaviour
     {
         if (generateTestRoom)
         {
-            Salle room = new Salle(Salle.LRBT1); //CHANGER LA SALLE POUR LES TESTS
+            Salle room = new Salle(Salle.LR3); //CHANGER LA SALLE POUR LES TESTS
             InstanceTableau(room);
         }
     }
@@ -101,7 +105,7 @@ public class InstanciateRoomForTESTS : MonoBehaviour
                         break;
                     
                     default:
-                        //throw new Exception("Un objets(char) du pattern d'une salle de la classe Salle existe mais n'a pas encore été défini dans InstanciateMatrice");
+                        throw new Exception("Un objets(char) du pattern d'une salle de la classe Salle existe mais n'a pas encore été défini dans InstanciateMatrice");
                         InstanciateGround();
                         break;
                 }
