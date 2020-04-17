@@ -75,25 +75,25 @@ public class InstanciateMatrice : MonoBehaviour
                         int rand;
                         switch (toInstanciate.matrixPattern[i, j].Pattern[k, l])
                         {
-                            case 'n':
+                            case "n":
                                 InstanciateGround();
                                 break;
                             
-                            case 'W':
+                            case "W":
                                 rand = Random.Range(0, wall.Length); //genere un nb random dans la liste des sols
                                 GameObject instanceWall = Instantiate(wall[rand], transform.position, Quaternion.identity);
                             
                                 instanceWall.transform.SetParent(boardHolderBlocs);
                                 break;
                             
-                            case 'p':
+                            case "p":
                                 rand = Random.Range(0, perpective.Length); //genere un nb random dans la liste des sols
                                 GameObject instancePerspective = Instantiate(perpective[rand], transform.position, Quaternion.identity);
                             
                                 instancePerspective.transform.SetParent(boardHolderBlocs);
                                 break;
                             
-                            case 'E':
+                            case "E":
                                 InstanciateGround();
                                 rand = Random.Range(0, enemie.Length); //genere un nb random dans la liste des sols
                                 GameObject instanceEnemie = Instantiate(enemie[rand], transform.position, Quaternion.identity);
@@ -101,7 +101,7 @@ public class InstanciateMatrice : MonoBehaviour
                                 instanceEnemie.transform.SetParent(boardHolderEntities);
                                 break;
                             
-                            case 'C':
+                            case "C":
                                 InstanciateGround();
                                 rand = Random.Range(0, chest.Length); //genere un nb random dans la liste des sols
                                 GameObject instanceChest = Instantiate(chest[rand], transform.position, Quaternion.identity);
@@ -109,7 +109,7 @@ public class InstanciateMatrice : MonoBehaviour
                                 instanceChest.transform.SetParent(boardHolderItems);
                                 break;
                             
-                            case 'S':
+                            case "SPAWN":
                                 InstanciateGround();
                                 GameObject instancePlayer = Instantiate(player, transform.position, Quaternion.identity);
                                 

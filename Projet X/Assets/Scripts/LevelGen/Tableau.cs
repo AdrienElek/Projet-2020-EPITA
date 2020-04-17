@@ -154,13 +154,13 @@ namespace LevelGen
                     {
                         for (int l = 0; l < 10; l++)
                         {
-                            if (matrixPattern[i,j].Pattern[k,l] == 'W')
+                            if (matrixPattern[i,j].Pattern[k,l] == "W")
                             {
                                 if (k < 9) // dans la salle
                                 {
-                                    if (matrixPattern[i,j].Pattern[k+1,l] != 'W')
+                                    if (matrixPattern[i,j].Pattern[k+1,l] != "W")
                                     {
-                                        matrixPattern[i, j].Pattern[k + 1, l] = 'p';
+                                        matrixPattern[i, j].Pattern[k + 1, l] = "p";
                                     }
                                 }
                                 /*else if (i+1 < matrixLength) // gen salle d'en dessous Todo: Demander de l'aide sur ce else au comportement TREEEEEEES etrange
