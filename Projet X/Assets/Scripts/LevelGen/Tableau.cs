@@ -54,7 +54,7 @@ namespace LevelGen
             {
                 if (j < matrixLength - 1) //si on n'est pas sur le bord
                 {
-                    int randTypeRoom = rnd.Next(0, Salle.nbOfRoomTypes);
+                    int randTypeRoom = rnd.Next(0, Salle.nbOfRoomTypes-1);
                     int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
                     matrixPattern[i, j + 1] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
                     
