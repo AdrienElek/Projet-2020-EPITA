@@ -75,7 +75,9 @@ namespace LevelGen
         //Prefab de Room
         //W = wall / p = persp / g = ground / C = chest / E = enemie / n = rien
         //S = Spawn
-        //################ Empty ######################
+        
+        //################ SPECIAL ROOMS ######################
+        //Empty
         public static string[,] EMPTY =
             {{"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
@@ -88,8 +90,7 @@ namespace LevelGen
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"}};
 
-        //################ Spawn Room #################
-
+        //Spawn Room
         public static string[,] SPW0 =
             {{"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
@@ -101,6 +102,19 @@ namespace LevelGen
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "W", "W", "W", "n", "n", "W", "W", "W", "W"}};
+        
+        //Boutique
+        public static string[,] BTQ0 = //Todo: editer la boutique
+            {{"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"}};
 
         //##################### LR ####################
 
