@@ -8,7 +8,7 @@ public class items : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		if (Input.GetKeyDown(KeyCode.F)) {
+		if (Input.GetKeyDown(KeyCode.F) && collision.tag == "Player") {
 			Destroy(objet);
 		}
 	}
