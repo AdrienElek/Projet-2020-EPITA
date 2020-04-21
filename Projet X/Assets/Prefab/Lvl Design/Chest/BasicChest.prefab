@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5920306974446536074}
   - component: {fileID: 7725923189687507827}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: BasicChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 409458285
+  m_SortingLayerID: 1398423695
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 4063223774624989855, guid: eadf480be1a453644b21506ffafb2a62,
