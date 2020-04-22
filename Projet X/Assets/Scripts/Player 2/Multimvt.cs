@@ -9,12 +9,13 @@ public class Multimvt : MonoBehaviour
 	private Rigidbody2D rb;
 
 	[SerializeField]private GameObject projectile;
-	[SerializeField]private Transform shootpos;
+	private Transform shootpos;
 	[SerializeField]private float shootspeed = 20f;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		shootpos = GetComponent<Transform>();
 	}
 	private void Move()
 	{
@@ -31,9 +32,11 @@ public class Multimvt : MonoBehaviour
 		}
 	}
 
+
     // Update is called once per frame
     void Update()
     {
 		Move();
+		Shoot();
     }
 }
