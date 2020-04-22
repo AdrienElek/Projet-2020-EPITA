@@ -1215,7 +1215,8 @@ MonoBehaviour:
   - {fileID: 4111083574173149642, guid: dc34e9fab525e654a93fd649920fd095, type: 3}
   - {fileID: 4111083574173149642, guid: dc34e9fab525e654a93fd649920fd095, type: 3}
   - {fileID: 4111083574173149642, guid: dc34e9fab525e654a93fd649920fd095, type: 3}
-  player: {fileID: 650970975747407319, guid: afc3eb718faf23b4ab15da0cb5225511, type: 3}
+  player1: {fileID: 650970975747407319, guid: afc3eb718faf23b4ab15da0cb5225511, type: 3}
+  player2: {fileID: 404865735721217706, guid: aa452d5904856ac49ab064737703578d, type: 3}
   enemie:
   - {fileID: 7752833323796591371, guid: 3a64812c209cb0f44a9416b33b60fa5a, type: 3}
   chest:

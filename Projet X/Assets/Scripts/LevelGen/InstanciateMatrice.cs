@@ -22,7 +22,8 @@ public class InstanciateMatrice : MonoBehaviour
     public GameObject[] perpective;
     
     //Entitées
-    public GameObject player;
+    public GameObject player1;
+    public GameObject player2;
     public GameObject[] enemie;
     
     //Items
@@ -112,11 +113,18 @@ public class InstanciateMatrice : MonoBehaviour
                                 instanceChest.transform.SetParent(boardHolderItems);
                                 break;
                             
-                            case "SPAWN":
+                            case "SpawnP1":
                                 InstanciateGround();
-                                GameObject instancePlayer = Instantiate(player, transform.position, Quaternion.identity);
+                                GameObject instancePlayer1 = Instantiate(player1, transform.position, Quaternion.identity);
                                 
-                                instancePlayer.transform.SetParent(boardHolderEntities);
+                                instancePlayer1.transform.SetParent(boardHolderEntities);
+                                break;
+                            
+                            case "SpawnP2":
+                                InstanciateGround();
+                                GameObject instancePlayer2 = Instantiate(player2, transform.position, Quaternion.identity);
+                                
+                                instancePlayer2.transform.SetParent(boardHolderEntities);
                                 break;
                             
                             default:
