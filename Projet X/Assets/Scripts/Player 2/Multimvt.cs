@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Multimvt : MonoBehaviour
 {
-	[SerializeField]private float movespeed = 10f;
-	[SerializeField]private float dashforce = 20f;
+	[SerializeField] private float movespeed = 6f;
+	[SerializeField] private float dashforce = 10f;
 	private Rigidbody2D rb;
 
-	[SerializeField]private GameObject projectile;
+	[SerializeField] private GameObject projectile;
 	private Transform shootpos;
-	[SerializeField]private float shootspeed = 20f;
+	[SerializeField] private float shootspeed = 20f;
 
 	private void Awake()
 	{
@@ -21,22 +21,56 @@ public class Multimvt : MonoBehaviour
 	{
 		float moverg = Input.GetAxisRaw("Horizontal2");
 		float movehb = Input.GetAxisRaw("Vertical2");
-		transform.Translate(new Vector2(moverg * movespeed * Time.deltaTime,movehb * movespeed * Time.deltaTime));
+		transform.Translate(new Vector2(moverg * movespeed * Time.deltaTime, movehb * movespeed * Time.deltaTime));
+
 	}
 
-	void Shoot() {
-		if (Input.GetKeyDown(KeyCode.M)) {
+	void Shoot()
+	{
 
-			GameObject proj = Instantiate(projectile,shootpos);
-			proj.transform.Translate(Vector2.up *  shootspeed );
+
+		if (Input.GetKeyDown(KeyCode.M))
+		{
+			float x;
+			float y;
+			if (Input.GetAxisRaw("Vertical2") == 0 || Input.GetAxisRaw("Vertical2") == 0)
+			{
+				x = 0;
+				y = shootspeed;
+			}
+			else
+			{
+				x = Input.GetAxisRaw("Horizontal2") * shootspeed;
+				y = Input.GetAxisRaw("Vertical2") * shootspeed;
+			}
+			GameObject proj = Instantiate(projectile, shootpos.position, shootpos.rotation);
+			Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
+			projrb.velocity = new Vector2(x, y);
+			Destroy(proj, 5);
+
+		}
+	}
+
+	void Stopdash()
+	{
+		rb.velocity = new Vector2(0, 0);
+	}
+
+	void Dash()
+	{
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal2") * dashforce, Input.GetAxisRaw("Vertical2") * dashforce);
+			Invoke("Stopdash", 1);
 		}
 	}
 
 
-    // Update is called once per frame
-    void Update()
-    {
+	// Update is called once per frame
+	void Update()
+	{
 		Move();
 		Shoot();
-    }
+		Dash();
+	}
 }
