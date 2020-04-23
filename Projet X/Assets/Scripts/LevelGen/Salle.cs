@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using Random = System.Random;
 
+//AUTHOR : Alexandre GAUTIER
+
 namespace LevelGen
 {
     public class Salle

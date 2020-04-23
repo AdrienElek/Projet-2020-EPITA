@@ -7,6 +7,8 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
+//AUTHOR : Alexandre GAUTIER
+
 public class InstanciateMatrice : MonoBehaviour
 {
     public bool generateMatrix;

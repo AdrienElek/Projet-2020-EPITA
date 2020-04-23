@@ -7,6 +7,8 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
+//AUTHOR : Alexandre GAUTIER
+
 //Todo: Supprimer ce fichier c# en fin de projet, celui ci sert a avoir un apercu plus visuel des salles
 public class InstanciateRoomForTESTS : MonoBehaviour
 {

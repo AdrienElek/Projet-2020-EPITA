@@ -1,6 +1,8 @@
 ﻿using System;
 using Random = System.Random;
 
+//AUTHOR : Alexandre GAUTIER
+
 namespace LevelGen
 {
     public class Tableau
