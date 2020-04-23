@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStat : MonoBehaviour
 {
@@ -8,6 +10,18 @@ public class PlayerStat : MonoBehaviour
     private int hp;
     private int maxHp;
     internal static string playerName;
+    public Text healthText;
+    
+    public PlayerStat (int hp,int maxHp)
+    {
+        this.hp = hp;
+        this.maxHp = maxHp;
+        healthText.text = hp.ToString();
+        isAlive = true;
+
+    }
+    
+    
 
     public int Hp
     {
@@ -25,6 +39,8 @@ public class PlayerStat : MonoBehaviour
                 isAlive = false;
                 hp = 0;
             }
+
+            healthText.text = hp.ToString();
         }
 
     }
