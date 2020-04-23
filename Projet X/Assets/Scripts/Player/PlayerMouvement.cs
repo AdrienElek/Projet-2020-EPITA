@@ -14,9 +14,10 @@ public class PlayerMouvement : MonoBehaviour
     Vector2 mouvement;
     float moveSpeed = 5f;
     
+    /*
     public Camera cam;
     Vector2 mousePos;
-    
+    */
     /*
     private void Start()
     {
@@ -30,7 +31,7 @@ public class PlayerMouvement : MonoBehaviour
     void Update()
     {
         Mouvement();
-        MousePosition();
+       // MousePosition();
     }
     
         
@@ -40,28 +41,32 @@ public class PlayerMouvement : MonoBehaviour
         mouvement.y = Input.GetAxisRaw("Vertical");
          
     }
+    /*
     private void MousePosition()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
+    */
 
 
     void FixedUpdate()
     {
         MouvementUpdate();
-        LookDirection();
+        //LookDirection();
 
     }
-
+    
     private void MouvementUpdate()
     {
         rb.MovePosition(rb.position + mouvement * moveSpeed * Time.fixedDeltaTime) ;
     }
-
+    
+    /*
     private void LookDirection()
     {
         Vector2 lookDirection = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
+    */
 }
