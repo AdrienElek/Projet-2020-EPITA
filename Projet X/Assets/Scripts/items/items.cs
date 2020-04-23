@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//AUTHOR: mathis GUILBAUD
+
 public class items : MonoBehaviour
 {
 	public GameObject objet;

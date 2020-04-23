@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//AUTHOR: Mathis Guilbaud
+
 public class chest : MonoBehaviour
 {
 	[SerializeField] private GameObject Chest;
