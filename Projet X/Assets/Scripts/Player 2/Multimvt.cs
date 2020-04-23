@@ -31,8 +31,24 @@ public class Multimvt : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.M))
 		{
+
 			float x;
 			float y;
+
+			/*if (rb.velocity.x > 0)
+			{
+				shootpos.Rotate(new Vector3(0, 0, 90));
+			}
+			else if (rb.velocity.x < 0) {
+				shootpos.Rotate(new Vector3(0, 0, 270));
+			}
+			if (rb.velocity.y > 0) {
+				shootpos.Rotate(new Vector3(0, 0, 0));
+			}
+			else if (rb.velocity.y < 0) {
+				shootpos.Rotate(new Vector3(0,0,180));
+			}*/
+
 			if (Input.GetAxisRaw("Vertical2") == 0 || Input.GetAxisRaw("Vertical2") == 0)
 			{
 				x = 0;
@@ -43,6 +59,7 @@ public class Multimvt : MonoBehaviour
 				x = Input.GetAxisRaw("Horizontal2") * shootspeed;
 				y = Input.GetAxisRaw("Vertical2") * shootspeed;
 			}
+
 			GameObject proj = Instantiate(projectile, shootpos.position, shootpos.rotation);
 			Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
 			projrb.velocity = new Vector2(x, y);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 404865735721217707}
   - component: {fileID: 404865735721217711}
   m_Layer: 0
-  m_Name: Player 2 1
+  m_Name: Player 2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 8
   dashforce: 40
-  projectile: {fileID: 8856357009852364972, guid: 925828ce3e4b64144acec1d8d36f89e2,
+  projectile: {fileID: 8856357009852364972, guid: e602fa2f6727eff4ab4602add630304f,
     type: 3}
   shootspeed: 20
 --- !u!1 &816975675163488026
