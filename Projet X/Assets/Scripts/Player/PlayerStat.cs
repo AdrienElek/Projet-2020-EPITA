@@ -10,7 +10,7 @@ public class PlayerStat : MonoBehaviour
     private int hp;
     private int maxHp;
     internal static string playerName;
-    public Text healthText;
+    public Text healthText;//For UI health
     
     public PlayerStat (int hp,int maxHp)
     {

@@ -25,9 +25,5 @@ public class ButtonsBehaviour : MonoBehaviour
     {
         
     }
-
-    public void About()
-    {
-        
-    }
+    //Adrien Lorge
 }
