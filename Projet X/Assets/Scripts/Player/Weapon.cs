@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//AUTHOR LEO FERRETTI
 public class Weapon : MonoBehaviour
 {
     public Transform projectilePoint;
