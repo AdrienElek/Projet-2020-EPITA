@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//AUTHOR: Mathis Guilbaud
+
 public class Multimvt : MonoBehaviour
 {
 	[SerializeField] private float movespeed = 6f;
