@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//ADRIEN LORGE
 public class ButtonsBehaviour : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -25,5 +25,5 @@ public class ButtonsBehaviour : MonoBehaviour
     {
         
     }
-    //Adrien Lorge
+    
 }
