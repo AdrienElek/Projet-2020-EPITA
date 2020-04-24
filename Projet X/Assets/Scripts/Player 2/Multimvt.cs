@@ -11,13 +11,12 @@ public class Multimvt : MonoBehaviour
 	private Rigidbody2D rb;
 
 	[SerializeField] private GameObject projectile;
-	private Transform shootpos;
+	[SerializeField]private Transform shootpos;
 	[SerializeField] private float shootspeed = 20f;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		shootpos = GetComponent<Transform>();
 	}
 	private void Move()
 	{
@@ -34,39 +33,17 @@ public class Multimvt : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.M))
 		{
 
-			float x;
-			float y;
-
-			/*if (rb.velocity.x > 0)
-			{
-				shootpos.Rotate(new Vector3(0, 0, 90));
-			}
-			else if (rb.velocity.x < 0) {
-				shootpos.Rotate(new Vector3(0, 0, 270));
-			}
-			if (rb.velocity.y > 0) {
-				shootpos.Rotate(new Vector3(0, 0, 0));
-			}
-			else if (rb.velocity.y < 0) {
-				shootpos.Rotate(new Vector3(0,0,180));
-			}*/
-
-			if (Input.GetAxisRaw("Vertical2") == 0 || Input.GetAxisRaw("Vertical2") == 0)
-			{
+			float x = Input.GetAxisRaw("Horizontal2") * shootspeed;
+			float y = Input.GetAxisRaw("Vertical2") * shootspeed;
+			if (x == 0 && y == 0) {
 				x = 0;
 				y = shootspeed;
-			}
-			else
-			{
-				x = Input.GetAxisRaw("Horizontal2") * shootspeed;
-				y = Input.GetAxisRaw("Vertical2") * shootspeed;
 			}
 
 			GameObject proj = Instantiate(projectile, shootpos.position, shootpos.rotation);
 			Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
 			projrb.velocity = new Vector2(x, y);
 			Destroy(proj, 5);
-
 		}
 	}
 
