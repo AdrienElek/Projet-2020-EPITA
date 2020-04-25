@@ -21,7 +21,7 @@ public class connection : MonoBehaviour
 		WWWForm form = new WWWForm();
 		form.AddField("player_name", player_name);
 		form.AddField("score", score);
-		WWW www = new WWW("http://localhost:8090/site%20web/Accueil/score.php",form);
+		WWW www = new WWW("http://www.projets2dungeon.site/score.php", form);
 		yield return www;
 		if (www.text == "0")
 		{
