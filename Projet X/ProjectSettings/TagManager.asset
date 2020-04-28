@@ -47,6 +47,9 @@ TagManager:
   - name: Perspective
     uniqueID: 3499657121
     locked: 0
+  - name: Trap
+    uniqueID: 3470673491
+    locked: 0
   - name: Chest
     uniqueID: 3735703205
     locked: 0

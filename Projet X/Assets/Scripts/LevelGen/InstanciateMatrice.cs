@@ -17,6 +17,7 @@ public class InstanciateMatrice : MonoBehaviour
     private Transform boardHolderBlocs; //va permettre de creer des dossiers et hierarchiser
     private Transform boardHolderEntities;
     private Transform boardHolderItems;
+    private Transform boardHolderTrap;
     
     //Blocs
     public GameObject[] wall;
@@ -28,8 +29,9 @@ public class InstanciateMatrice : MonoBehaviour
     public GameObject player2;
     public GameObject[] enemie;
     
-    //Items
+    //Other
     public GameObject[] chest;
+    public GameObject[] trap;
 
     //Constantes
     private int matrixLength = 8;
@@ -52,6 +54,8 @@ public class InstanciateMatrice : MonoBehaviour
         boardHolderBlocs = new GameObject ("BoardBlocks").transform;
         boardHolderEntities = new GameObject("BoardEntities").transform;
         boardHolderItems = new GameObject("BoardItems").transform;
+        boardHolderTrap = new GameObject("BoardTrap").transform;
+        
         
         //Instancie Le sol (Methode mise a l'ecart pour plus de clarte)
         void InstanciateGround()
@@ -115,6 +119,14 @@ public class InstanciateMatrice : MonoBehaviour
                                 instanceChest.transform.SetParent(boardHolderItems);
                                 break;
                             
+                            case "T":
+                                InstanciateGround();
+                                rand = Random.Range(0, trap.Length);
+                                GameObject instanceTrap = Instantiate(trap[rand], transform.position, Quaternion.identity);
+                                
+                                instanceTrap.transform.SetParent(boardHolderTrap);
+                                break;
+                                
                             case "SpawnP1":
                                 InstanciateGround();
                                 GameObject instancePlayer1 = Instantiate(player1, transform.position, Quaternion.identity);

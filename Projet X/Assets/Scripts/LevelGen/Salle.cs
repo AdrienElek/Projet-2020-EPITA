@@ -152,7 +152,7 @@ namespace LevelGen
             {"n", "n", "W", "W", "W", RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n"},
             {"n", "n", "n", "n", "W", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
+            {"W", "n", "T", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"W", "W", "W", "n", "n", "n", "n", "n", "W", "W"}};
 
@@ -175,7 +175,7 @@ namespace LevelGen
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"n", "n", RandomObjectGen(new[] {"E", "n"}), "n", "n", "n", "n", RandomObjectGen(new[] {"E", "n"}), "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "T", "n", "n", "n", "n", "n", "n"},
             {"W", "W", "W", "W", "n", "n", "W", "W", "W", "W"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "n", RandomObjectGen(new[] {"E", "n"}), "n", "n", "n", "n", "n", "n", "W"},
@@ -191,7 +191,7 @@ namespace LevelGen
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", RandomObjectGen(new[] {"E", "n"}), "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "W", "W"},
+            {"n", "n", "T", "n", "n", "n", "n", "n", "W", "W"},
             {"W", "W", "W", "n", "n", "n", "n", "n", "W", "W"},
             {"W", "W", "W", "n", "n", "n", "n", "n", "W", "W"}};
 
@@ -214,7 +214,7 @@ namespace LevelGen
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n"},
             {"n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "T", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "W", "n", "n", "n", "n", "n", "n", "W", "W"}};
