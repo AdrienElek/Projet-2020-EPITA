@@ -20,18 +20,25 @@ public class InstanciateMatrice : MonoBehaviour
     private Transform boardHolderTrap;
     
     //Blocs
+    [Header("BLOCS")]
     public GameObject[] wall;
     public GameObject[] ground; //sol à faire spawn
     public GameObject[] perpective;
     
     //Entitées
+    [Header("ENTITEES")]
     public GameObject player1;
     public GameObject player2;
     public GameObject[] enemie;
-    
-    //Other
-    public GameObject[] chest;
+
+    //Traps
+    [Header("PIEGES")]
     public GameObject[] trap;
+    public GameObject[] groundTrap;
+    
+    //Chest
+    [Header("AUTRES")]
+    public GameObject[] chest;
 
     //Constantes
     private int matrixLength = 8;
@@ -120,8 +127,18 @@ public class InstanciateMatrice : MonoBehaviour
                                 break;
                             
                             case "T":
-                                InstanciateGround();
                                 rand = Random.Range(0, trap.Length);
+                                if (rand == 1) //TODO : Modifier cette ligne si on rajoute d'autres type de pièges
+                                {
+                                    int randGroundTrap = Random.Range(0, groundTrap.Length);
+                                    GameObject instanceGroundTrap = Instantiate(groundTrap[randGroundTrap], transform.position, Quaternion.identity);
+                                
+                                    instanceGroundTrap.transform.SetParent(boardHolderTrap);
+                                }
+                                else
+                                {
+                                    InstanciateGround();
+                                }
                                 GameObject instanceTrap = Instantiate(trap[rand], transform.position, Quaternion.identity);
                                 
                                 instanceTrap.transform.SetParent(boardHolderTrap);
