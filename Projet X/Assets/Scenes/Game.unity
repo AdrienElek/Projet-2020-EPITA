@@ -1227,6 +1227,7 @@ MonoBehaviour:
   - {fileID: 4874478194593352131, guid: a9479f627fc382747ad2db25c036b135, type: 3}
   groundTrap:
   - {fileID: 3626942629201778612, guid: ecf2d16cae99e8543b804571bcb8fa3e, type: 3}
+  exit: {fileID: 6129407500160264524, guid: 220cf90ec327e254ea2f28a7a7a15a52, type: 3}
   chest:
   - {fileID: 5243460795071734457, guid: a81608b8a3f735d4fa117cad503b5efa, type: 3}
 --- !u!4 &1846393285

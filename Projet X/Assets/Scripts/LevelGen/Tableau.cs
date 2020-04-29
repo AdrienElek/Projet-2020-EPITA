@@ -50,6 +50,7 @@ namespace LevelGen
         {
             if (i >= matrixLength - 1)
             {
+                matrixPattern[i, j].Pattern = Salle.EXIT0;
                 CompleteMatrix();
             }
             else if (direction == 1 || direction == 2) //bouge à droite

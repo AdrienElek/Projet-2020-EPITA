@@ -16,7 +16,7 @@ public class InstanciateMatrice : MonoBehaviour
     //boardHolders
     private Transform boardHolderBlocs; //va permettre de creer des dossiers et hierarchiser
     private Transform boardHolderEntities;
-    private Transform boardHolderItems;
+    private Transform boardHolderOther;
     private Transform boardHolderTrap;
     
     //Blocs
@@ -37,7 +37,8 @@ public class InstanciateMatrice : MonoBehaviour
     public GameObject[] groundTrap;
     
     //Chest
-    [Header("AUTRES")]
+    [Header("AUTRES")] 
+    public GameObject exit;
     public GameObject[] chest;
 
     //Constantes
@@ -60,7 +61,7 @@ public class InstanciateMatrice : MonoBehaviour
         //Listes boardHolder
         boardHolderBlocs = new GameObject ("BoardBlocks").transform;
         boardHolderEntities = new GameObject("BoardEntities").transform;
-        boardHolderItems = new GameObject("BoardItems").transform;
+        boardHolderOther = new GameObject("BoardOther").transform;
         boardHolderTrap = new GameObject("BoardTrap").transform;
         
         
@@ -123,7 +124,7 @@ public class InstanciateMatrice : MonoBehaviour
                                 rand = Random.Range(0, chest.Length); //genere un nb random dans la liste des sols
                                 GameObject instanceChest = Instantiate(chest[rand], transform.position, Quaternion.identity);
 
-                                instanceChest.transform.SetParent(boardHolderItems);
+                                instanceChest.transform.SetParent(boardHolderOther);
                                 break;
                             
                             case "T":
@@ -156,6 +157,13 @@ public class InstanciateMatrice : MonoBehaviour
                                 GameObject instancePlayer2 = Instantiate(player2, transform.position, Quaternion.identity);
                                 
                                 instancePlayer2.transform.SetParent(boardHolderEntities);
+                                break;
+                            
+                            case "EXIT":
+                                InstanciateGround(); //Todo : Check si il y a vraiment besoin d'instancier le sol
+                                GameObject instanceExit = Instantiate(exit, transform.position, Quaternion.identity);
+                                
+                                instanceExit.transform.SetParent(boardHolderOther);
                                 break;
                             
                             default:

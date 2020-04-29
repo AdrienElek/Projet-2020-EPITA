@@ -105,6 +105,18 @@ namespace LevelGen
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "W", "W", "W", "n", "n", "W", "W", "W", "W"}};
         
+        //Exit Room
+        public static string[,] EXIT0 =
+            {{"W", "W", "W", "W", "n", "n", "W", "W", "W", "W"},
+            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
+            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
+            {"W", "n", "n", "W", "n", "n", "W", "n", "n", "W"},
+            {"n", "n", "n", "n", "C", "C", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
+            {"W", "n", "n", "n", "EXIT", "EXIT", "n", "n", "n", "W"},
+            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
+            {"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"}};
         //Boutique
         public static string[,] BTQ0 = //Todo: editer la boutique
             {{"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
