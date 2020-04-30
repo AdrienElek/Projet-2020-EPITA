@@ -35,7 +35,7 @@ public class InstanciateRoomForTESTS : MonoBehaviour
     {
         if (generateTestRoom)
         {
-            Salle room = new Salle(Salle.LR3); //CHANGER LA SALLE POUR LES TESTS
+            Salle room = new Salle(Salle.LR3()); //CHANGER LA SALLE POUR LES TESTS
             InstanceTableau(room);
         }
     }
