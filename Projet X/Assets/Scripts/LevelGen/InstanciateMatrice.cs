@@ -50,9 +50,14 @@ public class InstanciateMatrice : MonoBehaviour
     {
         if (generateMatrix) //Todo: Supprimer ce bool qui sert uniquement pour decider si on veut gen une salleTest ou le tableau de jeu
         {
-            Tableau gameBoard = new Tableau(matrixLength);
-            InstanceTableau(gameBoard);
+            GenerateGameBaord();
         }
+    }
+
+    public void GenerateGameBaord()
+    {
+        Tableau gameBoard = new Tableau(matrixLength);
+        InstanceTableau(gameBoard);
     }
 
     //Methode qui instancie chaque bloc de la map selon le charactere aux indexes dans la matrice gameBoard
