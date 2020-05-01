@@ -116,7 +116,7 @@ namespace LevelGen
             {"SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "C", "C", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
             {"SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
-            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "EXIT", "EXIT", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "EXIT", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"}};
         //Boutique

@@ -178,7 +178,7 @@ public class InstanciateMatrice : MonoBehaviour
                                 break;
                             
                             case "EXIT":
-                                InstanciateGround(); //Todo : Check si il y a vraiment besoin d'instancier le sol
+                                InstanciateSEGround();
                                 GameObject instanceExit = Instantiate(exit, transform.position, Quaternion.identity);
                                 
                                 instanceExit.transform.SetParent(boardHolderOther);
