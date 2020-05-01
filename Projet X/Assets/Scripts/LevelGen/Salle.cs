@@ -75,9 +75,11 @@ namespace LevelGen
         }
 
         //Prefab de Room
-        //W = wall / p = persp / g = ground / C = chest / E = enemie / n = rien
-        //S = Spawn
-        
+        //W = wall / p = persp / n = ground / SEBlocks = spawn room ground blocks
+        //SpawnP1 = spawn player 1 / SpawnP2 = spawn player 2 / E = enemie
+        //C = chest / T = trap / EXIT = exit
+        //
+
         //################ SPECIAL ROOMS ######################
         //Empty
         public static string[,] EMPTY =
@@ -95,27 +97,27 @@ namespace LevelGen
         //Spawn Room
         public static string[,] SPW0 =
             {{"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"n", "n", "n", "SpawnP1", "n", "SpawnP2", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"W", "W", "W", "W", "n", "n", "W", "W", "W", "W"}};
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"SEBlocks", "SEBlocks", "SEBlocks", "SpawnP1", "SEBlocks", "SpawnP2", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
+            {"SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "W", "W", "W", "SEBlocks", "SEBlocks", "W", "W", "W", "W"}};
         
         //Exit Room
         public static string[,] EXIT0 =
-            {{"W", "W", "W", "W", "n", "n", "W", "W", "W", "W"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"W", "n", "n", "W", "n", "n", "W", "n", "n", "W"},
-            {"n", "n", "n", "n", "C", "C", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
-            {"W", "n", "n", "n", "EXIT", "EXIT", "n", "n", "n", "W"},
-            {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
+            {{"W", "W", "W", "W", "SEBlocks", "SEBlocks", "W", "W", "W", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "C", "C", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
+            {"SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "EXIT", "EXIT", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"}};
         //Boutique
         public static string[,] BTQ0 = //Todo: editer la boutique

@@ -14,7 +14,7 @@ public class InstanciateMatrice : MonoBehaviour
     public bool generateMatrix;
     
     //boardHolders
-    private Transform boardHolderBlocs; //va permettre de creer des dossiers et hierarchiser
+    private Transform boardHolderBlocks; //va permettre de creer des dossiers et hierarchiser
     private Transform boardHolderEntities;
     private Transform boardHolderOther;
     private Transform boardHolderTrap;
@@ -22,8 +22,9 @@ public class InstanciateMatrice : MonoBehaviour
     //Blocs
     [Header("BLOCS")]
     public GameObject[] wall;
-    public GameObject[] ground; //sol à faire spawn
+    public GameObject[] ground;
     public GameObject[] perpective;
+    public GameObject[] seGround;
     
     //Entitées
     [Header("ENTITEES")]
@@ -64,7 +65,7 @@ public class InstanciateMatrice : MonoBehaviour
     private void InstanceTableau(Tableau toInstanciate)
     {
         //Listes boardHolder
-        boardHolderBlocs = new GameObject ("BoardBlocks").transform;
+        boardHolderBlocks = new GameObject ("BoardBlocks").transform;
         boardHolderEntities = new GameObject("BoardEntities").transform;
         boardHolderOther = new GameObject("BoardOther").transform;
         boardHolderTrap = new GameObject("BoardTrap").transform;
@@ -76,7 +77,15 @@ public class InstanciateMatrice : MonoBehaviour
             int rand = Random.Range(0, ground.Length);
             GameObject instanceGround = Instantiate(ground[rand], transform.position, Quaternion.identity);
                                 
-            instanceGround.transform.SetParent(boardHolderBlocs);
+            instanceGround.transform.SetParent(boardHolderBlocks);
+        }
+
+        void InstanciateSEGround()
+        {
+            int rand = Random.Range(0, seGround.Length);
+            GameObject instanceSpawnGround = Instantiate(seGround[rand], transform.position, Quaternion.identity);
+            
+            instanceSpawnGround.transform.SetParent(boardHolderBlocks);
         }
         
         //Instanciation des blocs
@@ -106,14 +115,14 @@ public class InstanciateMatrice : MonoBehaviour
                                 rand = Random.Range(0, wall.Length); //genere un nb random dans la liste des sols
                                 GameObject instanceWall = Instantiate(wall[rand], transform.position, Quaternion.identity);
                             
-                                instanceWall.transform.SetParent(boardHolderBlocs);
+                                instanceWall.transform.SetParent(boardHolderBlocks);
                                 break;
                             
                             case "p":
                                 rand = Random.Range(0, perpective.Length); //genere un nb random dans la liste des sols
                                 GameObject instancePerspective = Instantiate(perpective[rand], transform.position, Quaternion.identity);
                             
-                                instancePerspective.transform.SetParent(boardHolderBlocs);
+                                instancePerspective.transform.SetParent(boardHolderBlocks);
                                 break;
                             
                             case "E":
@@ -151,17 +160,21 @@ public class InstanciateMatrice : MonoBehaviour
                                 break;
                                 
                             case "SpawnP1":
-                                InstanciateGround();
+                                InstanciateSEGround();
                                 GameObject instancePlayer1 = Instantiate(player1, transform.position, Quaternion.identity);
                                 
                                 instancePlayer1.transform.SetParent(boardHolderEntities);
                                 break;
                             
                             case "SpawnP2":
-                                InstanciateGround();
+                                InstanciateSEGround();
                                 GameObject instancePlayer2 = Instantiate(player2, transform.position, Quaternion.identity);
                                 
                                 instancePlayer2.transform.SetParent(boardHolderEntities);
+                                break;
+                            
+                            case "SEBlocks":
+                                InstanciateSEGround();
                                 break;
                             
                             case "EXIT":
@@ -170,6 +183,7 @@ public class InstanciateMatrice : MonoBehaviour
                                 
                                 instanceExit.transform.SetParent(boardHolderOther);
                                 break;
+                            
                             
                             default:
                                 Debug.Log(toInstanciate.matrixPattern[i, j].Pattern[k, l] + " // " + toInstanciate.matrixPattern[i,j].Type);
