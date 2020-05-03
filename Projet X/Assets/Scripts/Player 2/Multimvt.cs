@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class Multimvt : MonoBehaviour
 {
-	[SerializeField] private float movespeed = 6f;
+	[SerializeField] private float movespeed = 8f;
 	[SerializeField] private float dashforce = 10f;
 	private Rigidbody2D rb;
-
+	Vector2 move;
 	[SerializeField] private GameObject projectile;
 	[SerializeField]private Transform shootpos;
 	[SerializeField] private float shootspeed = 20f;
@@ -20,10 +20,11 @@ public class Multimvt : MonoBehaviour
 	}
 	private void Move()
 	{
-		float moverg = Input.GetAxisRaw("Horizontal2");
-		float movehb = Input.GetAxisRaw("Vertical2");
-		transform.Translate(new Vector2(moverg * movespeed * Time.deltaTime, movehb * movespeed * Time.deltaTime));
-
+		move.x = Input.GetAxisRaw("Horizontal2");
+		move.y = Input.GetAxisRaw("Vertical2");
+	}
+	private void Mvtupdate() {
+		rb.MovePosition(rb.position + move * movespeed * Time.fixedDeltaTime);
 	}
 
 	void Shoot()
@@ -68,5 +69,9 @@ public class Multimvt : MonoBehaviour
 		Move();
 		Shoot();
 		Dash();
+	}
+	private void FixedUpdate()
+	{
+		Mvtupdate();
 	}
 }
