@@ -11,6 +11,10 @@ using Random = UnityEngine.Random;
 
 public class InstanciateMatrice : MonoBehaviour
 {
+    //Parametres
+    [Header("PARAMETRES")]
+    public int matrixLength;
+    private float distanceBtwRooms = 10;
     public bool generateMatrix;
     
     //boardHolders
@@ -42,20 +46,17 @@ public class InstanciateMatrice : MonoBehaviour
     public GameObject exit;
     public GameObject[] chest;
 
-    //Constantes
-    private int matrixLength = 8;
-    private float distanceBtwRooms = 10;
-    
+
     //Execute quand play est cliqué
     void Start()
     {
         if (generateMatrix) //Todo: Supprimer ce bool qui sert uniquement pour decider si on veut gen une salleTest ou le tableau de jeu
         {
-            GenerateGameBaord();
+            GenerateGameBoard();
         }
     }
 
-    public void GenerateGameBaord()
+    public void GenerateGameBoard()
     {
         Tableau gameBoard = new Tableau(matrixLength);
         InstanceTableau(gameBoard);
@@ -70,6 +71,14 @@ public class InstanciateMatrice : MonoBehaviour
         boardHolderOther = new GameObject("BoardOther").transform;
         boardHolderTrap = new GameObject("BoardTrap").transform;
         
+
+        void InstanciateWall()
+        {
+            int rand = Random.Range(0, wall.Length); //genere un nb random dans la liste des sols
+            GameObject instanceWall = Instantiate(wall[rand], transform.position, Quaternion.identity);
+                            
+            instanceWall.transform.SetParent(boardHolderBlocks);
+        }
         
         //Instancie Le sol (Methode mise a l'ecart pour plus de clarte)
         void InstanciateGround()
@@ -79,14 +88,15 @@ public class InstanciateMatrice : MonoBehaviour
                                 
             instanceGround.transform.SetParent(boardHolderBlocks);
         }
-
-        void InstanciateSEGround()
+        
+        void InstanciateSeGround()
         {
             int rand = Random.Range(0, seGround.Length);
             GameObject instanceSpawnGround = Instantiate(seGround[rand], transform.position, Quaternion.identity);
             
             instanceSpawnGround.transform.SetParent(boardHolderBlocks);
         }
+        
         
         //Instanciation des blocs
         for (int i = 0; i < toInstanciate.matrixLength; i++)
@@ -112,10 +122,7 @@ public class InstanciateMatrice : MonoBehaviour
                                 break;
                             
                             case "W":
-                                rand = Random.Range(0, wall.Length); //genere un nb random dans la liste des sols
-                                GameObject instanceWall = Instantiate(wall[rand], transform.position, Quaternion.identity);
-                            
-                                instanceWall.transform.SetParent(boardHolderBlocks);
+                                InstanciateWall();
                                 break;
                             
                             case "p":
@@ -160,25 +167,25 @@ public class InstanciateMatrice : MonoBehaviour
                                 break;
                                 
                             case "SpawnP1":
-                                InstanciateSEGround();
+                                InstanciateSeGround();
                                 GameObject instancePlayer1 = Instantiate(player1, transform.position, Quaternion.identity);
                                 
                                 instancePlayer1.transform.SetParent(boardHolderEntities);
                                 break;
                             
                             case "SpawnP2":
-                                InstanciateSEGround();
+                                InstanciateSeGround();
                                 GameObject instancePlayer2 = Instantiate(player2, transform.position, Quaternion.identity);
                                 
                                 instancePlayer2.transform.SetParent(boardHolderEntities);
                                 break;
                             
                             case "SEBlocks":
-                                InstanciateSEGround();
+                                InstanciateSeGround();
                                 break;
                             
                             case "EXIT":
-                                InstanciateSEGround();
+                                InstanciateSeGround();
                                 GameObject instanceExit = Instantiate(exit, transform.position, Quaternion.identity);
                                 
                                 instanceExit.transform.SetParent(boardHolderOther);
@@ -195,6 +202,30 @@ public class InstanciateMatrice : MonoBehaviour
                     }
                 }
             }
+        }
+        
+        //Genere les bordures du niveau
+        //TODO : optimiser cette merde
+        for (int i = 0; i < toInstanciate.matrixLength*10; i++)
+        {
+            Vector2 blocPos1 = new Vector2(-1, -i);
+            transform.position = blocPos1;
+            InstanciateWall();
+
+            Vector2 blocPos2 = new Vector2(toInstanciate.matrixLength * 10, -i);
+            transform.position = blocPos2;
+            InstanciateWall();
+        }
+            
+        for (int j = -1; j < toInstanciate.matrixLength*10+1; j++)
+        {
+            Vector2 blocPos1 = new Vector2(j, 1);
+            transform.position = blocPos1;
+            InstanciateWall();
+                
+            Vector2 blocPos2 = new Vector2(j, -toInstanciate.matrixLength*10);
+            transform.position = blocPos2;
+            InstanciateWall();
         }
     }
 }

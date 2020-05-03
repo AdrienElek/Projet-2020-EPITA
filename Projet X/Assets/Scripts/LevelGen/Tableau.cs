@@ -12,7 +12,7 @@ namespace LevelGen
         //attributs
         public int matrixLength;
         public Salle[,] matrixPattern;
-        
+
         //constructeur
         public Tableau(int matrixLength)
         {
@@ -157,6 +157,15 @@ namespace LevelGen
                     {
                         for (int l = 0; l < 10; l++)
                         {
+                            /*//Ce blocs permet de creer les murs perspectives des bordures du jeu BUG: meme bug que le else de dessous
+                            if (i == 0 && k == 0)
+                            {
+                                if (matrixPattern[i, j].Pattern[k, l] != "W")
+                                {
+                                    matrixPattern[i, j].Pattern[k, l] = "p";
+                                }
+                            }*/
+                            
                             if (matrixPattern[i,j].Pattern[k,l] == "W")
                             {
                                 if (k < 9) // dans la salle

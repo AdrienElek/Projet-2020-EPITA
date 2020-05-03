@@ -1190,6 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d1c7721f3b12d4890fc7cb31940740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matrixLength: 8
   generateMatrix: 1
   wall:
   - {fileID: 5671061912286886151, guid: 593e1cd9387a8be40bf7724fc76377c1, type: 3}
