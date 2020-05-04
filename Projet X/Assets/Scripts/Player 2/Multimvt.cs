@@ -48,17 +48,12 @@ public class Multimvt : MonoBehaviour
 		}
 	}
 
-	void Stopdash()
-	{
-		rb.velocity = new Vector2(0, 0);
-	}
 
 	void Dash()
 	{
 		if (Input.GetKeyDown(KeyCode.L))
 		{
-			rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal2") * dashforce, Input.GetAxisRaw("Vertical2") * dashforce);
-			Invoke("Stopdash", 1);
+			rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal2") * dashforce, Input.GetAxisRaw("Vertical2") * dashforce));
 		}
 	}
 
