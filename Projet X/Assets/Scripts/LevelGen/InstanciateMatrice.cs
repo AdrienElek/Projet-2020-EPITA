@@ -13,7 +13,12 @@ public class InstanciateMatrice : MonoBehaviour
 {
     //Parametres
     [Header("PARAMETRES")]
-    public int matrixLength;
+    public int AverageMatrixLength; //la taille de matrice ne doit pas être inferieur à 3
+    private int matrixLength() //Genere une map de taille +- 1 par rapport à Averagematrixlength
+    {
+        int rand = Random.Range(AverageMatrixLength-1, AverageMatrixLength+2);
+        return rand;
+    }
     private float distanceBtwRooms = 10;
     public bool generateMatrix;
     
@@ -58,7 +63,7 @@ public class InstanciateMatrice : MonoBehaviour
 
     public void GenerateGameBoard()
     {
-        Tableau gameBoard = new Tableau(matrixLength);
+        Tableau gameBoard = new Tableau(matrixLength());
         InstanceTableau(gameBoard);
     }
 

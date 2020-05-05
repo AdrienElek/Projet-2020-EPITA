@@ -157,7 +157,7 @@ namespace LevelGen
                     {
                         for (int l = 0; l < 10; l++)
                         {
-                            //Ce blocs permet de creer les murs perspectives des bordures du jeu BUG: meme bug que le else de dessous
+                            //Ce blocs permet de creer les murs perspectives des bordures du jeu
                             if (i == 0 && k == 0)
                             {
                                 if (matrixPattern[i, j].Pattern[k, l] != "W")
@@ -175,7 +175,7 @@ namespace LevelGen
                                         matrixPattern[i, j].Pattern[k + 1, l] = "p";
                                     }
                                 }
-                                else if (i+1 < matrixLength) // gen salle d'en dessous Todo: Demander de l'aide sur ce else au comportement TREEEEEEES etrange
+                                else if (i+1 < matrixLength) // gen salle d'en dessous
                                 {
                                     if (matrixPattern[i+1,j].Pattern[0,l] != "W")
                                     {
