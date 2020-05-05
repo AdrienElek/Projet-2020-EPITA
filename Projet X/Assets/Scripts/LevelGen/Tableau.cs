@@ -32,7 +32,7 @@ namespace LevelGen
 
             //Place le spawn
             int rand = rnd.Next(0, Salle.list_SPW.Length);
-            matrixPattern[0, startingPos] = new Salle(Salle.list_SPW[rand]);
+            matrixPattern[0, startingPos] = new Salle((string[,]) Salle.list_SPW[rand].Clone());
             
             /* direction dans laquelle gen les salles :
             - 1 et 2 -> spawn a droite
@@ -50,7 +50,7 @@ namespace LevelGen
         {
             if (i >= matrixLength - 1)
             {
-                matrixPattern[i, j].Pattern = Salle.EXIT0;
+                matrixPattern[i, j].Pattern = (string[,]) Salle.EXIT0.Clone();
                 CompleteMatrix();
             }
             else if (direction == 1 || direction == 2) //bouge à droite
@@ -59,7 +59,7 @@ namespace LevelGen
                 {
                     int randTypeRoom = rnd.Next(0, Salle.nbOfRoomTypes-1);
                     int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
-                    matrixPattern[i, j + 1] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
+                    matrixPattern[i, j + 1] = new Salle((string[,]) Salle.list_AllRoom[randTypeRoom][randRoomInThisType].Clone());
                     
                     direction = rnd.Next(1,6);
                     //si le prochaine direction est gauche, conflit! La gen ferai droite gauche et stackerai 2 salles
@@ -85,7 +85,7 @@ namespace LevelGen
                 {
                     int randTypeRoom = rnd.Next(0, Salle.nbOfRoomTypes);
                     int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
-                    matrixPattern[i, j - 1] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
+                    matrixPattern[i, j - 1] = new Salle((string[,]) Salle.list_AllRoom[randTypeRoom][randRoomInThisType].Clone());
 
                     direction = rnd.Next(3, 6);
 
@@ -103,7 +103,7 @@ namespace LevelGen
                 {
                     if (downCounter >= 1)
                     {
-                        matrixPattern[i, j].Pattern = Salle.list_LRBT[rnd.Next(0, Salle.list_LRBT.Length)];
+                        matrixPattern[i, j].Pattern = (string[,]) Salle.list_LRBT[rnd.Next(0, Salle.list_LRBT.Length)].Clone();
                     }
                     else
                     {
@@ -112,14 +112,14 @@ namespace LevelGen
                         {
                             randBottomOpeningRoom = 1;
                         }
-                        matrixPattern[i,j].Pattern = Salle.list_AllRoom[randBottomOpeningRoom][rnd.Next(0, Salle.list_AllRoom[randBottomOpeningRoom].Length)];
+                        matrixPattern[i,j].Pattern = (string[,]) Salle.list_AllRoom[randBottomOpeningRoom][rnd.Next(0, Salle.list_AllRoom[randBottomOpeningRoom].Length)].Clone();
                     }
                 }
                 
                 //Creation de la salle du dessous
                 int randTypeRoom = rnd.Next(2, Salle.nbOfRoomTypes);
                 int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
-                matrixPattern[i+1, j] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
+                matrixPattern[i+1, j] = new Salle((string[,]) Salle.list_AllRoom[randTypeRoom][randRoomInThisType].Clone());
 
                 direction = rnd.Next(1, 6);
                 CriticalPathGen(direction, i+1, j, downCounter+1);
@@ -138,7 +138,7 @@ namespace LevelGen
                     {
                         int randTypeRoom = rnd.Next(0, Salle.nbOfRoomTypes);
                         int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
-                        matrixPattern[i, j] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
+                        matrixPattern[i, j] = new Salle((string[,]) Salle.list_AllRoom[randTypeRoom][randRoomInThisType].Clone());
                     }
                 }
             }
@@ -157,14 +157,14 @@ namespace LevelGen
                     {
                         for (int l = 0; l < 10; l++)
                         {
-                            /*//Ce blocs permet de creer les murs perspectives des bordures du jeu BUG: meme bug que le else de dessous
+                            //Ce blocs permet de creer les murs perspectives des bordures du jeu BUG: meme bug que le else de dessous
                             if (i == 0 && k == 0)
                             {
                                 if (matrixPattern[i, j].Pattern[k, l] != "W")
                                 {
                                     matrixPattern[i, j].Pattern[k, l] = "p";
                                 }
-                            }*/
+                            }
                             
                             if (matrixPattern[i,j].Pattern[k,l] == "W")
                             {
@@ -175,13 +175,13 @@ namespace LevelGen
                                         matrixPattern[i, j].Pattern[k + 1, l] = "p";
                                     }
                                 }
-                                /*else if (i+1 < matrixLength) // gen salle d'en dessous Todo: Demander de l'aide sur ce else au comportement TREEEEEEES etrange
+                                else if (i+1 < matrixLength) // gen salle d'en dessous Todo: Demander de l'aide sur ce else au comportement TREEEEEEES etrange
                                 {
                                     if (matrixPattern[i+1,j].Pattern[0,l] != "W")
                                     {
                                         matrixPattern[i + 1, j].Pattern[0, l] = "p";
                                     }
-                                }*/
+                                }
                             }
                         }
                     }
