@@ -50,11 +50,11 @@ TagManager:
   - name: Trap
     uniqueID: 3470673491
     locked: 0
-  - name: Chest
-    uniqueID: 3735703205
-    locked: 0
   - name: Unit
     uniqueID: 2688583641
+    locked: 0
+  - name: Chest
+    uniqueID: 3735703205
     locked: 0
   - name: Item
     uniqueID: 3141262533
