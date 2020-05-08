@@ -38,6 +38,10 @@ namespace LevelGen
                 {
                     type = 3;
                 }
+                else if (pattern == SPW0 || pattern == BTQ0 || pattern == EXIT0)
+                {
+                    type = 4;
+                }
             }
         }
 
@@ -72,10 +76,14 @@ namespace LevelGen
             {
                 type = 3;
             }
+            else if (pattern == SPW0 || pattern == BTQ0 || pattern == EXIT0)
+            {
+                type = 4;
+            }
         }
 
         //Prefab de Room
-        //W = wall / p = persp / n = ground / SEBlocks = spawn room ground blocks
+        //W = wall / p = persp / n = ground / SEBlocks = spawn room ground blocks / WoodG = Wood Ground
         //SpawnP1 = spawn player 1 / SpawnP2 = spawn player 2 / E = enemie
         //C = chest / T = trap / EXIT = exit
         //
@@ -121,16 +129,16 @@ namespace LevelGen
             {"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"}};
         //Boutique
         public static string[,] BTQ0 = //Todo: editer la boutique
-            {{"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"}};
+            {{"W", "W", "W", "WoodG", "WoodG", "WoodG", "WoodG", "W", "W", "W"},
+            {"W", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "W"},
+            {"W", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "W"},
+            {"WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG"},
+            {"WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG"},
+            {"WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG"},
+            {"WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG"},
+            {"W", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "W"},
+            {"W", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "WoodG", "W"},
+            {"W", "W", "W", "WoodG", "WoodG", "WoodG", "WoodG", "W", "W", "W"}};
 
         //##################### LR ####################
 
@@ -429,8 +437,10 @@ namespace LevelGen
             return m;
         }
 
-        //Type de Salle : 0 = LR / 1 = LRB / 2 = LRT / 3 = LRBT
+        //Type de Salle : 0 = LR / 1 = LRB / 2 = LRT / 3 = LRBT / 4 = Special rooms
         public static string[][,] list_SPW = {SPW0};
+        public static string[][,] list_EXIT = {EXIT0};
+        public static string[][,] list_BTQ = {BTQ0};
         public static string[][,] list_LR = {LR0(), LR1(), LR2(), LR3()};
         public static string[][,] list_LRB = {LRB0(), LRB1(), LRB2(), LRB3()};
         public static string[][,] list_LRT = {LRT0(), LRT1(), LRT2(), LRT3()};

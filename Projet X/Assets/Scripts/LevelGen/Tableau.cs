@@ -50,8 +50,9 @@ namespace LevelGen
         {
             if (i >= matrixLength - 1)
             {
-                matrixPattern[i, j].Pattern = (string[,]) Salle.EXIT0.Clone();
-                CompleteMatrix();
+                int randExit = rnd.Next(0, Salle.list_EXIT.Length);
+                matrixPattern[i, j].Pattern =  Salle.list_EXIT[randExit];
+                SpawnShop();
             }
             else if (direction == 1 || direction == 2) //bouge à droite
             {
@@ -125,9 +126,28 @@ namespace LevelGen
                 CriticalPathGen(direction, i+1, j, downCounter+1);
             }
         }
-        
-        
-        //Complete la matrice avec des salles aleatoires et appel la creation des murs persp
+
+        private void SpawnShop()
+        {
+            bool isSpawned = false;
+
+            while (!isSpawned)
+            {
+                int randI = rnd.Next(0, matrixLength);
+                int randJ = rnd.Next(0, matrixLength);
+
+                if (matrixPattern[randI, randJ] != null && matrixPattern[randI, randJ].Type != 4)
+                {
+                    int randShop = rnd.Next(0, Salle.list_BTQ.Length);
+                    matrixPattern[randI, randJ] = new Salle(Salle.list_BTQ[randShop]);
+
+                    isSpawned = true;
+                }
+            }
+            
+            CompleteMatrix();
+        }
+        //Complete la matrice avec des salles aleatoires et appelle la creation des murs persp
         private void CompleteMatrix()
         {
             for (int i = 0; i < matrixLength; i++)

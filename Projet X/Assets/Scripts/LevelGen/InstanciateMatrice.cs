@@ -31,6 +31,7 @@ public class InstanciateMatrice : MonoBehaviour
     //Blocs
     [Header("BLOCS")]
     public GameObject[] wall;
+    public GameObject[] woodground;
     public GameObject[] ground;
     public GameObject[] perpective;
     public GameObject[] seGround;
@@ -170,7 +171,14 @@ public class InstanciateMatrice : MonoBehaviour
                                 
                                 instanceTrap.transform.SetParent(boardHolderTrap);
                                 break;
-                                
+                            
+                            case "WoodG":
+                                rand = Random.Range(0, woodground.Length); //genere un nb random dans la liste des sols
+                                GameObject instanceWoodGround = Instantiate(woodground[rand], transform.position, Quaternion.identity);
+                            
+                                instanceWoodGround.transform.SetParent(boardHolderBlocks);
+                                break;
+
                             case "SpawnP1":
                                 InstanciateSeGround();
                                 GameObject instancePlayer1 = Instantiate(player1, transform.position, Quaternion.identity);
