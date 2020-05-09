@@ -29,7 +29,7 @@ public class Multimvt : MonoBehaviour
 
 	void Shoot()
 	{
-
+		shootpos.Rotate(new Vector3(0,0,90f * Input.GetAxis("Horizontal2")),Space.Self);
 
 		if (Input.GetKeyDown(KeyCode.M))
 		{

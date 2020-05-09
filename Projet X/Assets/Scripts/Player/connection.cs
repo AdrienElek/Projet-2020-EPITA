@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 //AUTHOR: Mathis Guilbaud
 
@@ -21,14 +22,14 @@ public class connection : MonoBehaviour
 		WWWForm form = new WWWForm();
 		form.AddField("player_name", player_name);
 		form.AddField("score", score);
-		WWW www = new WWW("http://www.projets2dungeon.site/score.php", form);
+		UnityWebRequest www = UnityWebRequest.Post("http://www.projets2dungeon.site/score.php", form);
 		yield return www;
-		if (www.text == "0")
+		if (www.isHttpError || www.isNetworkError)
 		{
-			Debug.Log("score sended successfully");
+			Debug.Log("score send failed with error code: " + www.error);
 		}
 		else {
-			Debug.Log("score send failed with error code " + www.text);
+			Debug.Log("score sended successfully");
 		}
 	}
 
