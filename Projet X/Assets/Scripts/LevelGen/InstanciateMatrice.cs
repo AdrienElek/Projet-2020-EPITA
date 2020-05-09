@@ -209,8 +209,8 @@ public class InstanciateMatrice : MonoBehaviour
                                 Debug.Log(toInstanciate.matrixPattern[i, j].Pattern[k, l] + " // " + toInstanciate.matrixPattern[i,j].Type);
                                 throw new Exception("Un objets(char) du pattern d'une salle de la classe Salle existe mais n'a pas encore été défini dans InstanciateMatrice" +
                                                     " OU un objet du GameObject levelGeneration de la scène est  manquant");
-                                InstanciateGround();
-                                break;
+                                /*InstanciateGround();
+                                break;*/
                         }
                     }
                 }

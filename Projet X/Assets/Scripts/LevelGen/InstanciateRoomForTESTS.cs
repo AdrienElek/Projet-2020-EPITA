@@ -108,8 +108,8 @@ public class InstanciateRoomForTESTS : MonoBehaviour
                     
                     default:
                         throw new Exception("Un objets(char) du pattern d'une salle de la classe Salle existe mais n'a pas encore été défini dans InstanciateMatrice");
-                        InstanciateGround();
-                        break;
+                        /*InstanciateGround();
+                        break;*/
                 }
             }
         }
