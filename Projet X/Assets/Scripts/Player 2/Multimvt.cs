@@ -9,7 +9,6 @@ public class Multimvt : MonoBehaviour
 	[SerializeField] private float movespeed = 8f;
 	[SerializeField] private float dashforce = 10f;
 	private Rigidbody2D rb;
-	Vector2 move;
 	[SerializeField] private GameObject projectile;
 	[SerializeField]private Transform shootpos;
 	[SerializeField] private float shootspeed = 20f;
@@ -20,11 +19,20 @@ public class Multimvt : MonoBehaviour
 	}
 	private void Move()
 	{
-		move.x = Input.GetAxisRaw("Horizontal2");
-		move.y = Input.GetAxisRaw("Vertical2");
-	}
-	private void Mvtupdate() {
-		rb.MovePosition(rb.position + move * movespeed * Time.fixedDeltaTime);
+		if (Input.GetAxisRaw("Horizontal2") > 0.5f || Input.GetAxisRaw("Horizontal2") < -0.5f) {
+			rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal2") * movespeed * Time.deltaTime,rb.velocity.y);
+		}
+		if (Input.GetAxisRaw("Vertical2") > 0.5f || Input.GetAxisRaw("Vertical2") < -0.5) {
+			rb.velocity = new Vector2(rb.velocity.x,Input.GetAxisRaw("Vertical2") * movespeed * Time.deltaTime);
+		}
+		if (Input.GetAxisRaw("Horizontal2") < 0.5f && Input.GetAxisRaw("Horizontal2") > -0.5f)
+		{
+			rb.velocity = new Vector2(0f, rb.velocity.y);
+		}
+		if (Input.GetAxisRaw("Vertical2") < 0.5f && Input.GetAxisRaw("Vertical2") > -0.5)
+		{
+			rb.velocity = new Vector2(rb.velocity.x, 0f);
+		}
 	}
 
 	void Shoot()
@@ -64,8 +72,5 @@ public class Multimvt : MonoBehaviour
 		Shoot();
 		Dash();
 	}
-	private void FixedUpdate()
-	{
-		Mvtupdate();
-	}
+
 }

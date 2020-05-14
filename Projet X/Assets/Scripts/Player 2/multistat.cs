@@ -19,14 +19,22 @@ public class multistat : MonoBehaviour
 			return hp;
 		}
 		set {
-			if (hp < 0) Destroy(instance);
-			else if (hp > maxhp) hp = maxhp;
+			if (value < 0) hp = 0;
+			else if (value > maxhp) hp = maxhp;
+			else hp = value;
 		}
 	}
 	private int damage {
 		get {
 			return damage;
 		}
+		set {
+			damage = value;
+		}
+	}
+	public void takedamage(int damage) {
+		hp -= damage;
+		if (hp == 0) Destroy(instance);
 	}
 	
 }
