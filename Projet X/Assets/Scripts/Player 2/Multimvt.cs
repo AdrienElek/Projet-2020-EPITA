@@ -37,8 +37,14 @@ public class Multimvt : MonoBehaviour
 
 	void Shoot()
 	{
+		Quaternion rot = Quaternion.Euler(0,0,0);
+		if (Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0,0,-90);
+		if (Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0,0,90);
+		if (Input.GetKey(KeyCode.DownArrow)) rot = Quaternion.Euler(0,0,180);
+		shootpos.rotation = rot;
 		if (Input.GetKeyDown(KeyCode.M))
 		{
+
 			
 			float x = Input.GetAxisRaw("Horizontal2") * shootspeed;
 			float y = Input.GetAxisRaw("Vertical2") * shootspeed;
