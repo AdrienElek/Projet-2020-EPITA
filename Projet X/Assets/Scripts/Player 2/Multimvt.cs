@@ -37,10 +37,9 @@ public class Multimvt : MonoBehaviour
 
 	void Shoot()
 	{
-
 		if (Input.GetKeyDown(KeyCode.M))
 		{
-
+			
 			float x = Input.GetAxisRaw("Horizontal2") * shootspeed;
 			float y = Input.GetAxisRaw("Vertical2") * shootspeed;
 			if (x == 0 && y == 0) {
@@ -49,11 +48,14 @@ public class Multimvt : MonoBehaviour
 			}
 
 			GameObject proj = Instantiate(projectile, shootpos.position, shootpos.rotation);
+			BoxCollider2D projbc = proj.GetComponent<BoxCollider2D>();
 			Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
 			projrb.velocity = new Vector2(x, y);
 			Destroy(proj, 5);
 		}
+
 	}
+	
 
 
 	void Dash()

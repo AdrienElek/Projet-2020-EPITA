@@ -14,27 +14,27 @@ public class multistat : MonoBehaviour
 		instance = GetComponent<GameObject>();
 	}
 
-	private int hp {
-		get {
-			return hp;
-		}
-		set {
-			if (value < 0) hp = 0;
-			else if (value > maxhp) hp = maxhp;
-			else hp = value;
-		}
-	}
-	private int damage {
-		get {
-			return damage;
-		}
-		set {
-			damage = value;
+	private int Hp
+	{
+		get => Hp;
+		set
+		{
+			if (value < 0)
+			{
+				Hp = 0;
+			}
+			else if (value > maxhp) Hp = maxhp;
+			else Hp = value;
 		}
 	}
-	public void takedamage(int damage) {
-		hp -= damage;
-		if (hp == 0) Destroy(instance);
+	private int Damage
+	{
+		get => Damage;
+		set => Damage = value;
+	}
+	public void Takedamage(int damage) {
+		Hp -= damage;
+		if (Hp == 0) Destroy(instance);
 	}
 	
 }
