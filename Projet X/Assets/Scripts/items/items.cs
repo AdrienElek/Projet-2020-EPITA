@@ -4,7 +4,7 @@ using UnityEngine;
 
 //AUTHOR: mathis GUILBAUD
 
-public class Objects : MonoBehaviour
+public class Items : MonoBehaviour
 {
 	
 
