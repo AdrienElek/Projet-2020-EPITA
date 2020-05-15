@@ -9,6 +9,7 @@ public class Multimvt : MonoBehaviour
 	[SerializeField] private float movespeed = 8f;
 	[SerializeField] private float dashforce = 10f;
 	private Rigidbody2D rb;
+	private Animator anim;
 	[SerializeField] private GameObject projectile;
 	[SerializeField]private Transform shootpos;
 	[SerializeField] private float shootspeed = 20f;
@@ -16,6 +17,7 @@ public class Multimvt : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 	}
 	private void Move()
 	{
@@ -76,6 +78,8 @@ public class Multimvt : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		anim.SetFloat("MoveX",Input.GetAxisRaw("Horizontal2"));
+		anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical2"));
 		Move();
 		Shoot();
 		Dash();
