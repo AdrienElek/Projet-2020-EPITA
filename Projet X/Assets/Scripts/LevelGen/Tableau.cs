@@ -14,15 +14,39 @@ namespace LevelGen
         public Salle[,] matrixPattern;
 
         //constructeur
-        public Tableau(int matrixLength)
+        public Tableau(int matrixLength, bool isBoss)
         {
-            this.matrixLength = matrixLength;
-            matrixPattern = new Salle[this.matrixLength,this.matrixLength];
-            MatrixGeneration();
+            if (!isBoss)
+            {
+                this.matrixLength = matrixLength;
+                matrixPattern = new Salle[this.matrixLength,this.matrixLength];
+                MatrixGeneration();
+            }
+            else
+            {
+                this.matrixLength = 2;
+                matrixPattern = new Salle[this.matrixLength, this.matrixLength];
+                BossRoom();
+            }
         }
 
         //Methodes
-        
+
+        public void BossRoom()
+        {
+            for (int i = 0; i < matrixLength; i++)
+            {
+                for (int j = 0; j < matrixLength; j++)
+                {
+                    matrixPattern[i,j] = new Salle((string[,]) Salle.EMPTY.Clone());
+                }
+            }
+
+            matrixPattern[1, 1].Pattern[5, 5] = "BOSS";
+            matrixPattern[0, 0].Pattern[5, 4] = "SpawnP1";
+            matrixPattern[0, 0].Pattern[5, 6] = "SpawnP2";
+            SpawnPerspective();
+        }
         //creer le spawn et lance la generation du critical path
         public void MatrixGeneration()
         {

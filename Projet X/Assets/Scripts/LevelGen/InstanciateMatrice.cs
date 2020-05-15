@@ -20,7 +20,8 @@ public class InstanciateMatrice : MonoBehaviour
         return rand;
     }
     private float distanceBtwRooms = 10;
-    public bool generateMatrix;
+    public int level;
+    public bool generateMatrix; //TODO : suppr ca
     
     //boardHolders
     private Transform boardHolderBlocks; //va permettre de creer des dossiers et hierarchiser
@@ -41,6 +42,7 @@ public class InstanciateMatrice : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
     public GameObject[] enemie;
+    public GameObject[] boss;
 
     //Traps
     [Header("PIEGES")]
@@ -58,13 +60,31 @@ public class InstanciateMatrice : MonoBehaviour
     {
         if (generateMatrix) //Todo: Supprimer ce bool qui sert uniquement pour decider si on veut gen une salleTest ou le tableau de jeu
         {
-            GenerateGameBoard();
+            GenerateLevels();
         }
     }
 
+    public void GenerateLevels()
+    {
+        if (level % 3 == 0)
+        {
+            GenerateBossRoom();
+        }
+        else
+        {
+            GenerateGameBoard();
+        }
+        level += 1;
+    }
+
+    public void GenerateBossRoom()
+    {
+        Tableau bossLvl = new Tableau(4, true);
+        InstanceTableau(bossLvl);
+    }
     public void GenerateGameBoard()
     {
-        Tableau gameBoard = new Tableau(matrixLength());
+        Tableau gameBoard = new Tableau(matrixLength(), false);
         InstanceTableau(gameBoard);
     }
 
@@ -204,7 +224,13 @@ public class InstanciateMatrice : MonoBehaviour
                                 instanceExit.transform.SetParent(boardHolderOther);
                                 break;
                             
-                            
+                            case "BOSS":
+                                InstanciateGround();
+                                rand = Random.Range(0, boss.Length);
+                                GameObject instanceBoss = Instantiate(boss[rand], transform.position, Quaternion.identity);
+                                
+                                instanceBoss.transform.SetParent(boardHolderEntities);
+                                break;
                             default:
                                 Debug.Log(toInstanciate.matrixPattern[i, j].Pattern[k, l] + " // " + toInstanciate.matrixPattern[i,j].Type);
                                 throw new Exception("Un objets(char) du pattern d'une salle de la classe Salle existe mais n'a pas encore été défini dans InstanciateMatrice" +
