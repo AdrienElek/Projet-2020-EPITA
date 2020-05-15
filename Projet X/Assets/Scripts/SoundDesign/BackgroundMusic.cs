@@ -9,7 +9,7 @@ public class BackgroundMusic : MonoBehaviour
     
     public AudioClip[] backgroundMusicList;
     public AudioSource source;
-    private int PreviousMusicInt;
+    private int PreviousMusicInt = -1;
     private float newClip;
     private float timer;
 
