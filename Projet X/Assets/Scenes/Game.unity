@@ -1368,7 +1368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d1c7721f3b12d4890fc7cb31940740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AverageMatrixLength: 8
+  AverageMatrixLength: 3
   level: 1
   generateMatrix: 1
   wall:

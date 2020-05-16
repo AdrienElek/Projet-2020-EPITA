@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using Random = System.Random;
 
 //AUTHOR : Alexandre GAUTIER
@@ -38,7 +39,7 @@ namespace LevelGen
             {
                 for (int j = 0; j < matrixLength; j++)
                 {
-                    matrixPattern[i,j] = new Salle((string[,]) Salle.EMPTY.Clone());
+                    matrixPattern[i,j] = new Salle(Salle.EMPTY);
                 }
             }
 
@@ -56,7 +57,7 @@ namespace LevelGen
 
             //Place le spawn
             int rand = rnd.Next(0, Salle.list_SPW.Length);
-            matrixPattern[0, startingPos] = new Salle((string[,]) Salle.list_SPW[rand].Clone());
+            matrixPattern[0, startingPos] = new Salle(Salle.list_SPW[rand]);
             
             /* direction dans laquelle gen les salles :
             - 1 et 2 -> spawn a droite
@@ -75,7 +76,7 @@ namespace LevelGen
             if (i >= matrixLength - 1)
             {
                 int randExit = rnd.Next(0, Salle.list_EXIT.Length);
-                matrixPattern[i, j].Pattern =  Salle.list_EXIT[randExit];
+                matrixPattern[i, j] =  new Salle(Salle.list_EXIT[randExit]);
                 SpawnShop();
             }
             else if (direction == 1 || direction == 2) //bouge à droite
@@ -84,7 +85,7 @@ namespace LevelGen
                 {
                     int randTypeRoom = rnd.Next(0, Salle.nbOfRoomTypes-1);
                     int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
-                    matrixPattern[i, j + 1] = new Salle((string[,]) Salle.list_AllRoom[randTypeRoom][randRoomInThisType].Clone());
+                    matrixPattern[i, j + 1] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
                     
                     direction = rnd.Next(1,6);
                     //si le prochaine direction est gauche, conflit! La gen ferai droite gauche et stackerai 2 salles
@@ -110,7 +111,7 @@ namespace LevelGen
                 {
                     int randTypeRoom = rnd.Next(0, Salle.nbOfRoomTypes);
                     int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
-                    matrixPattern[i, j - 1] = new Salle((string[,]) Salle.list_AllRoom[randTypeRoom][randRoomInThisType].Clone());
+                    matrixPattern[i, j - 1] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
 
                     direction = rnd.Next(3, 6);
 
@@ -128,7 +129,7 @@ namespace LevelGen
                 {
                     if (downCounter >= 1)
                     {
-                        matrixPattern[i, j].Pattern = (string[,]) Salle.list_LRBT[rnd.Next(0, Salle.list_LRBT.Length)].Clone();
+                        matrixPattern[i, j] = new Salle(Salle.list_LRBT[rnd.Next(0, Salle.list_LRBT.Length)]);
                     }
                     else
                     {
@@ -137,14 +138,14 @@ namespace LevelGen
                         {
                             randBottomOpeningRoom = 1;
                         }
-                        matrixPattern[i,j].Pattern = (string[,]) Salle.list_AllRoom[randBottomOpeningRoom][rnd.Next(0, Salle.list_AllRoom[randBottomOpeningRoom].Length)].Clone();
+                        matrixPattern[i,j] = new Salle(Salle.list_AllRoom[randBottomOpeningRoom][rnd.Next(0, Salle.list_AllRoom[randBottomOpeningRoom].Length)]);
                     }
                 }
                 
                 //Creation de la salle du dessous
                 int randTypeRoom = rnd.Next(2, Salle.nbOfRoomTypes);
                 int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
-                matrixPattern[i+1, j] = new Salle((string[,]) Salle.list_AllRoom[randTypeRoom][randRoomInThisType].Clone());
+                matrixPattern[i+1, j] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
 
                 direction = rnd.Next(1, 6);
                 CriticalPathGen(direction, i+1, j, downCounter+1);
@@ -182,7 +183,7 @@ namespace LevelGen
                     {
                         int randTypeRoom = rnd.Next(0, Salle.nbOfRoomTypes);
                         int randRoomInThisType = rnd.Next(0, Salle.list_AllRoom[randTypeRoom].Length);
-                        matrixPattern[i, j] = new Salle((string[,]) Salle.list_AllRoom[randTypeRoom][randRoomInThisType].Clone());
+                        matrixPattern[i, j] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
                     }
                 }
             }
