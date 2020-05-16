@@ -13,6 +13,7 @@ public class PlayerMouvement : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 mouvement;
     float moveSpeed = 5f;
+    public PlayerStat Player = new PlayerStat(5,5);
     
     /*
     public Camera cam;
@@ -32,6 +33,7 @@ public class PlayerMouvement : MonoBehaviour
     {
         Mouvement();
        // MousePosition();
+       Use();
     }
     
         
@@ -40,6 +42,14 @@ public class PlayerMouvement : MonoBehaviour
         mouvement.x = Input.GetAxisRaw("Horizontal");
         mouvement.y = Input.GetAxisRaw("Vertical");
          
+    }
+
+    private void Use()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            Player.Use(ref Player);
+        }
     }
     /*
     private void MousePosition()
