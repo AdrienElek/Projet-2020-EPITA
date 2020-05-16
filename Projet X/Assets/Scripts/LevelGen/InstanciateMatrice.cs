@@ -13,7 +13,7 @@ public class InstanciateMatrice : MonoBehaviour
 {
     //Parametres
     [Header("PARAMETRES")]
-    public int AverageMatrixLength; //la taille de matrice ne doit pas être inferieur à 3
+    public int AverageMatrixLength; //la taille de matrice ne DOIT PAS être inferieur à 3
     private int matrixLength() //Genere une map de taille +- 1 par rapport à Averagematrixlength
     {
         int rand = Random.Range(AverageMatrixLength-1, AverageMatrixLength+2);
@@ -21,10 +21,9 @@ public class InstanciateMatrice : MonoBehaviour
     }
     private float distanceBtwRooms = 10;
     public int level;
-    public bool generateMatrix; //TODO : suppr ca
-    
+
     //boardHolders
-    private Transform boardHolderBlocks; //va permettre de creer des dossiers et hierarchiser
+    private Transform boardHolderBlocks;
     private Transform boardHolderEntities;
     private Transform boardHolderOther;
     private Transform boardHolderTrap;
@@ -54,16 +53,14 @@ public class InstanciateMatrice : MonoBehaviour
     public GameObject exit;
     public GameObject[] chest;
 
-
-    //Execute quand play est cliqué
+    
     void Start()
     {
-        if (generateMatrix) //Todo: Supprimer ce bool qui sert uniquement pour decider si on veut gen une salleTest ou le tableau de jeu
-        {
-            GenerateLevels();
-        }
+        GenerateLevels();
     }
 
+    
+    //Choisi le Spawn d'un niveau Normal Ou niveau Boss
     public void GenerateLevels()
     {
         if (level % 3 == 0)
@@ -72,24 +69,27 @@ public class InstanciateMatrice : MonoBehaviour
         }
         else
         {
-            GenerateGameBoard();
+            GenerateNormalLevel();
         }
         level += 1;
     }
-
+    
+    
+    //Preset pour les niveaux normaux et Boss
     public void GenerateBossRoom()
     {
         Tableau bossLvl = new Tableau(4, true);
-        InstanceTableau(bossLvl);
+        GameBoardGeneration(bossLvl);
     }
-    public void GenerateGameBoard()
+    public void GenerateNormalLevel()
     {
         Tableau gameBoard = new Tableau(matrixLength(), false);
-        InstanceTableau(gameBoard);
+        GameBoardGeneration(gameBoard);
     }
 
+    
     //Methode qui instancie chaque bloc de la map selon le charactere aux indexes dans la matrice gameBoard
-    private void InstanceTableau(Tableau toInstanciate)
+    private void GameBoardGeneration(Tableau toInstanciate)
     {
         //Listes boardHolder
         boardHolderBlocks = new GameObject ("BoardBlocks").transform;
@@ -97,7 +97,8 @@ public class InstanciateMatrice : MonoBehaviour
         boardHolderOther = new GameObject("BoardOther").transform;
         boardHolderTrap = new GameObject("BoardTrap").transform;
         
-
+        
+        //Methode qui instancie des blocs souvent instanciés -> evite les répétitions de code
         void InstanciateWall()
         {
             int rand = Random.Range(0, wall.Length); //genere un nb random dans la liste des sols
@@ -106,7 +107,6 @@ public class InstanciateMatrice : MonoBehaviour
             instanceWall.transform.SetParent(boardHolderBlocks);
         }
         
-        //Instancie Le sol (Methode mise a l'ecart pour plus de clarte)
         void InstanciateGround()
         {
             int rand = Random.Range(0, ground.Length);
@@ -133,13 +133,11 @@ public class InstanciateMatrice : MonoBehaviour
                 {
                     for (int l = 0; l < 10; l++)
                     {
-                        //Position ou instancier, la matrice se lit differement que les cases du tableau, ce qui explique ces coord
+                        //Position ou instancier, la matrice se lit differement que les cases du tableau, ce qui explique ces coordonnées
                         Vector2 blocPos = new Vector2(j*distanceBtwRooms + l, -i*distanceBtwRooms - k);
                         transform.position = blocPos;
                         
-                        /*On instancie le bloc selon le char dans la matrice :
-                        W = wall / p = persp / g = ground / C = chest / E = enemie / n = rien
-                        S = Spawn */
+                        //On instancie le bloc selon les string de la matrice de matrice:
                         int rand;
                         switch (toInstanciate.matrixPattern[i, j].Pattern[k, l])
                         {
@@ -233,10 +231,9 @@ public class InstanciateMatrice : MonoBehaviour
                                 break;
                             default:
                                 Debug.Log(toInstanciate.matrixPattern[i, j].Pattern[k, l] + " // " + toInstanciate.matrixPattern[i,j].Type);
-                                throw new Exception("Un objets(char) du pattern d'une salle de la classe Salle existe mais n'a pas encore été défini dans InstanciateMatrice" +
-                                                    " OU un objet du GameObject levelGeneration de la scène est  manquant");
-                                /*InstanciateGround();
-                                break;*/
+                                throw new Exception(
+                                    "Un objets(char) du pattern d'une salle de la classe Salle existe mais n'a pas encore été défini dans InstanciateMatrice" +
+                                    " OU un objet du GameObject levelGeneration de la scène est  manquant");
                         }
                     }
                 }

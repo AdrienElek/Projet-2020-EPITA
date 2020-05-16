@@ -8,9 +8,11 @@ namespace LevelGen
 {
     public class Salle
     {
+        //Propriétés
         private int type;
         private string[,] pattern;
-
+        
+        //Get/Set
         public int Type
         {
             get { return type; }
@@ -45,7 +47,8 @@ namespace LevelGen
             }
         }
 
-        //Génération d'aléatoire dans les salles
+        
+        //Outils pour la génération aléatoire dans les salles
         private static Random rnd = new Random();
 
         private static string RandomObjectGen(string[] objectList)
@@ -55,7 +58,9 @@ namespace LevelGen
 
             return objectList[rndIndex];
         }
-
+        
+        
+        //Constructeur
         public Salle(string[,] pattern)
         {
             this.pattern = (string[,]) pattern.Clone();
@@ -82,9 +87,10 @@ namespace LevelGen
             }
         }
 
+        
         //Prefab de Room
         //W = wall / p = persp / n = ground / SEBlocks = spawn room ground blocks / WoodG = Wood Ground
-        //SpawnP1 = spawn player 1 / SpawnP2 = spawn player 2 / E = enemie
+        //SpawnP1 = spawn player 1 / SpawnP2 = spawn player 2 / E = enemie / BOSS = boss
         //C = chest / T = trap / EXIT = exit
         //
 
@@ -127,6 +133,7 @@ namespace LevelGen
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "EXIT", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"}};
+        
         //Boutique
         public static string[,] BTQ0 = //Todo: editer la boutique
             {{"W", "W", "W", "WoodG", "WoodG", "WoodG", "WoodG", "W", "W", "W"},

@@ -8,20 +8,21 @@ namespace LevelGen
 {
     public class Tableau
     {
+        //Random
         private static Random rnd = new Random();
         
-        //attributs
+        //Propriétés
         public int matrixLength;
         public Salle[,] matrixPattern;
 
-        //constructeur
+        //Constructeur
         public Tableau(int matrixLength, bool isBoss)
         {
             if (!isBoss)
             {
                 this.matrixLength = matrixLength;
                 matrixPattern = new Salle[this.matrixLength,this.matrixLength];
-                MatrixGeneration();
+                NormalLevel();
             }
             else
             {
@@ -31,8 +32,9 @@ namespace LevelGen
             }
         }
 
-        //Methodes
-
+        //############ Methodes ############
+        
+        //Creation de Salle de Boss
         public void BossRoom()
         {
             for (int i = 0; i < matrixLength; i++)
@@ -48,10 +50,12 @@ namespace LevelGen
             matrixPattern[0, 0].Pattern[5, 6] = "SpawnP2";
             SpawnPerspective();
         }
-        //creer le spawn et lance la generation du critical path
-        public void MatrixGeneration()
+        
+        //Création de Salle Normal
+        //Creer le spawn et lance la generation du critical path
+        public void NormalLevel()
         {
-            /*selectionne position de depart rdm parmis pos les plus en haut,
+            /*selectionne position de depart rdm parmi les pos les plus en hautes,
             on enleve les extrémités pour par que la direction devienne 5 (en bas) et remplace le spawn*/
             int startingPos = rnd.Next(1, matrixLength-1);
 
@@ -67,11 +71,11 @@ namespace LevelGen
             int direction = rnd.Next(1, 5); //de 1 a 4 pour ne pas aller en bas et remplacer le spawn
 
             //appelle la fct qui va creer le critical path
-            CriticalPathGen(direction, 0, startingPos, 0);
+            CriticalPath(direction, 0, startingPos, 0);
         }
         
         //génère le critical path et appel la completion de la matrice
-        private void CriticalPathGen(int direction, int i, int j, int downCounter)
+        private void CriticalPath(int direction, int i, int j, int downCounter)
         {
             if (i >= matrixLength - 1)
             {
@@ -98,11 +102,11 @@ namespace LevelGen
                         direction = 5;
                     }
 
-                    CriticalPathGen(direction, i, j + 1, 0);
+                    CriticalPath(direction, i, j + 1, 0);
                 }
                 else //si la prochaine pos et collé à Xmax on est obligé de descendre
                 {
-                    CriticalPathGen(5, i, j, downCounter);
+                    CriticalPath(5, i, j, downCounter);
                 }
             }
             else if (direction == 3 || direction == 4) //bouge à gauche
@@ -115,11 +119,11 @@ namespace LevelGen
 
                     direction = rnd.Next(3, 6);
 
-                    CriticalPathGen(direction, i, j - 1, 0);
+                    CriticalPath(direction, i, j - 1, 0);
                 }
                 else //si la prochaine pos et collé à Xmin on est obligé de descendre pour rester dans les limites
                 {
-                    CriticalPathGen(5, i, j, downCounter);
+                    CriticalPath(5, i, j, downCounter);
                 }
             }
             else if (direction == 5) //bouge en bas
@@ -148,10 +152,12 @@ namespace LevelGen
                 matrixPattern[i+1, j] = new Salle(Salle.list_AllRoom[randTypeRoom][randRoomInThisType]);
 
                 direction = rnd.Next(1, 6);
-                CriticalPathGen(direction, i+1, j, downCounter+1);
+                CriticalPath(direction, i+1, j, downCounter+1);
             }
         }
 
+        
+        //Place le Shop sur le critical Path
         private void SpawnShop()
         {
             bool isSpawned = false;
@@ -172,7 +178,9 @@ namespace LevelGen
             
             CompleteMatrix();
         }
-        //Complete la matrice avec des salles aleatoires et appelle la creation des murs persp
+        
+        
+        //Complete la matrice avec des salles aleatoires
         private void CompleteMatrix()
         {
             for (int i = 0; i < matrixLength; i++)
@@ -191,7 +199,8 @@ namespace LevelGen
             SpawnPerspective();
         }
 
-        //Place les murs perspectives BUG: else
+        
+        //Place les murs perspectives
         private void SpawnPerspective()
         {
             for (int i = 0; i < matrixLength; i++)
