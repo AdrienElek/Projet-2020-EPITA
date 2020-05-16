@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5773542628156492681}
   - component: {fileID: 4784148900333354807}
   m_Layer: 0
-  m_Name: speedup
-  m_TagString: Untagged
+  m_Name: armor
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -1153704763
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2347619c028bdfb48b2a19a7a18bf637, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ec5e8e694bc3334db32778bebfd01e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.25, y: 1.19}
+    oldSize: {x: 1.92, y: 1.92}
     newSize: {x: 1.25, y: 1.19}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -121,4 +121,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e4f27775ca9a7488170d0470bcbac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objet: {fileID: 667017651201807881}

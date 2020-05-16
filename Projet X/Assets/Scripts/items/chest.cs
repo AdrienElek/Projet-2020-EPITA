@@ -16,11 +16,11 @@ public class chest : MonoBehaviour
 		return obj[x];
 	}
 
-	private void Update()
-	{
+	public void TakeDamage(int damage) {
+		Hp -= damage;
 		if (Hp <= 0) {
 			Destroy(Chest);
-			Instantiate(Content(),pos.position,pos.rotation);
+			Instantiate(Content(), pos.position, pos.rotation);
 		}
 	}
 }
