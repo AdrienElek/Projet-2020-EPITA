@@ -180,7 +180,7 @@ namespace LevelGen
             {"n", "n", RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n", "n", "n"},
             {"n", "n", "W", "W", "W", RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n"},
             {"n", "n", "n", "n", "W", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "T", "n", "n", "n", "n", "n", "n", "n"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"W", "W", "W", "n", "n", "n", "n", "n", "W", "W"}};
@@ -220,7 +220,7 @@ namespace LevelGen
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", RandomObjectGen(new[] {"E", "n"}), "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "W", "W"},
+            {"n", "n", "n", "n", "T", "n", "n", "n", "W", "W"},
             {"W", "W", "W", "n", "n", "n", "n", "n", "W", "W"},
             {"W", "W", "W", "n", "n", "n", "n", "n", "W", "W"}};
 
@@ -243,7 +243,7 @@ namespace LevelGen
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n"},
             {"n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "T", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "W", "n", "n", "n", "n", "n", "n", "W", "W"}};
@@ -255,7 +255,7 @@ namespace LevelGen
         {
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"n", "n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n"},
-            {"n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), "W", "n", "n"},
+            {"n", "T", "n", "n", RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), "W", "n", "n"},
             {"n", "n", "W", "n", RandomObjectGen(new[] {"W", "n"}), "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), "n", "n"},
             {"n", RandomObjectGen(new[] {"E", "n"}), "n", "n", "n", "n", RandomObjectGen(new[] {"W", "n"}), RandomObjectGen(new[] {"W", "n"}), "n", "n"},
@@ -282,7 +282,7 @@ namespace LevelGen
             {"W", "n", "n", "n", "n", "W", "W", "W", "n", "W"},
             {"n", "n", "n", "n", "n", "W", "n", "n", "n", "n"},
             {"n", "n", RandomObjectGen(new[] {"E", "n"}), "n", "n", "n", "n", "n", "n", "n"},
-            {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
+            {"n", "n", "n", "n", "n", "n", "n", "T", "n", "n"},
             {"W", "W", "W", "W", "W", "n", "n", "n", "n", "n"},
             {"W", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"W", RandomObjectGen(new[] {"C", "n", "n", "n", "n", "n"}), "n", "n", "n", "n", "n", "n", "n", "W"},
@@ -309,7 +309,7 @@ namespace LevelGen
             {"n", "n", "n", "n", "n", "W", "n", "n", "n", "n"},
             {"n", "n", "W", "W", "W", "W", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "W", "W", "W", RandomObjectGen(new[] {"W", "n"}), "n", "n"},
-            {"n", "n", "n", "n", "W", "n", "n", "n", "n", "n"},
+            {"n", "n", "T", "n", "W", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"},
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "W"},
             {"W", "W", "W", "n", "n", "n", "n", "W", "W", "W"}};

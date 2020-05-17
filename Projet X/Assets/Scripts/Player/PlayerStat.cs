@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 //AUTHOR LEO FERRETTI
+
 public class PlayerStat : MonoBehaviour
 {
     public bool isAlive;

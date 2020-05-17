@@ -1280,8 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d1c7721f3b12d4890fc7cb31940740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AverageMatrixLength: 8
-  level: 1
+  AverageMatrixLength: 4
   wall:
   - {fileID: 5671061912286886151, guid: 593e1cd9387a8be40bf7724fc76377c1, type: 3}
   - {fileID: 6466700756109946105, guid: 3dcf883234aea4c43923bb17c4917983, type: 3}

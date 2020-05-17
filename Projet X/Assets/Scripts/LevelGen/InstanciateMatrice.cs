@@ -20,13 +20,14 @@ public class InstanciateMatrice : MonoBehaviour
         return rand;
     }
     private float distanceBtwRooms = 10;
-    public int level;
+    private int level = 1;
+    public static bool genLevel; //permet de generer un nouveau niveau quand le joueur touche la sortie
 
     //boardHolders
-    private Transform boardHolderBlocks;
-    private Transform boardHolderEntities;
-    private Transform boardHolderOther;
-    private Transform boardHolderTrap;
+    public static Transform boardHolderBlocks;
+    public static Transform boardHolderEntities;
+    public static Transform boardHolderOther;
+    public static Transform boardHolderTrap;
     
     //Blocs
     [Header("BLOCS")]
@@ -59,10 +60,18 @@ public class InstanciateMatrice : MonoBehaviour
         GenerateLevels();
     }
 
-    
+    private void Update()
+    {
+        if (genLevel)
+        {
+            GenerateLevels();
+        }
+    }
+
     //Choisi le Spawn d'un niveau Normal Ou niveau Boss
     public void GenerateLevels()
     {
+        
         if (level % 3 == 0)
         {
             GenerateBossRoom();
@@ -71,10 +80,11 @@ public class InstanciateMatrice : MonoBehaviour
         {
             GenerateNormalLevel();
         }
+
+        genLevel = false;
         level += 1;
     }
-    
-    
+
     //Preset pour les niveaux normaux et Boss
     public void GenerateBossRoom()
     {
@@ -86,8 +96,8 @@ public class InstanciateMatrice : MonoBehaviour
         Tableau gameBoard = new Tableau(matrixLength(), false);
         GameBoardGeneration(gameBoard);
     }
-
     
+
     //Methode qui instancie chaque bloc de la map selon le charactere aux indexes dans la matrice gameBoard
     private void GameBoardGeneration(Tableau toInstanciate)
     {
@@ -96,8 +106,7 @@ public class InstanciateMatrice : MonoBehaviour
         boardHolderEntities = new GameObject("BoardEntities").transform;
         boardHolderOther = new GameObject("BoardOther").transform;
         boardHolderTrap = new GameObject("BoardTrap").transform;
-        
-        
+
         //Methode qui instancie des blocs souvent instanciés -> evite les répétitions de code
         void InstanciateWall()
         {
