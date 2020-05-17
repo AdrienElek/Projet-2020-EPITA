@@ -16,6 +16,7 @@ public class BackgroundMusic : MonoBehaviour
     void Start()
     {
         source = gameObject.AddComponent<AudioSource>();
+        source.volume = 0.09f;
     }
 
     void Update()
