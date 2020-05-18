@@ -30,9 +30,17 @@ public class multistat : MonoBehaviour
 	private int damage;
 	public int Damage
 	{
-		get => damage;
+		get { if (Random.Range(0, 10) == 5) return (damage * 2);
+			else return damage;
+		}
 		set => damage = value;
 	}
 
+	public void TakeDamage(int degat) {
+		if (Random.Range(0, 10) == 10)
+			hp -= degat * 2;
+		else
+			hp -= degat;
+	}
 	
 }
