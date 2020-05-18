@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Win32.SafeHandles;
 using UnityEngine;
 
 public enum EnemyState
@@ -7,6 +8,8 @@ public enum EnemyState
     Wander,
     
     Follow,
+    
+    Attack,
     
     Die,
 }
@@ -18,9 +21,19 @@ public class EnemySlimeController : MonoBehaviour
 
     public float speed;
 
+    public int attackDamage;
+
+    public float attackRange;
+
+    public float coolDown;
+
+    private bool coolDownAttack = false;
+
     private bool chooseDir = false;
     
     public float range;
+    
+    
 
     private bool IsAlive = true;
 
@@ -44,6 +57,11 @@ public class EnemySlimeController : MonoBehaviour
             Follow();
 
         }
+        else if (currState== EnemyState.Attack)
+        {
+            Attack();
+
+        }
         else if (currState == EnemyState.Die)
         {
             
@@ -57,7 +75,12 @@ public class EnemySlimeController : MonoBehaviour
         {
             currState = EnemyState.Wander;
         }
-        
+
+        if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+        {
+            currState = EnemyState.Attack;
+        }
+
     }
     private bool PlayerInRange(float range)
     {
@@ -99,6 +122,22 @@ public class EnemySlimeController : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
-    
-    
+
+    void Attack()
+    {
+        if (! coolDownAttack)
+        {
+            PlayerStat.DamagePlayer(attackDamage);
+            StartCoroutine(CoolDown());
+        }
+
+        
+    }
+
+    private IEnumerator CoolDown()
+    {
+        coolDownAttack = true;
+        yield return new WaitForSeconds(coolDown);
+        coolDownAttack = false;
+    }
 }
