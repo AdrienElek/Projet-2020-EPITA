@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PlayerStat : MonoBehaviour
 {
     public bool isAlive;
-    private int hp;
+    public static int hp;
     private int maxHp;
     private Objects.Objects[] inventaire;
     private int mainObject;
@@ -18,7 +18,7 @@ public class PlayerStat : MonoBehaviour
     
     public PlayerStat (int hp,int maxHp)
     {
-        this.hp = hp;
+        PlayerStat.hp = hp;
         this.maxHp = maxHp;
         healthText.text = hp.ToString();
         isAlive = true;

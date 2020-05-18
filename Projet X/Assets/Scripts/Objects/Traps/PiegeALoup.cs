@@ -17,22 +17,21 @@ public class PiegeALoup : MonoBehaviour
     {
         if (coll.gameObject.CompareTag(player1.tag))
         {
-            PlayAudioClip();
-            
+            //instancie le piège fermé
             GameObject piegeALoupFerme = Instantiate(piegeFerme, gameObject.transform.position, Quaternion.identity);
             piegeALoupFerme.transform.SetParent(InstanciateMatrice.boardHolderTrap);
             
-            //Destroy(gameObject);
+            //detruit le piege ouvert
+            Destroy(gameObject);
             
+            //joue le son du brisage de genoux
+            source = piegeALoupFerme.GetComponent<AudioSource>();
+            source.volume = 1f;
+            source.PlayOneShot(clip);
+            
+            //effet sur le joueur
+            PlayerStat.hp -= 20;
             //Todo: rajouter les degats au joueur + effet joeuur 2
         }
     }
-
-    private void PlayAudioClip()
-    {
-        source = gameObject.GetComponent<AudioSource>();
-        source.volume = 1f;
-        source.PlayOneShot(clip);
-    }
-
 }
