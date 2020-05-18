@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class multistat : MonoBehaviour
 {
-	private int maxhp;
 	private Rigidbody2D rb;
 	private GameObject instance;
 
@@ -13,28 +12,27 @@ public class multistat : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		instance = GetComponent<GameObject>();
 	}
-
-	private int Hp
+	private int hp;
+	private int maxhp;
+	public int Hp
 	{
-		get => Hp;
+		get => hp;
 		set
 		{
 			if (value < 0)
 			{
-				Hp = 0;
+				hp = 0;
 			}
-			else if (value > maxhp) Hp = maxhp;
-			else Hp = value;
+			else if (value > maxhp) hp = maxhp;
+			else hp = value;
 		}
 	}
-	private int Damage
+	private int damage;
+	public int Damage
 	{
-		get => Damage;
-		set => Damage = value;
+		get => damage;
+		set => damage = value;
 	}
-	public void Takedamage(int damage) {
-		Hp -= damage;
-		if (Hp == 0) Destroy(instance);
-	}
+
 	
 }
