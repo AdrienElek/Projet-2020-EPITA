@@ -26,7 +26,7 @@ public class PiegeALoup : MonoBehaviour
             
             //joue le son du brisage de genoux
             source = piegeALoupFerme.GetComponent<AudioSource>();
-            source.volume = 1f;
+            source.volume = 0.3f;
             source.PlayOneShot(clip);
             
             //effet sur le joueur
