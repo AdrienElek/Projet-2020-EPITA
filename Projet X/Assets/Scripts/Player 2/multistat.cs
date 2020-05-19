@@ -12,6 +12,13 @@ public class multistat : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 		instance = GetComponent<GameObject>();
 	}
+
+	private void Start()
+	{
+		Bar.max = maxhp;
+		Bar.val = maxhp;
+	}
+	HealthBarP2 Bar = new HealthBarP2();
 	private int hp;
 	private int maxhp;
 	public int Hp
@@ -23,8 +30,11 @@ public class multistat : MonoBehaviour
 			{
 				hp = 0;
 			}
-			else if (value > maxhp) hp = maxhp;
+			else if (value > maxhp) {
+				hp = maxhp;
+			}
 			else hp = value;
+			Bar.val = hp;
 		}
 	}
 	private int damage;
@@ -35,6 +45,7 @@ public class multistat : MonoBehaviour
 		}
 		set => damage = value;
 	}
+	
 
 	public void TakeDamage(int degat) {
 		if (Random.Range(0, 10) == 10)
