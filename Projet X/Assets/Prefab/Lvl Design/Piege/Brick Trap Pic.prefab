@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1018088956342674463}
   - component: {fileID: 1849207829141776015}
+  - component: {fileID: 1175146713762548446}
+  - component: {fileID: -1117334978057184}
   m_Layer: 0
   m_Name: Brick Trap Pic
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3626942629201778612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.98145, y: -0.56933415, z: -47.471886}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,3 +83,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1175146713762548446
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626942629201778612}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005131811, y: 1.0121717}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.71616155, y: 0.62066746}
+  m_EdgeRadius: 0
+--- !u!114 &-1117334978057184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3626942629201778612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df4a39a294f6144cb3b32b71a7171f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piegeApres: {fileID: 4874478194593352131, guid: a9479f627fc382747ad2db25c036b135,
+    type: 3}
+  player1: {fileID: 650970975747407319, guid: ba9405c2c4721954a96ff1da85b291fd, type: 3}
+  player2: {fileID: 3880263600528669224, guid: ee6419fb640a3634d82e6c9136634895, type: 3}
+  source: {fileID: -6244069213890423007, guid: a9479f627fc382747ad2db25c036b135, type: 3}
+  clip: {fileID: 8300000, guid: f876a3c8df71a0547bd5a4c50b5492bd, type: 3}

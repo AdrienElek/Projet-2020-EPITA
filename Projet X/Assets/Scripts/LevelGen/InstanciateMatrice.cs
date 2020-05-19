@@ -47,8 +47,7 @@ public class InstanciateMatrice : MonoBehaviour
     //Traps
     [Header("PIEGES")]
     public GameObject[] trap;
-    public GameObject[] groundTrap;
-    
+
     //Chest
     [Header("AUTRES")] 
     public GameObject exit;
@@ -185,18 +184,17 @@ public class InstanciateMatrice : MonoBehaviour
                                 rand = Random.Range(0, trap.Length);
                                 if (rand == 1) //TODO : Modifier cette ligne si on rajoute d'autres type de pièges
                                 {
-                                    int randGroundTrap = Random.Range(0, groundTrap.Length);
-                                    GameObject instanceGroundTrap = Instantiate(groundTrap[randGroundTrap], transform.position, Quaternion.identity);
+                                    GameObject instanceTrap = Instantiate(trap[rand], transform.position, Quaternion.identity);
                                 
-                                    instanceGroundTrap.transform.SetParent(boardHolderTrap);
+                                    instanceTrap.transform.SetParent(boardHolderTrap);
                                 }
                                 else
                                 {
                                     InstanciateGround();
-                                }
-                                GameObject instanceTrap = Instantiate(trap[rand], transform.position, Quaternion.identity);
+                                    GameObject instanceTrap = Instantiate(trap[rand], transform.position, Quaternion.identity);
                                 
-                                instanceTrap.transform.SetParent(boardHolderTrap);
+                                    instanceTrap.transform.SetParent(boardHolderTrap);
+                                }
                                 break;
                             
                             case "WoodG":

@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df4a39a294f6144cb3b32b71a7171f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piegeOuvert: {fileID: 7373598973568196974}
-  piegeFerme: {fileID: 4789523817479448349, guid: 8c0da08b25029a44a9c38fe841f73ee8,
+  piegeAvant: {fileID: 7373598973568196974}
+  piegeApres: {fileID: 4789523817479448349, guid: 8c0da08b25029a44a9c38fe841f73ee8,
     type: 3}
   player1: {fileID: 650970975747407319, guid: ba9405c2c4721954a96ff1da85b291fd, type: 3}
   player2: {fileID: 3880263600528669224, guid: ee6419fb640a3634d82e6c9136634895, type: 3}
