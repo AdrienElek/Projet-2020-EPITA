@@ -14,6 +14,7 @@ public class Multimvt : MonoBehaviour
 	[SerializeField]private Transform shootpos;
 	[SerializeField] private float shootspeed = 20f;
 
+
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -41,12 +42,12 @@ public class Multimvt : MonoBehaviour
 	{
 		Quaternion rot = Quaternion.Euler(0,0,0);
 		if (Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0,0,-90);
-		if (Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0,0,90);
-		if (Input.GetKey(KeyCode.DownArrow)) rot = Quaternion.Euler(0,0,180);
-		if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0, 0, -45);
-		if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0, 0, 45);
-		if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0, 0, -135);
-		if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0, 0, 135);
+		else if (Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0,0,90);
+		else if (Input.GetKey(KeyCode.DownArrow)) rot = Quaternion.Euler(0,0,180);
+		else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0, 0, -45);
+		else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0, 0, 45);
+		else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0, 0, -135);
+		else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0, 0, 135);
 		shootpos.rotation = rot;
 		if (Input.GetKeyDown(KeyCode.M))
 		{
@@ -70,15 +71,6 @@ public class Multimvt : MonoBehaviour
 	
 
 
-	void Dash()
-	{
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			rb.AddForce(new Vector2(Input.GetAxisRaw("Horizontal2") * dashforce, Input.GetAxisRaw("Vertical2") * dashforce));
-		}
-	}
-
-
 	// Update is called once per frame
 	void Update()
 	{
@@ -86,7 +78,7 @@ public class Multimvt : MonoBehaviour
 		anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical2"));
 		Move();
 		Shoot();
-		Dash();
+	
 	}
 
 }

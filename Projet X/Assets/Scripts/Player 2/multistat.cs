@@ -53,5 +53,5 @@ public class multistat : MonoBehaviour
 		else
 			hp -= degat;
 	}
-	
+
 }
