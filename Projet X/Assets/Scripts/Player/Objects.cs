@@ -22,6 +22,7 @@ namespace Objects
         //Tir repris du script Weapon, à vérifier
         public Transform projectilePoint;
         public GameObject projectilePrefab;
+		[SerializeField] private float shootspeed = 30f;
         //Repris de Arrows
         public float speed = 10f;
         //
@@ -68,10 +69,32 @@ namespace Objects
 
         public void Attaque()
         {
-            //Tir repris du script Weapon, à vérifier
-            Instantiate(projectilePrefab, projectilePoint.position, projectilePoint.rotation);
-            //
-        }
+			Quaternion rot = Quaternion.Euler(0, 0, 0);
+			if (Input.GetKey(KeyCode.D)) rot = Quaternion.Euler(0, 0, -90);
+			if (Input.GetKey(KeyCode.Q)) rot = Quaternion.Euler(0, 0, 90);
+			if (Input.GetKey(KeyCode.S)) rot = Quaternion.Euler(0, 0, 180);
+			if (Input.GetKey(KeyCode.Z) && Input.GetKey(KeyCode.D)) rot = Quaternion.Euler(0, 0, -45);
+			if (Input.GetKey(KeyCode.Z) && Input.GetKey(KeyCode.Q)) rot = Quaternion.Euler(0, 0, 45);
+			if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D)) rot = Quaternion.Euler(0, 0, -135);
+			if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Q)) rot = Quaternion.Euler(0, 0, 135);
+			projectilePoint.rotation = rot;
+
+
+
+				float x = Input.GetAxisRaw("Horizontal2") * shootspeed;
+				float y = Input.GetAxisRaw("Vertical2") * shootspeed;
+				if (x == 0 && y == 0)
+				{
+					x = 0;
+					y = shootspeed;
+				}
+
+				GameObject proj = Instantiate(projectilePrefab, projectilePoint.position, projectilePoint.rotation);
+				BoxCollider2D projbc = proj.GetComponent<BoxCollider2D>();
+				Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
+				projrb.velocity = new Vector2(x, y);
+				Destroy(proj, 5);
+		}
     }
 }
 
