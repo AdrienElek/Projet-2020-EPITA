@@ -32,6 +32,9 @@ public class Piege : MonoBehaviour
         }
         else if (coll.gameObject.CompareTag(player2.tag))
         {
+
+           multistat.TakeDamage(20);
+
             PlayTrap();
             
             //effet sur le joueur 2

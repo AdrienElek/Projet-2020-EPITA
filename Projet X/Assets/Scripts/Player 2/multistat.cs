@@ -15,17 +15,21 @@ public class multistat : MonoBehaviour
 
 	private void Start()
 	{
+
 		maxhp = 100;
 		hp = maxhp;
 		Bar.max = maxhp;
 		Bar.val = maxhp;
+
 	} 
+
+
 	static HealthBarP2 Bar = new HealthBarP2();
-	private static int hp;
 	private static int maxhp;
+	private static int hp;
 	public static int Hp
 	{
-		get => hp;
+		get { return hp; }
 		set
 		{
 			if (value < 0)
@@ -56,4 +60,15 @@ public class multistat : MonoBehaviour
 			Hp -= degat;
 	}
 
+	//fonction de test des degats
+	void degat() {
+		if (Input.GetKeyDown(KeyCode.P)) {
+			Hp -= 10;
+			Debug.Log(hp);
+		}
+	}
+	private void Update()
+	{
+		degat();
+	}
 }

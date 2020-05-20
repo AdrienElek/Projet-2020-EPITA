@@ -13,14 +13,10 @@ public class HealthBarP2 : MonoBehaviour
 	public float val {
 		get { return Val; }
 		set {
-			if (value > max)
-			{
-				Val = max;
+			 Val = Mathf.Clamp(value,0,max);
+			if (Bar != null) {
+				Bar.fillAmount = (1 / max) * Val;
 			}
-			else if (value < 0) {
-				Val = 0;
-			}
-			if (Bar != null) Bar.fillAmount = (1 / max) * Val;
 		}
 	}
 
