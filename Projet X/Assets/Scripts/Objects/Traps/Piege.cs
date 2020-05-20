@@ -17,10 +17,9 @@ public class Piege : MonoBehaviour
     {
         if (coll.gameObject.CompareTag(player1.tag))
         {
-            PlayerStat.TakeDamage(20);
             PlayTrap();
             
-            /*//effet sur le joueur 1
+            //effet sur le joueur 1
             if (!isPoisonous)
             {
                 PlayerStat.TakeDamage(20);
@@ -29,14 +28,13 @@ public class Piege : MonoBehaviour
             {
                 //Todo: modif ca, la le player est malade pendant tout le reste de la partie
                 //InvokeRepeating("Player1Sick", 1.0f, 1.0f);
-            }*/
+            }
         }
         else if (coll.gameObject.CompareTag(player2.tag))
         {
-            multistat.TakeDamage(20);
             PlayTrap();
             
-            /*//effet sur le joueur 2
+            //effet sur le joueur 2
             if (!isPoisonous)
             {
                 multistat.TakeDamage(20);
@@ -45,7 +43,7 @@ public class Piege : MonoBehaviour
             {
                 //Todo: modif ca, la le player est malade pendant tout le reste de la partie
                 //InvokeRepeating("Player1Sick", 1.0f, 1.0f);
-            }*/
+            }
         }
     }
 

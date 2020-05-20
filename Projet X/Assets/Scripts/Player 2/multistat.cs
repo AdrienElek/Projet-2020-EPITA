@@ -15,10 +15,10 @@ public class multistat : MonoBehaviour
 
 	private void Start()
 	{
-		Bar.max = maxhp;
-		Bar.val = maxhp;
 		maxhp = 100;
 		hp = maxhp;
+		Bar.max = maxhp;
+		Bar.val = maxhp;
 	} 
 	static HealthBarP2 Bar = new HealthBarP2();
 	private static int hp;
