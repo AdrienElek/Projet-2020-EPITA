@@ -123,7 +123,7 @@ public class PlayerStat : MonoBehaviour
         
     }
 
-    public static void DamagePlayer(int damage)
+    public static void TakeDamage(int damage)
     {
         hp = -damage;
     }

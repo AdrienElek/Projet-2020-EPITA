@@ -127,7 +127,7 @@ public class EnemySlimeController : MonoBehaviour
     {
         if (! coolDownAttack)
         {
-            PlayerStat.DamagePlayer(attackDamage);
+            PlayerStat.TakeDamage(attackDamage);
             StartCoroutine(CoolDown());
         }
 

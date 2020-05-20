@@ -17,11 +17,11 @@ public class multistat : MonoBehaviour
 	{
 		Bar.max = maxhp;
 		Bar.val = maxhp;
-	}
-	HealthBarP2 Bar = new HealthBarP2();
-	private int hp;
-	private int maxhp;
-	public int Hp
+	} 
+	static HealthBarP2 Bar = new HealthBarP2();
+	private static int hp;
+	private static int maxhp;
+	public static int Hp
 	{
 		get => hp;
 		set
@@ -47,11 +47,11 @@ public class multistat : MonoBehaviour
 	}
 	
 
-	public void TakeDamage(int degat) {
+	public static void TakeDamage(int degat) {
 		if (Random.Range(0, 10) == 10)
-			hp -= degat * 2;
+			Hp -= degat * 2;
 		else
-			hp -= degat;
+			Hp -= degat;
 	}
 
 }
