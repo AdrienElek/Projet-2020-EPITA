@@ -11,17 +11,21 @@ public class multistat : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		instance = GetComponent<GameObject>();
+
 	}
 
 	private void Start()
 	{
+
 
 		maxhp = 100;
 		hp = maxhp;
 		Bar.max = maxhp;
 		Bar.val = maxhp;
 
+
 	} 
+
 
 
 	static HealthBarP2 Bar = new HealthBarP2();
