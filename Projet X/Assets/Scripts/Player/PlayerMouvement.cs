@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
 
 
@@ -14,26 +16,29 @@ public class PlayerMouvement : MonoBehaviour
     Vector2 mouvement;
     float moveSpeed = 5f;
     public PlayerStat Player = new PlayerStat(5,5);
+
+    public GameObject player1BulletPrefab;
     
-    /*
-    public Camera cam;
-    Vector2 mousePos;
-    */
-    /*
-    private void Start()
+    public float bulletSpeed;
+
+    private float lastBullet;
+
+    public float bulletDelay;
+    
+    
+    
+    void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        dashTime = starDashTime;
     }
 
-    */
+    
 
     // Update is called once per frame
     void Update()
     {
         Mouvement();
-       // MousePosition();
-       Use();
+        canShoot();
+        Use();
     }
     
         
@@ -44,6 +49,35 @@ public class PlayerMouvement : MonoBehaviour
          
     }
 
+    private void canShoot()
+    {
+        float bulletHorizontal = Input.GetAxis("HorizontalShoot");
+        float bulletVertical = Input.GetAxis("VerticalShoot");
+
+        if ((bulletHorizontal != 0 || bulletVertical != 0) && Time.time > lastBullet + bulletDelay )
+        {
+            Shoot(bulletHorizontal, bulletVertical);
+            lastBullet = Time.time;
+            
+
+        }
+        
+    }
+
+    void Shoot(float x, float y)
+    {
+        GameObject bullet = Instantiate(player1BulletPrefab, transform.position, transform.rotation);
+        bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+        bullet.GetComponent<Rigidbody2D>().velocity =
+            new Vector3(
+                (x < 0) ? Mathf.Floor(x) * bulletSpeed : Mathf.Ceil(x) * bulletSpeed,
+                (y < 0) ? Mathf.Floor(y) * bulletSpeed : Mathf.Ceil(y) * bulletSpeed,
+                0);
+
+
+    }
+
+
     private void Use()
     {
         if (Input.GetButton("Fire1"))
@@ -51,18 +85,11 @@ public class PlayerMouvement : MonoBehaviour
             Player.Use(ref Player);
         }
     }
-    /*
-    private void MousePosition()
-    {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-    }
-    */
 
 
     void FixedUpdate()
     {
         MouvementUpdate();
-        //LookDirection();
 
     }
     
@@ -71,12 +98,4 @@ public class PlayerMouvement : MonoBehaviour
         rb.MovePosition(rb.position + mouvement * moveSpeed * Time.fixedDeltaTime) ;
     }
     
-    /*
-    private void LookDirection()
-    {
-        Vector2 lookDirection = mousePos - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
-    }
-    */
 }

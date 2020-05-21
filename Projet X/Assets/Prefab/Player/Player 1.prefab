@@ -121,6 +121,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6689052613835139076}
   Player: {fileID: 0}
+  player1BulletPrefab: {fileID: 1905783950114874083, guid: acb40c5ddeac03d41928bfd087755c9c,
+    type: 3}
+  bulletSpeed: 5
+  lastBullet: 0
+  bulletDelay: 0.5
 --- !u!61 &-4071438069492976260
 BoxCollider2D:
   m_ObjectHideFlags: 0
