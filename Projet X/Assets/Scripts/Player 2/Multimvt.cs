@@ -49,7 +49,7 @@ public class Multimvt : MonoBehaviour
 		if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0, 0, -135);
 		if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0, 0, 135);
 		shootpos.rotation = rot;
-		if (Input.GetKeyDown(KeyCode.M))
+		if (Input.GetKeyDown(KeyCode.RightControl))
 		{
 
 			
