@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 
 public class PlayerMouvement : MonoBehaviour
@@ -13,9 +14,12 @@ public class PlayerMouvement : MonoBehaviour
 
     
     public Rigidbody2D rb;
+    
     Vector2 mouvement;
+    
     float moveSpeed = 5f;
-    public PlayerStat Player = new PlayerStat(5,5);
+    
+    public PlayerStat Player;
 
     public GameObject player1BulletPrefab;
     
@@ -29,6 +33,9 @@ public class PlayerMouvement : MonoBehaviour
     
     void Start()
     {
+        Player.MaxHp = 100;
+        Player.Hp = 100;
+        
     }
 
     

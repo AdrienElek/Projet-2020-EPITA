@@ -4,27 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//AUTHOR LEO FERRETTI
+//AUTHOR LEO FERRETTI//ADRIEN LORGE
 
 public class PlayerStat : MonoBehaviour
 {
     public bool isAlive;
+    public Slider slider;
     public static int hp;
     private int maxHp;
     private Objects.Objects[] inventaire;
     private int mainObject;
     internal static string playerName;
-    public Text healthText;//For UI health
-    //il faudras une variable dégâts pour pouvoir adapter les dégat du P2 en fonction de ceux du P1
+
     public PlayerStat (int hp,int maxHp)
     {
         PlayerStat.hp = hp;
         this.maxHp = maxHp;
-        healthText.text = hp.ToString();
         isAlive = true;
         inventaire = new Objects.Objects[6];
-        inventaire[0] = new Objects.Objects("Cailloux", 0, 0, Objects.Objects.ObjectType.WEAPON);
         mainObject = 0;
+        slider.maxValue = maxHp;
+        slider.value = hp;
 
     }
 
@@ -51,7 +51,7 @@ public class PlayerStat : MonoBehaviour
                 hp = 0;
             }
 
-            healthText.text = hp.ToString();
+            slider.value = hp;
         }
 
     }
