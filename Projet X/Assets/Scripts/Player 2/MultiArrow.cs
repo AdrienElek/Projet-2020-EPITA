@@ -6,9 +6,11 @@ public class MultiArrow : MonoBehaviour
 {
 	private BoxCollider2D bc;
 	private Rigidbody2D rb;
+	GameObject instance;
     // Start is called before the first frame update
     void Awake()
     {
+		instance = GetComponent<GameObject>();
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
     }
@@ -20,6 +22,10 @@ public class MultiArrow : MonoBehaviour
 			Debug.Log("P2 arrow hit " + col.name);
 			GameObject target = col.GetComponent<GameObject>();
 			//ajouter qqchose qui permet de faire les dégâts
+			Destroy(instance);
+		}
+		else {
+			DestroyImmediate(instance);
 		}
 
 	}

@@ -11,7 +11,7 @@ public class PlayerStat : MonoBehaviour
     public bool isAlive = true;
     public Slider slider;
     public static int hp = 100;
-    private int maxHp = 100;
+    internal static int maxHp = 100;
     private Objects.Objects[] inventaire = new Objects.Objects[6];
     private int mainObject =0;
     internal static string playerName;
@@ -73,7 +73,7 @@ public class PlayerStat : MonoBehaviour
 
     private int money;
 
-    //int ammo pour le nb de munition restantes (si ya rien devant il le met automatiquement en private)
+    //int ammo pour le nb de munition restantes 
     //peut etre une fontion ou une variable à ajouter pour les coups critiques
 
     private int switchWeapon;
