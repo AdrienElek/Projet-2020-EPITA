@@ -56,24 +56,31 @@ public class Multimvt : MonoBehaviour
 		else {
 			rot = oldrot;
 		}
+
 		shootpos.rotation = rot;
+		float x = Input.GetAxisRaw("Horizontal2");
+		float y = Input.GetAxisRaw("Vertical2");
+		if (x == 1 && y == 0) { olddirx = 1; olddiry = 1; }
+		if (x == -1 && y == 0) { olddirx = -1; olddiry = 0; }
+		if (x == 0 && y == -1) { olddirx = 0; olddiry = -1; }
+		if (x == 0 && y == 1) { olddirx = 0; olddiry = 1; }
+		else if (x != 0) { olddirx = x; }
+		else if (y != 0) { olddiry = y; }
+		if (x == 0 && y == 0) { x = olddirx; y = olddiry; }
+
 		if (Input.GetKeyDown(KeyCode.RightControl))
 		{
-
 			
-			float x = Input.GetAxisRaw("Horizontal2") * shootspeed;
-			if (x != 0) olddirx = x; 
-			float y = Input.GetAxisRaw("Vertical2") * shootspeed;
-			if (y != 0) olddiry = y;
-			if (x == 0 && y == 0) {
-				x = olddirx;
-				y = olddiry;
-			}
+			
+			
+
+
+
 
 			GameObject proj = Instantiate(projectile, shootpos.position, shootpos.rotation);
 			BoxCollider2D projbc = proj.GetComponent<BoxCollider2D>();
 			Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
-			projrb.velocity = new Vector2(x, y);
+			projrb.velocity = new Vector2(x * shootspeed, y * shootspeed);
 			Destroy(proj, 5);
 		}
 
