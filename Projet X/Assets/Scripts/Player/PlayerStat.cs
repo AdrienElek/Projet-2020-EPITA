@@ -15,7 +15,7 @@ public class PlayerStat : MonoBehaviour
     private int mainObject;
     internal static string playerName;
     public Text healthText;//For UI health
-    
+    //il faudras une variable dégâts pour pouvoir adapter les dégat du P2 en fonction de ceux du P1
     public PlayerStat (int hp,int maxHp)
     {
         PlayerStat.hp = hp;

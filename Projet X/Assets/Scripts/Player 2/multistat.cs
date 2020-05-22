@@ -18,7 +18,7 @@ public class multistat : MonoBehaviour
 	{
 
 
-		maxhp = 100;
+		maxhp = (int) 0.75 * PlayerStat.hp;
 		hp = maxhp;
 		Bar.max = maxhp;
 		Bar.val = maxhp;

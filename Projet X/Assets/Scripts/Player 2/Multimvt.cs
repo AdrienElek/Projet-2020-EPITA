@@ -13,6 +13,9 @@ public class Multimvt : MonoBehaviour
 	[SerializeField] private GameObject projectile;
 	[SerializeField]private Transform shootpos;
 	[SerializeField] private float shootspeed = 20f;
+	private Quaternion oldrot;
+	private float olddirx;
+	private float olddiry;
 
 
 	private void Awake()
@@ -40,24 +43,31 @@ public class Multimvt : MonoBehaviour
 
 	void Shoot()
 	{
-		Quaternion rot = Quaternion.Euler(0,0,0);
-		if (Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0,0,-90);
-		if (Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0,0,90);
-		if (Input.GetKey(KeyCode.DownArrow)) rot = Quaternion.Euler(0,0,180);
-		if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0, 0, -45);
-		if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0, 0, 45);
-		if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow)) rot = Quaternion.Euler(0, 0, -135);
-		if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow)) rot = Quaternion.Euler(0, 0, 135);
+		Quaternion rot = Quaternion.Euler(0, 0, 0);
+		if (Input.GetKey(KeyCode.RightArrow)) { rot = Quaternion.Euler(0, 0, -90); oldrot = Quaternion.Euler(0, 0, -90); }
+		if (Input.GetKey(KeyCode.LeftArrow)) { rot = Quaternion.Euler(0, 0, 90); oldrot = Quaternion.Euler(0, 0, 90); }
+		if (Input.GetKey(KeyCode.DownArrow)) { rot = Quaternion.Euler(0, 0, 180); oldrot = Quaternion.Euler(0, 0, 180); }
+		if (Input.GetKey(KeyCode.UpArrow)) { rot = Quaternion.Euler(0, 0, 0); oldrot = Quaternion.Euler(0, 0, 0); }
+		if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)) { rot = Quaternion.Euler(0, 0, -45); oldrot = Quaternion.Euler(0, 0, -45); }
+		if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow)) { rot = Quaternion.Euler(0, 0, 45); oldrot = Quaternion.Euler(0, 0, 45); }
+		if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow)) { rot = Quaternion.Euler(0, 0, -135); oldrot = Quaternion.Euler(0, 0, -135); }
+		if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow)) { rot = Quaternion.Euler(0, 0, 135); oldrot = Quaternion.Euler(0, 0, 135); }
+		
+		else {
+			rot = oldrot;
+		}
 		shootpos.rotation = rot;
 		if (Input.GetKeyDown(KeyCode.RightControl))
 		{
 
 			
 			float x = Input.GetAxisRaw("Horizontal2") * shootspeed;
+			if (x != 0) olddirx = x; 
 			float y = Input.GetAxisRaw("Vertical2") * shootspeed;
+			if (y != 0) olddiry = y;
 			if (x == 0 && y == 0) {
-				x = 0;
-				y = shootspeed;
+				x = olddirx;
+				y = olddiry;
 			}
 
 			GameObject proj = Instantiate(projectile, shootpos.position, shootpos.rotation);
