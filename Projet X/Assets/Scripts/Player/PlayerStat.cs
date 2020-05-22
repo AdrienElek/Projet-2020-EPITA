@@ -8,25 +8,14 @@ using UnityEngine.UI;
 
 public class PlayerStat : MonoBehaviour
 {
-    public bool isAlive;
+    public bool isAlive = true;
     public Slider slider;
-    public static int hp;
-    private int maxHp;
-    private Objects.Objects[] inventaire;
-    private int mainObject;
+    public static int hp = 100;
+    private int maxHp = 100;
+    private Objects.Objects[] inventaire = new Objects.Objects[6];
+    private int mainObject =0;
     internal static string playerName;
-
-    public PlayerStat (int hp,int maxHp)
-    {
-        PlayerStat.hp = hp;
-        this.maxHp = maxHp;
-        isAlive = true;
-        inventaire = new Objects.Objects[6];
-        mainObject = 0;
-        slider.maxValue = maxHp;
-        slider.value = hp;
-
-    }
+    
 
     public void Use(ref PlayerStat player)
     {
