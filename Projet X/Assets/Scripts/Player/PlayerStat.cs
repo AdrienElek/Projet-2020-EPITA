@@ -11,7 +11,7 @@ public class PlayerStat : MonoBehaviour
     public bool isAlive = true;
     public Slider slider;
     public static int hp = 100;
-    internal static int maxHp = 100;
+    public static int maxHp = 100;
     private Objects.Objects[] inventaire = new Objects.Objects[6];
     private int mainObject =0;
     internal static string playerName;

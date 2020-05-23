@@ -17,8 +17,6 @@ public class multistat : MonoBehaviour
 	private void Start()
 	{
 
-
-		maxhp = (int) 0.75 * PlayerStat.maxHp;
 		hp = maxhp;
 		Bar.max = maxhp;
 		Bar.val = maxhp;
@@ -29,7 +27,7 @@ public class multistat : MonoBehaviour
 
 
 	static HealthBarP2 Bar = new HealthBarP2();
-	private static int maxhp;
+	private static int maxhp = (int) PlayerStat.maxHp;
 	private static int hp;
 	public static int Hp
 	{
@@ -65,6 +63,7 @@ public class multistat : MonoBehaviour
 	}
 
 	//fonction de test des degats
+	/*
 	void degat() {
 		if (Input.GetKeyDown(KeyCode.P)) {
 			Hp -= 10;
@@ -75,4 +74,5 @@ public class multistat : MonoBehaviour
 	{
 		degat();
 	}
+	*/
 }

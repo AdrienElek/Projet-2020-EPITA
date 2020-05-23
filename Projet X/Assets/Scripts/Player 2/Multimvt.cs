@@ -64,10 +64,10 @@ public class Multimvt : MonoBehaviour
 		if (x == -1 && y == 0) { olddirx = -1; olddiry = 0; }
 		if (x == 0 && y == -1) { olddirx = 0; olddiry = -1; }
 		if (x == 0 && y == 1) { olddirx = 0; olddiry = 1; }
-		if (x == 1 && y == 1) { olddirx = 1; olddiry = 1; }
-		if (x == 1 && y == -1) { olddirx = 1; olddiry = -1; }
-		if (x == -1 && y == 1) { olddirx = -1; olddiry = 1; }
-		if (x == -1 && y == 1) { olddirx = -1; olddiry = 1; }
+		//if (x == 1 && y == 1) { olddirx = 1; olddiry = 1; }
+		//if (x == 1 && y == -1) { olddirx = 1; olddiry = -1; }
+		//if (x == -1 && y == 1) { olddirx = -1; olddiry = 1; }
+		//if (x == -1 && y == 1) { olddirx = -1; olddiry = 1; }
 		else if (x != 0) { olddirx = x; }
 		else if (y != 0) { olddiry = y; }
 
