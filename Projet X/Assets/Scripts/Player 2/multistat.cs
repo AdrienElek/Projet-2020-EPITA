@@ -57,11 +57,26 @@ public class multistat : MonoBehaviour
 
 	public static void TakeDamage(int degat) {
 		if (Random.Range(0, 10) == 10)
+		{
 			Hp -= degat * 2;
+		}
 		else
+		{
 			Hp -= degat;
+		}
 	}
 
+	void Die() {
+		if (hp == 0) {
+			Destroy(instance);
+			Debug.Log("Die method called");
+		}
+	}
+
+	private void Update()
+	{
+		Die();
+	}
 	//fonction de test des degats
 	/*
 	void degat() {
