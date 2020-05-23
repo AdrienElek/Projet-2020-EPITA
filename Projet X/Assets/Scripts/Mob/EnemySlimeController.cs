@@ -32,6 +32,8 @@ public class EnemySlimeController : MonoBehaviour
     private bool chooseDir = false;
     
     public float range;
+
+    public int hp;
     
     
 
@@ -133,6 +135,12 @@ public class EnemySlimeController : MonoBehaviour
 
         
     }
+
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
+
 
     private IEnumerator CoolDown()
     {
