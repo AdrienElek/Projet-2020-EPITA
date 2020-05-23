@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2766936076215709606}
-  - component: {fileID: 2979953939658155494}
   - component: {fileID: 4874422463919868778}
-  - component: {fileID: 5325086250922241012}
+  - component: {fileID: -6864653701255646602}
   - component: {fileID: -4257609685127475850}
+  - component: {fileID: 5325086250922241012}
   m_Layer: 0
   m_Name: EnemySlime
   m_TagString: Enemy
@@ -34,32 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2979953939658155494
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560598559824527918}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!212 &4874422463919868778
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8a834973bda170c4380c6ac59c1d9ec9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5377358, g: 0.11921501, b: 0.11921501, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,25 +84,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5325086250922241012
-MonoBehaviour:
+--- !u!60 &-6864653701255646602
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560598559824527918}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0001d5bc1d38a204b88d6873701eec06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  currState: 0
-  speed: 3
-  attackDamage: 10
-  attackRange: 2
-  coolDown: 1
-  range: 2
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 2.56, y: 2.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.51691604, y: 0.23886228}
+      - {x: 0.42883718, y: 0.36962056}
+      - {x: 0.388453, y: 0.40075874}
+      - {x: 0.3163855, y: 0.49863696}
+      - {x: 0.23691583, y: 0.5322759}
+      - {x: 0.15345812, y: 0.55417204}
+      - {x: -0.16192102, y: 0.5060687}
+      - {x: -0.3753791, y: 0.35379314}
+      - {x: -0.4890654, y: 0.21549177}
+      - {x: -0.5446105, y: 0.103793144}
+      - {x: -0.5446105, y: -0.16113806}
+      - {x: -0.47499466, y: -0.2215172}
+      - {x: -0.34537935, y: -0.24379301}
+      - {x: 0.015371561, y: -0.24160063}
+      - {x: 0.47345793, y: -0.21493089}
+      - {x: 0.5930737, y: -0.12606883}
+      - {x: 0.6438422, y: -0.07455182}
+      - {x: 0.6053791, y: 0.12227607}
 --- !u!50 &-4257609685127475850
 Rigidbody2D:
   serializedVersion: 4
@@ -150,3 +148,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5325086250922241012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560598559824527918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0001d5bc1d38a204b88d6873701eec06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  currState: 0
+  speed: 3
+  attackDamage: 10
+  attackRange: 2
+  coolDown: 1
+  range: 2
