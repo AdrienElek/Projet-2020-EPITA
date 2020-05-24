@@ -15,15 +15,20 @@ public class PlayerStat : MonoBehaviour
     private Objects.Objects[] inventaire = new Objects.Objects[6];
     private int mainObject =0;
     internal static string playerName;
+    private static int exhp = 0;
     
 
     public void Use(ref PlayerStat player)
     {
-        inventaire[mainObject].Use(ref player);
+        if (!(inventaire[mainObject] is null))
+        {
+            inventaire[mainObject].Use(ref player);
+        }
+        
     }
     
 
-    public int Hp
+     public int Hp
     {
         get { return hp; }
         set
@@ -36,11 +41,8 @@ public class PlayerStat : MonoBehaviour
 
             if (hp < 0)
             {
-                isAlive = false;
                 hp = 0;
             }
-
-            slider.value = hp;
         }
 
     }
@@ -101,19 +103,27 @@ public class PlayerStat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        slider.maxValue = MaxHp;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        
+        if (hp!=exhp)
+        {
+            slider.value = hp;
+            exhp = hp;
+        }
     }
 
     public static void TakeDamage(int damage)
     {
-        hp = -damage;
+        Debug.Log("Hp : " + hp.ToString());
+        Debug.Log("Degats pris : " +damage.ToString());
+        hp -= damage;
+        Debug.Log("Hp : "+hp.ToString());
+        
     }
+    
 }

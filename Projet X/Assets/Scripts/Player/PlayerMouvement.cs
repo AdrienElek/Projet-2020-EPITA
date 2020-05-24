@@ -31,12 +31,7 @@ public class PlayerMouvement : MonoBehaviour
     
     
     
-    void Start()
-    {
-        Player.slider.maxValue = Player.MaxHp;
-        Player.slider.value = Player.Hp;
-
-    }
+    
 
     
 

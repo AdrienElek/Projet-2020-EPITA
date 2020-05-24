@@ -62,7 +62,7 @@ namespace Objects
             }
         }
 
-        public void Consomme(ref PlayerStat Player)
+        private void Consomme(ref PlayerStat Player)
         {
             Player.Hp += soin;
         }
