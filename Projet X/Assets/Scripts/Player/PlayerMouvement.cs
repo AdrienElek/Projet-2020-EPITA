@@ -28,9 +28,9 @@ public class PlayerMouvement : MonoBehaviour
     private float lastBullet;
 
     public float bulletDelay;
-    
-    
-    
+
+
+	[SerializeField] private Camera CamP1;
     
 
     
@@ -41,6 +41,10 @@ public class PlayerMouvement : MonoBehaviour
         Mouvement();
         canShoot();
         Use();
+
+		if (!multistat.IsAlive) {
+			CamP1.rect = new Rect(0, 0, 1, 1);
+		}
     }
     
         

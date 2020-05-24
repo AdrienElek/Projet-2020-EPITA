@@ -16,6 +16,7 @@ public class PlayerStat : MonoBehaviour
     private int mainObject =0;
     internal static string playerName;
     private static int exhp = 0;
+
     
 
     public void Use(ref PlayerStat player)
@@ -104,7 +105,6 @@ public class PlayerStat : MonoBehaviour
     void Start()
     {
         slider.maxValue = MaxHp;
-
     }
 
     // Update is called once per frame
@@ -115,6 +115,7 @@ public class PlayerStat : MonoBehaviour
             slider.value = hp;
             exhp = hp;
         }
+
     }
 
     public static void TakeDamage(int damage)

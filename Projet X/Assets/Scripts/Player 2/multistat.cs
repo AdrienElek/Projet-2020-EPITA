@@ -6,6 +6,8 @@ public class multistat : MonoBehaviour
 {
 	private Rigidbody2D rb;
 	private GameObject instance;
+	public static bool IsAlive = true;
+	[SerializeField] private Camera CamP2;
 
 	private void Awake()
 	{
@@ -69,6 +71,8 @@ public class multistat : MonoBehaviour
 	void Die() {
 		if (hp == 0) {
 			Destroy(instance);
+			IsAlive = false;
+			CamP2.rect = new Rect(0, 0, 0, 0);
 			Debug.Log("Die method called");
 		}
 	}
@@ -76,18 +80,16 @@ public class multistat : MonoBehaviour
 	private void Update()
 	{
 		Die();
+		degat();
 	}
 	//fonction de test des degats
-	/*
+	
 	void degat() {
 		if (Input.GetKeyDown(KeyCode.P)) {
 			Hp -= 10;
 			Debug.Log(hp);
 		}
 	}
-	private void Update()
-	{
-		degat();
-	}
-	*/
+
+	
 }
