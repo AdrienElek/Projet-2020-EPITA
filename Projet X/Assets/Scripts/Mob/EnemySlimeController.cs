@@ -37,7 +37,7 @@ public class EnemySlimeController : MonoBehaviour
     
     
 
-    private bool IsAlive = true;
+    public static bool IsAlive = true;
 
     private Vector3 randomDir;
     // Start is called before the first frame update

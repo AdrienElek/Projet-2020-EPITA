@@ -632,7 +632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d1c7721f3b12d4890fc7cb31940740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AverageMatrixLength: 8
+  AverageMatrixLength: 4
   wall:
   - {fileID: 5671061912286886151, guid: 593e1cd9387a8be40bf7724fc76377c1, type: 3}
   - {fileID: 6466700756109946105, guid: 3dcf883234aea4c43923bb17c4917983, type: 3}
@@ -676,7 +676,6 @@ MonoBehaviour:
   - {fileID: 560598559824527918, guid: 032c167acbdca584184cb9e558358ffa, type: 3}
   boss:
   - {fileID: 2805543173564140875, guid: dd0a1b39d7c8e674c8ee3cdaae51b999, type: 3}
-  - {fileID: 560598559824527918, guid: 032c167acbdca584184cb9e558358ffa, type: 3}
   trap:
   - {fileID: 7373598973568196974, guid: 3a57eb4d6fac2f1428821dc26e23827f, type: 3}
   - {fileID: 3626942629201778612, guid: ecf2d16cae99e8543b804571bcb8fa3e, type: 3}

@@ -139,7 +139,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -163,7 +163,8 @@ MonoBehaviour:
   player: {fileID: 0}
   currState: 0
   speed: 3
-  attackDamage: 10
-  attackRange: 2
+  attackDamage: 5
+  attackRange: 1
   coolDown: 1
-  range: 2
+  range: 8
+  hp: 30

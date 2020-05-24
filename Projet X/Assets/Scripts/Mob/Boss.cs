@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    private void isDead() //TODO : completer qd les slimes pourront mourir
+    private void isDead()
     {
-        if (gameObject)
+        if (!EnemySlimeController.IsAlive)
         {
             Destroy(InstanciateMatrice.boardHolderBlocks.gameObject);
             Destroy(InstanciateMatrice.boardHolderOther.gameObject);
@@ -15,5 +16,10 @@ public class Boss : MonoBehaviour
 
             InstanciateMatrice.genLevel = true;
         }
+    }
+
+    private void Update()
+    {
+        isDead();
     }
 }
