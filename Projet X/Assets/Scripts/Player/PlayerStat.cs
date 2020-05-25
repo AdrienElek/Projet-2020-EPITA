@@ -79,23 +79,47 @@ public class PlayerStat : MonoBehaviour
     //int ammo pour le nb de munition restantes 
     //peut etre une fontion ou une variable à ajouter pour les coups critiques
 
-    private int switchWeapon;
-
     //TODO
-    public int SwitchShot
+    public void Mod6()
     {
-        get => switchWeapon;
-        set
+        if (mainObject==-1)
         {
-            switchWeapon = value;
-            if (switchWeapon < 0)
+            mainObject = 5;
+        }
+        else
+        {
+            if (mainObject == 6)
             {
-                switchWeapon = switchWeapon % 6;
+                mainObject = 0;
             }
-            else
+        }
+        
+    }
+    public void SwitchShot()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            mainObject += 1;
+            Mod6();
+            Debug.Log(mainObject.ToString());
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.KeypadMinus))
             {
-                switchWeapon %= 3;
+                mainObject -= 1;
+                Mod6();
+                Debug.Log(mainObject.ToString());
             }
+        }
+    }
+
+    public void SliderUpdate()
+    {
+        if (hp!=exhp)
+        {
+            slider.value = hp;
+            exhp = hp;
         }
     }
 
@@ -110,21 +134,16 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hp!=exhp)
-        {
-            slider.value = hp;
-            exhp = hp;
-        }
+        SliderUpdate();
+        SwitchShot();
 
     }
 
     public static void TakeDamage(int damage)
     {
-        Debug.Log("Hp : " + hp.ToString());
-        Debug.Log("Degats pris : " +damage.ToString());
-        hp -= damage;
-        Debug.Log("Hp : "+hp.ToString());
         
+        hp -= damage;
+
     }
 
     public static void IncreaseScore(int enemyScore)
