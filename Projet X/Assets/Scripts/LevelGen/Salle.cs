@@ -40,7 +40,7 @@ namespace LevelGen
                 {
                     type = 3;
                 }
-                else if (pattern == SPW0 || pattern == BTQ0 || pattern == EXIT0)
+                else if (pattern == SPW1 || pattern == SPW2 || pattern == BTQ0 || pattern == EXIT0)
                 {
                     type = 4;
                 }
@@ -81,7 +81,7 @@ namespace LevelGen
             {
                 type = 3;
             }
-            else if (pattern == SPW0 || pattern == BTQ0 || pattern == EXIT0)
+            else if (pattern == SPW1 || pattern == SPW2 || pattern == BTQ0 || pattern == EXIT0)
             {
                 type = 4;
             }
@@ -109,12 +109,24 @@ namespace LevelGen
             {"n", "n", "n", "n", "n", "n", "n", "n", "n", "n"}};
 
         //Spawn Room
-        public static string[,] SPW0 =
+        public static string[,] SPW2 =
             {{"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"},
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"SEBlocks", "SEBlocks", "SEBlocks", "SpawnP1", "SEBlocks", "SpawnP2", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
+            {"SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "W", "W", "W", "SEBlocks", "SEBlocks", "W", "W", "W", "W"}};
+        
+        public static string[,] SPW1 =
+        {{"W", "W", "W", "W", "W", "W", "W", "W", "W", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
+            {"SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SpawnP1", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
             {"SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks"},
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
             {"W", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "SEBlocks", "W"},
@@ -352,7 +364,7 @@ namespace LevelGen
             }};
 
         //Type de Salle : 0 = LR / 1 = LRB / 2 = LRT / 3 = LRBT / 4 = Special rooms
-        public static string[][,] list_SPW = {SPW0};
+        public static string[][,] list_SPW = {SPW1, SPW2};
         public static string[][,] list_EXIT = {EXIT0};
         public static string[][,] list_BTQ = {BTQ0};
         public static string[][,] list_LR = {LR0, LR1, LR2, LR3};

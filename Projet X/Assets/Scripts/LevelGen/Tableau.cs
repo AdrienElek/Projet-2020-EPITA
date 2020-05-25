@@ -12,12 +12,14 @@ namespace LevelGen
         private static Random rnd = new Random();
         
         //Propriétés
+        public int nbJoueur;
         public int matrixLength;
         public Salle[,] matrixPattern;
 
         //Constructeur
-        public Tableau(int matrixLength, bool isBoss)
+        public Tableau(int matrixLength, bool isBoss, int nbJoueur)
         {
+            this.nbJoueur = nbJoueur;
             if (!isBoss)
             {
                 this.matrixLength = matrixLength;
@@ -44,10 +46,18 @@ namespace LevelGen
                     matrixPattern[i,j] = new Salle(Salle.EMPTY);
                 }
             }
-
+            
             matrixPattern[1, 1].Pattern[5, 5] = "BOSS";
-            matrixPattern[0, 0].Pattern[5, 4] = "SpawnP1";
-            matrixPattern[0, 0].Pattern[5, 6] = "SpawnP2";
+            
+            if (nbJoueur == 1)
+            {
+                matrixPattern[0, 0].Pattern[5, 4] = "SpawnP1";
+            }
+            else
+            {
+                matrixPattern[0, 0].Pattern[5, 4] = "SpawnP1";
+                matrixPattern[0, 0].Pattern[5, 6] = "SpawnP2";
+            }
             SpawnPerspective();
         }
         
@@ -60,9 +70,15 @@ namespace LevelGen
             int startingPos = rnd.Next(1, matrixLength-1);
 
             //Place le spawn
-            int rand = rnd.Next(0, Salle.list_SPW.Length);
-            matrixPattern[0, startingPos] = new Salle(Salle.list_SPW[rand]);
-            
+            if (nbJoueur == 1)
+            {
+                matrixPattern[0, startingPos] = new Salle(Salle.list_SPW[0]);
+            }
+            else
+            {
+                matrixPattern[0, startingPos] = new Salle(Salle.list_SPW[1]);
+            }
+
             /* direction dans laquelle gen les salles :
             - 1 et 2 -> spawn a droite
             - 3 et 4 -> spawn a gauche

@@ -633,6 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AverageMatrixLength: 4
+  nombreJoueur: 0
   wall:
   - {fileID: 5671061912286886151, guid: 593e1cd9387a8be40bf7724fc76377c1, type: 3}
   - {fileID: 6466700756109946105, guid: 3dcf883234aea4c43923bb17c4917983, type: 3}

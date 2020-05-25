@@ -14,6 +14,7 @@ public class InstanciateMatrice : MonoBehaviour
     //Parametres
     [Header("PARAMETRES")]
     public int AverageMatrixLength; //la taille de matrice ne DOIT PAS être inferieur à 3
+    public int nombreJoueur;
     private int matrixLength() //Genere une map de taille +- 1 par rapport à Averagematrixlength
     {
         int rand = Random.Range(AverageMatrixLength-1, AverageMatrixLength+2);
@@ -87,12 +88,12 @@ public class InstanciateMatrice : MonoBehaviour
     //Preset pour les niveaux normaux et Boss
     public void GenerateBossRoom()
     {
-        Tableau bossLvl = new Tableau(4, true);
+        Tableau bossLvl = new Tableau(4, true, nombreJoueur);
         GameBoardGeneration(bossLvl);
     }
     public void GenerateNormalLevel()
     {
-        Tableau gameBoard = new Tableau(matrixLength(), false);
+        Tableau gameBoard = new Tableau(matrixLength(), false, nombreJoueur);
         GameBoardGeneration(gameBoard);
     }
     
