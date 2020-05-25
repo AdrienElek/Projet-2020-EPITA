@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1854554a4654e40843bff0cad84774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 200
+  movespeed: 300
   dashforce: 40
   projectile: {fileID: 8856357009852364972, guid: e602fa2f6727eff4ab4602add630304f,
     type: 3}

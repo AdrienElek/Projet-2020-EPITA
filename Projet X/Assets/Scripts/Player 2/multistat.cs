@@ -71,7 +71,6 @@ public class multistat : MonoBehaviour
 		if (hp == 0) {
 			IsAlive = false;
 			CamP2.rect = new Rect(0, 0, 0, 0);
-			Debug.Log("Die method called");
 			Destroy(instance);
 		}
 	}
