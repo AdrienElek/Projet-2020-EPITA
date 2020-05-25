@@ -5,14 +5,13 @@ using UnityEngine;
 public class multistat : MonoBehaviour
 {
 	private Rigidbody2D rb;
-	private GameObject instance;
+	[SerializeField] private GameObject instance;
 	public static bool IsAlive = true;
 	[SerializeField] private Camera CamP2;
 
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		instance = GetComponent<GameObject>();
 
 	}
 
@@ -70,10 +69,10 @@ public class multistat : MonoBehaviour
 
 	void Die() {
 		if (hp == 0) {
-			Destroy(instance);
 			IsAlive = false;
 			CamP2.rect = new Rect(0, 0, 0, 0);
 			Debug.Log("Die method called");
+			Destroy(instance);
 		}
 	}
 

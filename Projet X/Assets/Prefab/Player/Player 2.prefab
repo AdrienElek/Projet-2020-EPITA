@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6f2ce3f3b1a6643951aa253aad904d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instance: {fileID: 3880263600528669224}
   CamP2: {fileID: 5356814901377546231}
 --- !u!114 &3880263600528669229
 MonoBehaviour:
