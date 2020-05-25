@@ -14,7 +14,7 @@ public class InstanciateMatrice : MonoBehaviour
     //Parametres
     [Header("PARAMETRES")]
     public int AverageMatrixLength; //la taille de matrice ne DOIT PAS être inferieur à 3
-    public int nombreJoueur;
+    public static int nombreJoueur = 1;
     private int matrixLength() //Genere une map de taille +- 1 par rapport à Averagematrixlength
     {
         int rand = Random.Range(AverageMatrixLength-1, AverageMatrixLength+2);

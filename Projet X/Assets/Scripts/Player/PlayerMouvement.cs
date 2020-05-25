@@ -42,7 +42,7 @@ public class PlayerMouvement : MonoBehaviour
         canShoot();
         Use();
 
-		if (!multistat.IsAlive) {
+		if (!multistat.IsAlive || InstanciateMatrice.nombreJoueur == 1) {
 			CamP1.rect = new Rect(0, 0, 1, 1);
 		}
     }
