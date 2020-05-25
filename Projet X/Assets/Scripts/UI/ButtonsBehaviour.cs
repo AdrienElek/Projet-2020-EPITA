@@ -13,12 +13,14 @@ public class ButtonsBehaviour : MonoBehaviour
 
     public void Play1()
     {
+        InstanciateMatrice.nombreJoueur = 1;
         SceneManager.LoadScene("Game");
     }
 
     public void Play2()
     {
-        //Même chose que 1 mais deux joueurs.TODO
+        InstanciateMatrice.nombreJoueur = 2;
+        SceneManager.LoadScene("Game");
     }
 
     public void Parametre_Sound()
