@@ -33,5 +33,7 @@ public class BulletController : MonoBehaviour
             other.gameObject.GetComponent<EnemySlimeController>().Death();
             Destroy(gameObject);
         }
+
+        
     }
 }

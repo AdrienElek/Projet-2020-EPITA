@@ -126,5 +126,11 @@ public class PlayerStat : MonoBehaviour
         Debug.Log("Hp : "+hp.ToString());
         
     }
-    
+
+    public static void IncreaseScore(int enemyScore)
+    {
+        score += enemyScore;
+
+    }
+
 }

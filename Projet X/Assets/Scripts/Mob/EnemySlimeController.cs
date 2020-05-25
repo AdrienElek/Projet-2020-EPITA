@@ -16,7 +16,8 @@ public enum EnemyState
 public class EnemySlimeController : MonoBehaviour
 {
     
-    public GameObject player;
+    public  GameObject player;
+    
     public EnemyState currState = EnemyState.Wander;
 
     public float speed;
@@ -34,6 +35,9 @@ public class EnemySlimeController : MonoBehaviour
     public float range;
 
     public int hp;
+
+    public int enemyScore;
+    
     
     
 
@@ -49,34 +53,41 @@ public class EnemySlimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (currState == EnemyState.Wander)
         {
             Wander();
-
         }
-        else if (currState == EnemyState.Follow)
+        
+        if (currState == EnemyState.Follow)
         {
             Follow();
-
         }
-        else if (currState== EnemyState.Attack)
+        
+        
+        if (currState== EnemyState.Attack)
         {
             Attack();
-
         }
-        else if (currState == EnemyState.Die)
+        
+        
+        if (currState == EnemyState.Die)
         {
-            
-        }
-        else if (PlayerInRange(range))
-        {
-            currState = EnemyState.Follow;
-
+            Death();
         }
         else
         {
-            currState = EnemyState.Wander;
+            if (PlayerInRange(range))
+            {
+                currState = EnemyState.Follow;
+            }
+            else
+            {
+                currState = EnemyState.Wander;
+            }
         }
+        
+        
 
         if (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
         {
@@ -86,7 +97,7 @@ public class EnemySlimeController : MonoBehaviour
     }
     private bool PlayerInRange(float range)
     {
-        return Vector3.Distance(transform.position, player.transform.position) < range;
+        return Vector3.Distance(transform.position, player.transform.position) <= range;
     }
 
 
@@ -102,11 +113,7 @@ public class EnemySlimeController : MonoBehaviour
 
     void Wander()
     {
-        if (chooseDir)
-        {
-            
-        }
-        else
+        if (!chooseDir)
         {
             StartCoroutine(ChooseDirection());
         }
@@ -138,6 +145,7 @@ public class EnemySlimeController : MonoBehaviour
 
     public void Death()
     {
+        PlayerStat.IncreaseScore(enemyScore);
         Destroy(gameObject);
     }
 

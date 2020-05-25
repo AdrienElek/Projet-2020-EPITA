@@ -209,7 +209,8 @@ MonoBehaviour:
   attackRange: 2
   coolDown: 1
   range: 100
-  hp: 0
+  hp: 300
+  enemyScore: 100
 --- !u!114 &3725704801319810417
 MonoBehaviour:
   m_ObjectHideFlags: 0
