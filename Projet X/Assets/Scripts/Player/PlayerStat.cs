@@ -101,7 +101,7 @@ public class PlayerStat : MonoBehaviour
         {
             mainObject += 1;
             Mod6();
-            Debug.Log(mainObject.ToString());
+            
         }
         else
         {
@@ -109,7 +109,7 @@ public class PlayerStat : MonoBehaviour
             {
                 mainObject -= 1;
                 Mod6();
-                Debug.Log(mainObject.ToString());
+                
             }
         }
     }
