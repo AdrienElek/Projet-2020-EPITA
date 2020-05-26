@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: f864c8e5aaa48da43a7d43776964e620
+guid: dd21e90ab35c42042816412fdd30321c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8637182274542090573
-    second: Feu de Camp_0
+      213: 2010438356819068616
+    second: MC_Sleep_0
   - first:
-      213: -306254899001001417
-    second: Feu de Camp_1
-  - first:
-      213: -839408315045539045
-    second: Feu de Camp_2
-  - first:
-      213: -4364732273853803195
-    second: Feu de Camp_3
-  - first:
-      213: -2176587007506262814
-    second: Feu de Camp_4
-  - first:
-      213: -7763686797721618427
-    second: Feu de Camp_5
+      213: -3948431800381189352
+    second: MC_Sleep_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,43 +92,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Feu de Camp_2
+      name: MC_Sleep_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 320
+        x: 220
+        y: 667
         width: 124
-        height: 176
+        height: 196
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b139338b592d954f0800000000000000
-      internalID: -839408315045539045
+      spriteID: 8c64505a80386eb10800000000000000
+      internalID: 2010438356819068616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feu de Camp_5
+      name: MC_Sleep_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 63
+        x: 220
+        y: 156
         width: 124
-        height: 187
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 508b962cdf7d14490800000000000000
-      internalID: -7763686797721618427
+      spriteID: 8135c6e723a5439c0800000000000000
+      internalID: -3948431800381189352
       vertices: []
       indices: 
       edges: []
