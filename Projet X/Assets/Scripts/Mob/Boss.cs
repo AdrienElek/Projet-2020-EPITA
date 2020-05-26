@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//AUTHOR : Alexandre GAUTIER
+
 public class Boss : MonoBehaviour
 {
     private void isDead()

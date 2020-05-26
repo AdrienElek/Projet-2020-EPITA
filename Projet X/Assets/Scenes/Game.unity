@@ -248,8 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusicList:
-  - {fileID: 8300000, guid: e11a7b1c609f7e64aba2521ab705d37e, type: 3}
-  - {fileID: 8300000, guid: 811503deb9acb2541bfe91b72d1f6494, type: 3}
   - {fileID: 8300000, guid: 6e272a327e06fc14aa715c38958c4235, type: 3}
   - {fileID: 8300000, guid: 9d306875dba6b9448b8254c0e1208861, type: 3}
   source: {fileID: 670086322}
@@ -633,7 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AverageMatrixLength: 4
-  nombreJoueur: 0
+  level: 1
   wall:
   - {fileID: 5671061912286886151, guid: 593e1cd9387a8be40bf7724fc76377c1, type: 3}
   - {fileID: 6466700756109946105, guid: 3dcf883234aea4c43923bb17c4917983, type: 3}

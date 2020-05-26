@@ -21,7 +21,7 @@ public class InstanciateMatrice : MonoBehaviour
         return rand;
     }
     private float distanceBtwRooms = 10;
-    private int level = 1;
+    public int level = 1;
     public static bool genLevel; //permet de generer un nouveau niveau quand le joueur touche la sortie
 
     //boardHolders
