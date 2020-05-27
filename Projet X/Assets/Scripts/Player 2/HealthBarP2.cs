@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Mathis Guilbaud
 public class HealthBarP2 : MonoBehaviour
 {
 	static Image Bar;

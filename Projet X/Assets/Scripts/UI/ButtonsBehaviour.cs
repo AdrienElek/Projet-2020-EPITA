@@ -8,7 +8,7 @@ public class ButtonsBehaviour : MonoBehaviour
 
     public void Quit_The_Game()
     {
-        Application.Quit();
+        Application.Quit();//Not used
     }
 
     public void Play1()

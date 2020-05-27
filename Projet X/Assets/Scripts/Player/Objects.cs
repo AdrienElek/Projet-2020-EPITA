@@ -66,6 +66,9 @@ namespace Objects
         {
             Player.Hp += soin;
         }
+        
+        
+        //Mathis Guilbaud
 
         public void Attaque()
         {

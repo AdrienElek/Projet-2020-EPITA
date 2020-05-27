@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Author Mathis Guilbaud
 public class multistat : MonoBehaviour
 {
 	private Rigidbody2D rb;

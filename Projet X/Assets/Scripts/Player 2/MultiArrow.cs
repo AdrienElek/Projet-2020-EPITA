@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Mathis Guilbaud
 public class MultiArrow : MonoBehaviour
 {
 	private BoxCollider2D bc;

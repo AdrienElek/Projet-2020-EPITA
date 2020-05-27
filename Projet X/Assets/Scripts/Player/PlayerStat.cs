@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//AUTHOR LEO FERRETTI//ADRIEN LORGE
+//AUTHOR LEO FERRETTI
 
 public class PlayerStat : MonoBehaviour
 {
@@ -17,19 +17,7 @@ public class PlayerStat : MonoBehaviour
     internal static string playerName;
     private static int exhp = 0;
 
-    
-
-    public void Use(ref PlayerStat player)
-    {
-        if (!(inventaire[mainObject] is null))
-        {
-            inventaire[mainObject].Use(ref player);
-        }
-        
-    }
-    
-
-     public int Hp
+    public int Hp
     {
         get { return hp; }
         set
@@ -80,6 +68,37 @@ public class PlayerStat : MonoBehaviour
     //peut etre une fontion ou une variable à ajouter pour les coups critiques
 
     //TODO
+    public static void IncreaseScore(int enemyScore)
+    {
+        score += enemyScore;
+
+    }
+
+    internal static int score = 0; //Score
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        slider.maxValue = MaxHp;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        SliderUpdate();
+        SwitchShot();
+
+    }
+
+    public static void TakeDamage(int damage)
+    {
+        
+        hp -= damage;
+
+    }
+
+    //ADRIEN LORGE
+    
     public void Mod6()
     {
         if (mainObject==-1)
@@ -122,34 +141,13 @@ public class PlayerStat : MonoBehaviour
             exhp = hp;
         }
     }
-
-    internal static int score = 0; //Score
-    
-    // Start is called before the first frame update
-    void Start()
+    public void Use(ref PlayerStat player)
     {
-        slider.maxValue = MaxHp;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        SliderUpdate();
-        SwitchShot();
-
-    }
-
-    public static void TakeDamage(int damage)
-    {
+        if (!(inventaire[mainObject] is null))
+        {
+            inventaire[mainObject].Use(ref player);
+        }
         
-        hp -= damage;
-
-    }
-
-    public static void IncreaseScore(int enemyScore)
-    {
-        score += enemyScore;
-
     }
 
 }
