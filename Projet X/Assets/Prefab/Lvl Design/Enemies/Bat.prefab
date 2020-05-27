@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7752833323796591367}
   - component: {fileID: 7752833323796591368}
   - component: {fileID: 7752833323796591369}
-  - component: {fileID: 7752833323796591370}
   - component: {fileID: 6258678728227975441}
+  - component: {fileID: -4332900973354863426}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Enemy
@@ -106,19 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7752833323796591370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7752833323796591371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a664e7cb5ba941e4db1c77ded75376b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 3453112619049524108, guid: ba9405c2c4721954a96ff1da85b291fd, type: 3}
 --- !u!61 &6258678728227975441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,3 +132,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.2577443, y: 1.3159845}
   m_EdgeRadius: 0
+--- !u!114 &-4332900973354863426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752833323796591371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0001d5bc1d38a204b88d6873701eec06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 650970975747407319, guid: ba9405c2c4721954a96ff1da85b291fd, type: 3}
+  currState: 0
+  speed: 5
+  attackDamage: 10
+  attackRange: 1
+  coolDown: 1
+  range: 10
+  hp: 30
+  enemyScore: 5
