@@ -6,27 +6,23 @@ public class MultiArrow : MonoBehaviour
 {
 	private BoxCollider2D bc;
 	private Rigidbody2D rb;
-	GameObject instance;
+	[SerializeField] private GameObject instance;
     // Start is called before the first frame update
     void Awake()
     {
-		instance = GetComponent<GameObject>();
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
     }
 
-	private void OnTriggerEnter(Collider col)
+
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (col.tag == "Ennemy")
+		if (other.tag == "Enemy")
 		{
-			Debug.Log("P2 arrow hit " + col.name);
-			GameObject target = col.GetComponent<GameObject>();
-			//ajouter qqchose qui permet de faire les dégâts
+			other.gameObject.GetComponent<EnemySlimeController>().Death();
 			Destroy(instance);
 		}
-		else {
-			DestroyImmediate(instance);
-		}
+
 
 	}
 	// Update is called once per frame

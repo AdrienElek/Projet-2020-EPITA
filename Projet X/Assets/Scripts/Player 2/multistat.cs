@@ -75,6 +75,17 @@ public class multistat : MonoBehaviour
 		}
 	}
 
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		if (collision.name == "food" && Input.GetKeyDown(KeyCode.RightShift)) 
+		{
+			Hp += (int)(15 / 100) * maxhp;
+		}
+		if (collision.name == "BasicChest" && Input.GetKeyDown(KeyCode.RightShift)) {
+			collision.gameObject.GetComponent<chest>().TakeDamage(3);
+		}
+	}
+
 	private void Update()
 	{
 		Die();
