@@ -25,21 +25,17 @@ public class ItemStat : MonoBehaviour
         {
             if (item == "bread")
             {
-                PlayerStat.hp += 5;
+                
             }
             if (item == "fish")
             {
-                PlayerMouvement.bulletSpeed += 0.5f;
             }
             if (item == "armor")
             {
-                PlayerStat.maxHp += 10;
-                PlayerStat.hp += 5;
 
             }
             if (item == "boot")
             {
-                PlayerMouvement.moveSpeed += 0.5f;
             }
         }
     }
